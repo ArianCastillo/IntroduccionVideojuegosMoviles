@@ -3,20 +3,44 @@ package com.example.ariancastillo.testandroid;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Canvas;
+import android.os.Bundle;
 import android.view.SurfaceHolder;
+import android.view.SurfaceView;
+import android.view.Window;
+import android.view.WindowManager;
 
 
 /**
  * Created by Arian Castillo on 03/09/2014.
  */
-public class SurfaceView extends Activity {
+public class SurfaceViewTest extends Activity {
+    FastRenderView renderView;
 
-    class FastRenderView extends SurfaceView implements Runnable{
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        renderView = new FastRenderView(this);
+        setContentView(renderView);
+    }
+
+    protected void onResume() {
+        super.onResume();
+        renderView.resume();
+    }
+
+    protected void onPause() {
+        super.onPause();
+        renderView.pause();
+    }
+
+    class FastRenderView extends SurfaceViewTest implements Runnable{
         Thread renderThread = null;
         SurfaceHolder holder;
         volatile boolean running = false;
 
-        public FastRenderView(Context context){
+        public FastRenderView(Context context) {
             super(context);
             holder = getHolder();
         }
@@ -50,7 +74,7 @@ public class SurfaceView extends Activity {
             }
         }
 
-        private void dreamSurface(Canvas canvas){
+        private void drawSurface(Canvas canvas){
             canvas.drawRGB(255,0,0);
         }
     }

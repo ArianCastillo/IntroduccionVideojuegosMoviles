@@ -1,13 +1,15 @@
 package com.example.ariancastillo.testandroid;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.os.Build;
 import android.os.Bundle;
-import android.view.View;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 /**
@@ -22,12 +24,15 @@ public class AccelerometerTest extends Activity implements SensorEventListener {
         super.onCreate(savedInstanceState);
         textView = new TextView(this);
         setContentView(textView);
-        SensorManager manager = (SensorManager)getSystemService(Context.SENSOR_SERVICE);
+
+        SensorManager manager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         if (manager.getSensorList(Sensor.TYPE_ACCELEROMETER).size() == 0) {
             textView.setText("No accelerometer installed");
         } else {
-            Sensor accelerometer = manager.getSensorList(Sensor.TYPE_ACCELEROMETER).get(0);
-            if (!manager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_GAME)){
+            Sensor accelerometer = manager.getSensorList(
+                    Sensor.TYPE_ACCELEROMETER).get(0);
+            if (!manager.registerListener(this, accelerometer,
+                    SensorManager.SENSOR_DELAY_GAME)) {
                 textView.setText("Couldn't register sensor listener");
             }
         }

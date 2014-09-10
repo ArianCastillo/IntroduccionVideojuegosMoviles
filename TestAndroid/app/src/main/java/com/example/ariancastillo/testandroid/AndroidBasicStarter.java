@@ -8,9 +8,10 @@ import android.widget.ListView;
 import android.view.View;
 
 public class AndroidBasicStarter extends ListActivity{
-	String test[] = { "LifeCycleTest", "SingleTouchTest", "MultiTouchTest", "KeyTest", "AccelerometerTest", "AssetsTest",
-			"ExternalStorageTest", "SoundPoolTest", "MediaPlayerTest", "FullScreenTest", "WakeLockTest", "RenderViewTest",
-			"ShapeTest", "BitmapTest", "FontTest", "SurfaceViewTest"};
+	String test[] = {  "LifeCycleTest", "SingleTouchTest", "MultiTouchTest", "NewMultiTouchTest",
+            "KeyTest", "AccelerometerTest", "CompassTest", "AssetsTest", "ExternalStorageTest",
+            "SoundPoolTest", "MediaPlayerTest", "FullScreenTest", "WakeLockTest", "RenderViewTest",
+            "ShapeTest", "BitmapTest", "FontTest", "SurfaceViewTest" };
 	
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
@@ -21,7 +22,7 @@ public class AndroidBasicStarter extends ListActivity{
 		super.onListItemClick(list,view,position,id);
 		String testName = test[position];
 		try{
-			Class clazz = Class.forName("com.example.examplegame.testandroid." + testName);
+			Class clazz = Class.forName("com.example.ariancastillo.testandroid." + testName);
 			Intent intent = new Intent(this, clazz);
 			startActivity(intent);
 		}catch(ClassNotFoundException e){
