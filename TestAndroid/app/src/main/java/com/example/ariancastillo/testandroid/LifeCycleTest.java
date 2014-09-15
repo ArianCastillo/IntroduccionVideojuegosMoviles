@@ -46,4 +46,3 @@ public class LifeCycleTest extends Activity {
     }
     
 }
-//SDK/extras/
