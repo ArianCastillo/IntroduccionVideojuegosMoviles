@@ -1,0 +1,13 @@
+package game.controllers;
+
+import framework.Screen;
+import framework.impl.RunnerActivity;
+import game.world.Mundo;
+
+public class RunnerGame extends RunnerActivity{
+	public Mundo mundo = new Mundo();
+	
+    public Screen getStartScreen() {
+        return new LoadingScreen(this);
+    }
+}
