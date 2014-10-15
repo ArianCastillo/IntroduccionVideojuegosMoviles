@@ -1,0 +1,5 @@
+package game.runner.controllers;
+
+public class Settings {
+
+}

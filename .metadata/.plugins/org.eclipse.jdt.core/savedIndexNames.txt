@@ -1,0 +1,4 @@
+INDEX VERSION 1.126+C:\Users\Arian Castillo\Git\IntroduccionVideojuegosMoviles\.metadata\.plugins\org.eclipse.jdt.core
+2622783685.index
+2642818711.index
+1123089060.index

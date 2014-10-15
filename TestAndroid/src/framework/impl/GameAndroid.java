@@ -1,5 +1,6 @@
 package framework.impl;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Configuration;
@@ -21,7 +22,7 @@ import framework.Screen;
 /**
  * Created by Arian Castillo on 24/09/2014.
  */
-public class GameAndroid extends Activity implements Game {
+@SuppressLint("Registered") public class GameAndroid extends Activity implements Game {
     FastRenderViewAndroid renderView;
     Graphics graphics;
     Audio audio;
