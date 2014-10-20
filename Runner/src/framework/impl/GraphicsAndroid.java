@@ -37,7 +37,7 @@ public class GraphicsAndroid implements Graphics {
 
     @Override
     public Pixmap newPixmap(String fileName, PixmapFormat format) {
-        Config config = null;
+    	Config config = null;
         if (format == PixmapFormat.RGB565)
             config = Config.RGB_565;
         else if (format == PixmapFormat.ARGB4444)
@@ -79,8 +79,9 @@ public class GraphicsAndroid implements Graphics {
     }
 
     @Override
-    public void clear(int r, int g, int b) {
-        canvas.drawRGB(r,g,b);
+    public void clear(int color) {
+        canvas.drawRGB((color & 0xff0000) >> 16, (color & 0xff00) >> 8,
+                (color & 0xff));
     }
 
     @Override

@@ -1,7 +1,10 @@
 package framework.impl;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.os.Environment;
+import android.preference.PreferenceManager;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -16,18 +19,19 @@ import framework.FileIO;
  * Created by Arian Castillo on 22/09/2014.
  */
 public class FileIOAndroid implements FileIO{
-    AssetManager manager;
+	Context context;
+    AssetManager assets;
     String externalStoragePath;
 
-    public FileIOAndroid(AssetManager manager){
-        this.manager = manager;
-        this.externalStoragePath = Environment.getExternalStorageDirectory()
-                .getAbsolutePath() + File.separator;
+    public FileIOAndroid(Context context){
+    	this.context = context;
+        this.assets = context.getAssets();
+        this.externalStoragePath = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator;
     }
 
     @Override
     public InputStream readAsset(String fileName) throws IOException {
-        return manager.open(fileName);
+    	return assets.open(fileName);
     }
 
     @Override
@@ -38,5 +42,9 @@ public class FileIOAndroid implements FileIO{
     @Override
     public OutputStream writeFile(String fileName) throws IOException {
         return new FileOutputStream(externalStoragePath + fileName);
+    }
+    
+    public SharedPreferences getPreferences() {
+        return PreferenceManager.getDefaultSharedPreferences(context);
     }
 }

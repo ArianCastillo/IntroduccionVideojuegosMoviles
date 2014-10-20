@@ -14,12 +14,10 @@ import android.graphics.Bitmap.Config;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 
-public class RunnerActivity extends Activity implements Game {
+public abstract class RunnerActivity extends Activity implements Game {
 	FastRenderViewAndroid renderView;
     Graphics graphics;
     Audio audio;
@@ -38,17 +36,16 @@ public class RunnerActivity extends Activity implements Game {
         boolean isLandscape = getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
         int frameBufferWidth = isLandscape ? 480 : 320;
         int frameBufferHeight = isLandscape ? 320 : 480;
-        Bitmap frameBuffer = Bitmap.createBitmap(frameBufferWidth,
-                frameBufferHeight, Config.RGB_565);
+        Bitmap frameBuffer = Bitmap.createBitmap(frameBufferWidth, frameBufferHeight, Config.RGB_565);
 
-        //float scaleX = (float) frameBufferWidth / getWindowManager().getDefaultDisplay().getWidth();
-        //float scaleY = (float) frameBufferHeight / getWindowManager().getDefaultDisplay().getHeight();
+        float scaleX = (float) frameBufferWidth / getWindowManager().getDefaultDisplay().getWidth();
+        float scaleY = (float) frameBufferHeight / getWindowManager().getDefaultDisplay().getHeight();
 
         renderView = new FastRenderViewAndroid(this, frameBuffer);
         graphics = new GraphicsAndroid(getAssets(), frameBuffer);
-        fileIO = new FileIOAndroid(getAssets());
-        audio = new AudioAndroid(getAssets());
-        input = new InputAndroid(this,renderView);
+        fileIO = new FileIOAndroid(this);
+        audio = new AudioAndroid(this);
+        input = new InputAndroid(this, renderView, scaleX, scaleY);
         screen = getStartScreen();
         setContentView(renderView);
 
@@ -94,7 +91,9 @@ public class RunnerActivity extends Activity implements Game {
 
 	@Override
 	public void setScreen(Screen screen) {
-		if(screen == null)return;
+		if (screen == null)
+            throw new IllegalArgumentException("Screen must not be null");
+
         this.screen.pause();
         this.screen.dispose();
         screen.resume();
@@ -105,10 +104,5 @@ public class RunnerActivity extends Activity implements Game {
 	@Override
 	public Screen getCurrentScreen() {
 		return screen;
-	}
-
-	@Override
-	public Screen getStartScreen() {
-		return null;
 	}
 }

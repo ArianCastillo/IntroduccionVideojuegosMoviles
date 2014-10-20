@@ -2,7 +2,7 @@ package framework;
 
 public interface Graphics {
 	public Pixmap newPixmap(String fileName, PixmapFormat format);
-	public void clear(int r, int g, int b);
+	public void clear(int color);
 	public void drawPixel(int x, int y, int color);
 	public void drawLine(int x, int y, int x2, int y2, int color);
 	public void drawRect(int x, int y, int width, int height, int color);

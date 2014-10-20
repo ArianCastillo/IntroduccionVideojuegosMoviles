@@ -12,7 +12,7 @@ import android.view.SurfaceView;
 public class FastRenderViewAndroid extends SurfaceView implements Runnable {
     RunnerActivity game;
     Bitmap frameBuffer;
-    Thread renderThread;
+    Thread renderThread = null;
     SurfaceHolder holder;
     volatile boolean running = false;
 
@@ -30,7 +30,15 @@ public class FastRenderViewAndroid extends SurfaceView implements Runnable {
     }
 
     public void pause() {
-    	running = false;
+    	running = false;                        
+        while(true) {
+            try {
+                renderThread.join();
+                return;
+            } catch (InterruptedException e) {
+                // retry
+            }
+        }
     }
 
     @Override

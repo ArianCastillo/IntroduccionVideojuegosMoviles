@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="game.runner.world.Mundo"/>
-<fullyQualifiedTypeName name="framework.Input.TouchEvent"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="framework.impl.RunnerActivity"/>
 <fullyQualifiedTypeName name="game.world.Mundo"/>
 <fullyQualifiedTypeName name="game.controllers.RunnerGame"/>
+<fullyQualifiedTypeName name="game.screens.LoadingScreen"/>
+<fullyQualifiedTypeName name="game.screens.GameScreenHighScores"/>
 <fullyQualifiedTypeName name="game.world.World"/>
-<fullyQualifiedTypeName name="game.controllers.Settings"/>
+<fullyQualifiedTypeName name="android.graphics.Color"/>
 <fullyQualifiedTypeName name="game.world.Runner"/>
 <fullyQualifiedTypeName name="game.world.Obstacle"/>
+<fullyQualifiedTypeName name="framework.Pixmap"/>
+<fullyQualifiedTypeName name="framework.Input.TouchEvent"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="game.screens.test.MainMenuScreen"/>
+<fullyQualifiedTypeName name="framework.Screen"/>
 <fullyQualifiedTypeName name="game.controllers.Assets"/>
+<fullyQualifiedTypeName name="framework.PixmapFormat"/>
+<fullyQualifiedTypeName name="framework.Graphics"/>
+<fullyQualifiedTypeName name="game.controllers.Settings"/>
+<fullyQualifiedTypeName name="android.content.Context"/>
+<fullyQualifiedTypeName name="android.os.Build.VERSION"/>
+<fullyQualifiedTypeName name="android.hardware.SensorEventListener"/>
+<fullyQualifiedTypeName name="framework.impl.Pool.PoolObjectFactory"/>
+<fullyQualifiedTypeName name="framework.Sound"/>
+<fullyQualifiedTypeName name="android.media.SoundPool"/>
 </qualifiedTypeNameHistroy>

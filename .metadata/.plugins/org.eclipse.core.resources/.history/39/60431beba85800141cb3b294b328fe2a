@@ -1,0 +1,30 @@
+package game.world;
+
+public class Runner {
+	public static final int RUN = 0;
+	public static final int JUMP = 1;
+	public static final int RODAR = 2;
+	public static final int SLASH = 3;
+	
+	public int accion;
+	
+	public Runner(){
+		accion = RUN;
+	}
+	
+	public void Correr(){
+		accion = RUN;
+	}
+	
+	public void Saltar(){
+		accion = JUMP;
+	}
+	
+	public void Rodar(){
+		accion = RODAR;
+	}
+	
+	public void Slash(){
+		accion = SLASH;
+	}
+}

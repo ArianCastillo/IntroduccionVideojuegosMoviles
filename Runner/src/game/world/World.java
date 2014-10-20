@@ -31,7 +31,7 @@ public class World {
 	public Obstacle obstacle;
 	
 	public World(){
-		runner = new Runner();
+		runner = new Runner(0,0);//Provisional
 		placeObstacle();
 	}
 	

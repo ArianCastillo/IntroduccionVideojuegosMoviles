@@ -17,3 +17,13 @@
 1413402168749	Rename field 'TIPO_4'
 1413402183883	Rename field 'tipo'
 1413404722592	Rename type 'GameScreenLoading'
+1413417726705	Move compilation units
+1413676856236	Delete elements
+1413676875624	Move compilation units
+1413676886548	Delete element
+1413681069978	Delete element
+1413681096378	Rename type 'GameScreen'
+1413687010836	Rename resource 'ground_dirt.png'
+1413687355764	Rename resource 'side.png'
+1413688151729	Rename resource 'mainmenu.png'
+1413688316237	Rename resource 'pausemenu.png'
