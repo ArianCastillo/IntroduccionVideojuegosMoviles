@@ -38,17 +38,7 @@ public class Assets {
 	public static Pixmap front;
 	public static Pixmap jump;
 	public static Pixmap slide;
-	public static Pixmap walk0001;
-	public static Pixmap walk0002;
-	public static Pixmap walk0003;
-	public static Pixmap walk0004;
-	public static Pixmap walk0005;
-	public static Pixmap walk0006;
-	public static Pixmap walk0007;
-	public static Pixmap walk0008;
-	public static Pixmap walk0009;
-	public static Pixmap walk0010;
-	public static Pixmap walk0011;
+	public static Pixmap walk_sheet;
 	
 	//Monedas
 	public static Pixmap coin_bronze;

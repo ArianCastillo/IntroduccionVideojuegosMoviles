@@ -24,7 +24,7 @@ public class World {
 	//Grid
 	boolean[][] fields = new boolean[WORLD_WIDTH][WORLD_HEIGHT];
 	
-	Random random = new Random();
+	Random random = new Random();//Crear varios en diferentes rangos
 	
 	//Objetos del juego
 	public Runner runner;

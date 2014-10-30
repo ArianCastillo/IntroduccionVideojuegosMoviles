@@ -21,8 +21,8 @@ import framework.Screen;
 /**
  * Created by Arian Castillo on 24/09/2014.
  */
-public class GameAndroid extends Activity implements Game {
-    FastRenderViewAndroid renderView;
+public abstract class GameAndroid extends Activity implements Game {
+	FastRenderViewAndroid renderView;
     Graphics graphics;
     Audio audio;
     Input input;
@@ -31,7 +31,7 @@ public class GameAndroid extends Activity implements Game {
     WakeLock wakeLock;
 
     public void onCreate(Bundle savedInstanceState){
-        //Fullscreen
+    	//Fullscreen
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -39,17 +39,16 @@ public class GameAndroid extends Activity implements Game {
         boolean isLandscape = getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
         int frameBufferWidth = isLandscape ? 480 : 320;
         int frameBufferHeight = isLandscape ? 320 : 480;
-        Bitmap frameBuffer = Bitmap.createBitmap(frameBufferWidth,
-                frameBufferHeight, Config.RGB_565);
+        Bitmap frameBuffer = Bitmap.createBitmap(frameBufferWidth, frameBufferHeight, Config.RGB_565);
 
-        //float scaleX = (float) frameBufferWidth / getWindowManager().getDefaultDisplay().getWidth();
-        //float scaleY = (float) frameBufferHeight / getWindowManager().getDefaultDisplay().getHeight();
+        float scaleX = (float) frameBufferWidth / getWindowManager().getDefaultDisplay().getWidth();
+        float scaleY = (float) frameBufferHeight / getWindowManager().getDefaultDisplay().getHeight();
 
         renderView = new FastRenderViewAndroid(this, frameBuffer);
         graphics = new GraphicsAndroid(getAssets(), frameBuffer);
-        fileIO = new FileIOAndroid(getAssets());
-        audio = new AudioAndroid(getAssets());
-        input = new InputAndroid(this,renderView);
+        fileIO = new FileIOAndroid(this);
+        audio = new AudioAndroid(this);
+        input = new InputAndroid(this, renderView, scaleX, scaleY);
         screen = getStartScreen();
         setContentView(renderView);
 
@@ -58,7 +57,6 @@ public class GameAndroid extends Activity implements Game {
         wakeLock = powerManager.newWakeLock(PowerManager.FULL_WAKE_LOCK, "GLGame");
     }
 
-    @Override
     public void onResume(){
         super.onResume();
         wakeLock.acquire();
@@ -66,7 +64,6 @@ public class GameAndroid extends Activity implements Game {
         renderView.resume();
     }
 
-    @Override
     public void onPause(){
         super.onPause();
         wakeLock.release();
@@ -74,43 +71,41 @@ public class GameAndroid extends Activity implements Game {
         renderView.pause();
     }
 
-    @Override
-    public Input getInput() {
-    	return input;
-    }
+	@Override
+	public Input getInput() {
+		return input;
+	}
 
-    @Override
-    public FileIO getFileIO() {
-    	return fileIO;
-    }
+	@Override
+	public FileIO getFileIO() {
+		return fileIO;
+	}
 
-    @Override
-    public Graphics getGraphics() {
-    	return graphics;
-    }
 
-    @Override
-    public Audio getAudio() {
-    	return audio;
-    }
+	@Override
+	public Graphics getGraphics() {
+		return graphics;
+	}
 
-    @Override
-    public void setScreen(Screen screen) {
-        if(screen == null)return;
+	@Override
+	public Audio getAudio() {
+		return audio;
+	}
+
+	@Override
+	public void setScreen(Screen screen) {
+		if (screen == null)
+            throw new IllegalArgumentException("Screen must not be null");
+
         this.screen.pause();
         this.screen.dispose();
         screen.resume();
         screen.update(0);
         this.screen = screen;
-    }
+	}
 
-    @Override
-    public Screen getCurrentScreen() {
-        return screen;
-    }
-
-    @Override
-    public Screen getStartScreen() {
-        return null;
-    }
+	@Override
+	public Screen getCurrentScreen() {
+		return screen;
+	}
 }

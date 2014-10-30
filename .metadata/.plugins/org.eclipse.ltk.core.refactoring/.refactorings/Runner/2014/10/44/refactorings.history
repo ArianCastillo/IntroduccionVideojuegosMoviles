@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename field &apos;lines&apos; in &apos;game.screens.HighscoreScreen&apos; to &apos;linesC1&apos;&#x0D;&#x0A;- Original project: &apos;Runner&apos;&#x0D;&#x0A;- Original element: &apos;game.screens.HighscoreScreen.lines&apos;&#x0D;&#x0A;- Renamed element: &apos;game.screens.HighscoreScreen.linesC1&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="true" description="Rename field &apos;lines&apos;" flags="589830" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/src&lt;game.screens{HighscoreScreen.java[HighscoreScreen^lines" name="linesC1" references="true" setter="false" stamp="1414631800743" textual="false" version="1.0"/>
+</session>

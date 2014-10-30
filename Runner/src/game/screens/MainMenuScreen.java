@@ -29,19 +29,19 @@ public class MainMenuScreen extends Screen{
 					if(Settings.soundEnabled)
 						Assets.click.play(1);
 				}
-				if(inBounds(event, 64, 220, 192, 42) ) {
+				if(inBounds(event, 140, 80, 192, 42) ) {//64, 220, 192, 42
 					//game.setScreen(new GameScreen(game));
 					if(Settings.soundEnabled)
 						Assets.click.play(1);
 					return;
 				}
-				if(inBounds(event, 64, 220 + 42, 192, 42) ) {
-					//game.setScreen(new HighscoreScreen(game));
+				if(inBounds(event, 140, 80 + 42, 192, 42) ) {
+					game.setScreen(new HighscoreScreen(game));
 					if(Settings.soundEnabled)
 						Assets.click.play(1);
 					return;
 				}
-				if(inBounds(event, 64, 220 + 84, 192, 42) ) {
+				if(inBounds(event, 140, 80 + 84, 192, 42) ) {
 					//game.setScreen(new HelpScreen(game));
 					if(Settings.soundEnabled)
 						Assets.click.play(1);
@@ -64,12 +64,12 @@ public class MainMenuScreen extends Screen{
 		Graphics g = game.getGraphics();
 		g.drawPixmap(Assets.background, 0, 0);
 		g.drawPixmap(Assets.logo, 32, 20);
-		g.drawPixmap(Assets.mainMenu, 64, 220);
+		g.drawPixmap(Assets.mainMenu, 140, 80);
 		g.drawPixmap(Assets.front, 50, 228);
 		if(Settings.soundEnabled)
-			g.drawPixmap(Assets.buttons, 0, 416, 0, 0, 64, 64);
+			g.drawPixmap(Assets.buttons, 200, 258, 0, 0, 64, 64);
 		else
-			g.drawPixmap(Assets.buttons, 0, 416, 64, 0, 64, 64);
+			g.drawPixmap(Assets.buttons, 200, 258, 64, 0, 64, 64);
 	}
 	
 	@Override

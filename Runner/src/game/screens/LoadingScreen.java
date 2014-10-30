@@ -50,17 +50,7 @@ public class LoadingScreen extends Screen{
 		Assets.front= g.newPixmap("front.png", PixmapFormat.ARGB4444);
 		Assets.jump= g.newPixmap("jump.png", PixmapFormat.ARGB4444);
 		Assets.slide= g.newPixmap("slide.png", PixmapFormat.ARGB4444);
-		Assets.walk0001= g.newPixmap("walk0001.png", PixmapFormat.ARGB4444);
-		Assets.walk0002= g.newPixmap("walk0002.png", PixmapFormat.ARGB4444);
-		Assets.walk0003= g.newPixmap("walk0003.png", PixmapFormat.ARGB4444);
-		Assets.walk0004= g.newPixmap("walk0004.png", PixmapFormat.ARGB4444);
-		Assets.walk0005= g.newPixmap("walk0005.png", PixmapFormat.ARGB4444);
-		Assets.walk0006= g.newPixmap("walk0006.png", PixmapFormat.ARGB4444);
-		Assets.walk0007= g.newPixmap("walk0007.png", PixmapFormat.ARGB4444);
-		Assets.walk0008= g.newPixmap("walk0008.png", PixmapFormat.ARGB4444);
-		Assets.walk0009= g.newPixmap("walk0009.png", PixmapFormat.ARGB4444);
-		Assets.walk0010= g.newPixmap("walk0010.png", PixmapFormat.ARGB4444);
-		Assets.walk0011= g.newPixmap("walk0011.png", PixmapFormat.ARGB4444);
+		Assets.walk_sheet= g.newPixmap("walk_sheet.png", PixmapFormat.ARGB4444);
 		
 		//Monedas
 		Assets.coin_bronze= g.newPixmap("coin_bronze.png", PixmapFormat.ARGB4444);

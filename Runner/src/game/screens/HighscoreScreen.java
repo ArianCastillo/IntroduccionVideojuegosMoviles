@@ -10,13 +10,17 @@ import game.controllers.Assets;
 import game.controllers.Settings;
 
 public class HighscoreScreen extends Screen{
-	String lines[] = new String[5];
+	String linesC1[] = new String[3];
+	String linesC2[] = new String[2];
 	
 	public HighscoreScreen(Game game) {
 		super(game);
-
-        for (int i = 0; i < 5; i++) {
-            lines[i] = "" + (i + 1) + ". " + Settings.highscores[i];
+		int index = 0;
+        for (; index < 3; index++) {
+            linesC1[index] = "" + (index + 1) + ". " + Settings.highscores[index];
+        }
+        for (int i = 0; index < 5; index++) {
+        	linesC2[i] = "" + (index + 1) + ". " + Settings.highscores[index];i++;
         }
 	}
 
@@ -29,7 +33,7 @@ public class HighscoreScreen extends Screen{
         for (int i = 0; i < len; i++) {
             TouchEvent event = touchEvents.get(i);
             if (event.type == TouchEvent.TOUCH_UP) {
-                if (event.x < 64 && event.y > 416) {
+                if (event.x < 416 && event.y > 64) {
                     if(Settings.soundEnabled)
                         Assets.click.play(1);
                     game.setScreen(new MainMenuScreen(game));
@@ -47,12 +51,17 @@ public class HighscoreScreen extends Screen{
         g.drawPixmap(Assets.mainMenu, 64, 20, 0, 42, 196, 42);
 
         int y = 100;
-        for (int i = 0; i < 5; i++) {
-            drawText(g, lines[i], 20, y);
+        for (int i = 0; i < 3; i++) {
+            drawText(g, linesC1[i], 20, y);
             y += 50;
         }
+        y = 100;
+        for (int i = 0; i < 2; i++) {
+        	drawText(g, linesC2[i], 200, y);
+        	y += 50;
+        }
 
-        g.drawPixmap(Assets.buttons, 0, 416, 64, 64, 64, 64);
+        g.drawPixmap(Assets.buttons, 200, 258, 64, 64, 64, 64);
 	}
 	
 	public void drawText(Graphics g, String line, int x, int y) {

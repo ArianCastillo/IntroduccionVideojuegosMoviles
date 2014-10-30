@@ -1,8 +1,0 @@
-package game.controllers;
-
-import framework.Pixmap;
-
-public class Assets {
-	public static Pixmap obstacle1;
-	public static Pixmap obstacle2;
-}

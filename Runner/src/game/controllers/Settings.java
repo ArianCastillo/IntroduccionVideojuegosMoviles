@@ -10,7 +10,7 @@ import framework.FileIO;
 
 public class Settings {
 	public static boolean soundEnabled = true;
-    public static int[] highscores = new int[] { 100, 80, 50, 30, 10 };
+    public static int[] highscores = new int[] { 0, 0, 0, 0, 0 };
 
     public static void load(FileIO files) {
         BufferedReader in = null;
