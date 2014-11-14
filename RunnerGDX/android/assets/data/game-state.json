@@ -1,0 +1,11 @@
+{
+	points:0,
+	xp:0,
+	level:1,
+	levels:[
+		{name:"nivel1", className: "Nivel1", locked:false, minLevel:1, maxLevel:10, minPoints:50, maxPoints:200},	
+		
+
+	]
+
+}

@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="game.runner.world.Mundo"/>
-<fullyQualifiedTypeName name="framework.impl.RunnerActivity"/>
 <fullyQualifiedTypeName name="game.world.Mundo"/>
 <fullyQualifiedTypeName name="game.controllers.RunnerGame"/>
 <fullyQualifiedTypeName name="game.screens.LoadingScreen"/>
@@ -32,4 +30,34 @@
 <fullyQualifiedTypeName name="framework.Graphics"/>
 <fullyQualifiedTypeName name="game.controllers.Settings"/>
 <fullyQualifiedTypeName name="game.world.Runner"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.Game"/>
+<fullyQualifiedTypeName name="com.runner.services.PreferencesManager"/>
+<fullyQualifiedTypeName name="com.runner.services.ProfileManager"/>
+<fullyQualifiedTypeName name="com.runner.game.World"/>
+<fullyQualifiedTypeName name="com.runner.services.MusicManager"/>
+<fullyQualifiedTypeName name="com.runner.services.SoundManager"/>
+<fullyQualifiedTypeName name="com.runner.screens.SplashScreen"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.utils.Array"/>
+<fullyQualifiedTypeName name="com.runner.world.WorldRenderer"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.Preferences"/>
+<fullyQualifiedTypeName name="com.runner.game.GameState"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.utils.Json"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.files.FileHandle"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.utils.Base64Coder"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.assets.AssetManager"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.audio.Sound"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.scenes.scene2d.Stage"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.scenes.scene2d.ui.Skin"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.graphics.g2d.TextureAtlas"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.scenes.scene2d.ui.Table"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.Screen"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.utils.viewport.StretchViewport"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.Gdx"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.graphics.GL20"/>
+<fullyQualifiedTypeName name="com.runner.services.RunnerMusic"/>
+<fullyQualifiedTypeName name="com.runner.RunnerGame"/>
+<fullyQualifiedTypeName name="com.runner.screens.AbstractScreen"/>
+<fullyQualifiedTypeName name="com.runner.levels.BaseGameListener"/>
+<fullyQualifiedTypeName name="com.runner.game.Level"/>
+<fullyQualifiedTypeName name="com.runner.levels.BaseGame"/>
 </qualifiedTypeNameHistroy>

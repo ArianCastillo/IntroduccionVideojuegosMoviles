@@ -1,0 +1,14 @@
+package com.runner.services;
+
+public enum RunnerSound {
+	CLICK(""),
+	GAME(""),
+	COIN(""),
+	HIT(""),
+	JUMP("");
+	private final String fileName;
+	
+	private RunnerSound(String fileName){
+		
+	}
+}

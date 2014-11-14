@@ -2,15 +2,19 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="Assets." key="selection"/>
+		<item value="RunnerMusic" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="MatyasMusic"/>
+			<item value="MatyasSound"/>
 			<item value="public static Pixmap "/>
 		</list>
 		<list key="replacehistory">
+			<item value="RunnerMusic"/>
+			<item value="RunnerSound"/>
 			<item value="Assets."/>
 		</list>
 	</section>
