@@ -1,6 +1,6 @@
 {
 com.badlogic.gdx.graphics.g2d.BitmapFont: { 
-	default-font: { file: fonts/default-16.fnt },
+	default-font: { file: fonts/default-24.fnt },
 	button-font: { file: fonts/default-24.fnt }
  },
 com.badlogic.gdx.graphics.Color: {
@@ -17,7 +17,7 @@ com.badlogic.gdx.scenes.scene2d.ui.Button$ButtonStyle: {
     nivel1: {down: boton_nivel1_pressed, up: boton_nivel1_normal}
 },
 com.badlogic.gdx.scenes.scene2d.ui.TextButton$TextButtonStyle: {
-	default: { down: button_pressed, up: button_normal, font: button-font, fontColor: black },
+	default: { down: boton_pressed, up: boton_normal, font: button-font, fontColor: black },
 },
 com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle: {
     default: { font: button-font, fontColor: white },

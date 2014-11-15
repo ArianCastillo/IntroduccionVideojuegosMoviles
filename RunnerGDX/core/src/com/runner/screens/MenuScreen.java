@@ -65,7 +65,7 @@ public class MenuScreen extends AbstractScreen{
 			}
 		});
 		
-		TextButton highScoresGameButton = new TextButton("Mejores puntuaciones", getSkin());
+		TextButton highScoresGameButton = new TextButton("Puntuaciones", getSkin());
 		highScoresGameButton.addListener(new ClickListener(){
 			public void clicked(InputEvent event, float x, float y){
 				game.getSoundManager().play(RunnerSound.CLICK);

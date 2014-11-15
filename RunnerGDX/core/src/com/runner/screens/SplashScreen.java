@@ -24,7 +24,7 @@ public class SplashScreen extends AbstractScreen{
 		super.show();
 		Table table = super.getTable();
 		
-		Texture back = new Texture("background.jpg");
+		Texture back = new Texture("background.png");
 		back.setFilter(TextureFilter.Linear, TextureFilter.Linear);
 		table.setBackground(new TextureRegionDrawable(new TextureRegion(back,0,0,1024,768)));
 		
