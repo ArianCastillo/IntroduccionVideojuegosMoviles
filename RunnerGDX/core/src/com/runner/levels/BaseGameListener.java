@@ -1,5 +1,0 @@
-package com.runner.levels;
-
-public interface BaseGameListener {
-
-}

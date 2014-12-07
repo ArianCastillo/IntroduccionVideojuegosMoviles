@@ -1,7 +1,8 @@
 package com.runner.screens;
 
 import com.runner.RunnerGame;
-import com.runner.game.Level;
+import com.runner.game.Planet;
+import com.runner.services.RunnerMusic;
 import com.runner.services.RunnerSound;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -22,6 +23,7 @@ public class MenuScreen extends AbstractScreen{
 	@Override
 	public void show(){
 		super.show();
+		//game.getMusicManager().play(RunnerMusic.MENU_MUSIC);
 		Table table = super.getTable();
 		table.clear();
 		Image image = new Image(game.getAssetManager().get("game.atlas", TextureAtlas.class).findRegion("Menu"));
@@ -37,41 +39,24 @@ public class MenuScreen extends AbstractScreen{
 		table.row();
 		table.add(labelXP).colspan(3);
 		table.row();
+		table.getCell(labelXP).spaceBottom((float) (Gdx.graphics.getHeight()*0.1));
 		
-		Array<Level> levels = game.getWorld().getGameState().levels;
-		int i=0;
-		for (final Level level: levels){
-			Button gameButton = new Button(getSkin(),level.name);
-			gameButton.addListener(new ClickListener(){
-				public void clicked(InputEvent event, float x, float y){
-					game.getSoundManager().play(RunnerSound.CLICK);
-					game.getWorld().setCurrentLevel(level);
-					game.setScreen(new GameScreen(game));
-				}
-			});
-		//	gameButton.setDisabled(level.locked);
-			table.add(gameButton).padBottom(10);
-			i++;
-			if (i%3==0) table.row();
-		}
-		
-		table.row();
+		TextButton planetsGameButton = new TextButton("Planetas", getSkin());
+		planetsGameButton.addListener(new ClickListener(){
+			public void clicked(InputEvent event, float x, float y){
+				game.getSoundManager().play(RunnerSound.CLICK);
+				game.setScreen(new PlanetsScreen(game));
+			}
+		});
 		
 		TextButton optionsGameButton = new TextButton("Opciones", getSkin());
 		optionsGameButton.addListener(new ClickListener(){
 			public void clicked(InputEvent event, float x, float y){
-				game.setScreen(new OptionScreen(game));
 				game.getSoundManager().play(RunnerSound.CLICK);
+				game.setScreen(new OptionScreen(game));
 			}
 		});
 		
-		TextButton highScoresGameButton = new TextButton("Puntuaciones", getSkin());
-		highScoresGameButton.addListener(new ClickListener(){
-			public void clicked(InputEvent event, float x, float y){
-				game.getSoundManager().play(RunnerSound.CLICK);
-				//Mandar a la pantalla correspondiente
-			}
-		});
 		TextButton exitGameButton = new TextButton("Salir", getSkin());
 		exitGameButton.addListener(new ClickListener(){
 			public void clicked(InputEvent event, float x, float y){
@@ -79,9 +64,13 @@ public class MenuScreen extends AbstractScreen{
 				Gdx.app.exit();
 			}
 		});
-		table.add(optionsGameButton).size(250, 50).padBottom(10);;
-		table.add(highScoresGameButton).size(250, 50).padBottom(10);;
-		table.add(exitGameButton).size(250, 50).padBottom(10);;
+		table.add(planetsGameButton).size(250, 50).padBottom(10);
+		table.row();
+		table.add(optionsGameButton).size(250, 50).padBottom(10);
+		table.row();
+		table.add(exitGameButton).size(250, 50).padBottom(10);
+		table.getCell(planetsGameButton).spaceBottom((float) (Gdx.graphics.getHeight()*0.05));
+		table.getCell(optionsGameButton).spaceBottom((float) (Gdx.graphics.getHeight()*0.05));
 	}
 	
 	public void render(float delta){

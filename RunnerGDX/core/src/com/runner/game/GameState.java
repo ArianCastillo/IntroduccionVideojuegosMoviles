@@ -7,5 +7,5 @@ public class GameState {
 	public int points;
 	public int xp;
 	public int level;
-	public Array<Level> levels;
+	public Array<Planet> planets;
 }

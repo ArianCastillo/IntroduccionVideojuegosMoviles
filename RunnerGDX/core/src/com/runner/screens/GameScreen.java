@@ -8,13 +8,13 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.runner.RunnerGame;
-import com.runner.game.Level;
-import com.runner.levels.BaseGame;
-import com.runner.levels.BaseGameListener;
+import com.runner.game.Planet;
+import com.runner.planets.BaseGame;
+import com.runner.planets.BaseGameListener;
 
 public class GameScreen extends AbstractScreen
 implements BaseGameListener {
-	private Level level;
+	private Planet planet;
 	private BaseGame baseGame;
 	
 	public GameScreen(RunnerGame game) {
@@ -25,11 +25,11 @@ implements BaseGameListener {
 	public void show(){
 		super.show();
 		
-		level = game.getWorld().getCurrentLevel();
-		Gdx.app.log(RunnerGame.LOG, "Entrando a minigame: " + level.name);
+		planet = game.getWorld().getCurrentPlanet();
+		Gdx.app.log(RunnerGame.LOG, "Entrando a minigame: " + planet.name);
 		
 		try {
-			Class theClass = Class.forName("com.runner.levels." + level.className);
+			Class theClass = Class.forName("com.runner.levels." + planet.className);
 			baseGame = (BaseGame)theClass.newInstance();
 			baseGame.setBaseGameListener(this);
 			baseGame.setAssets(game.getAssetManager());
@@ -51,7 +51,7 @@ implements BaseGameListener {
 		back.setFilter(TextureFilter.Linear, TextureFilter.Linear);
 		table.setBackground(new TextureRegionDrawable(new TextureRegion(back,0,0,1024,768)));
 		
-		Label labelName = new Label("Minigame " + level.name,getSkin());
+		Label labelName = new Label("Planeta " + planet.name,getSkin());
 		Label labelPoints = new Label("Puntos: " + game.getWorld().getGameState().points,getSkin());
 		Label labelLevel = new Label("Nivel: " + game.getWorld().getGameState().level,getSkin());
 		Label labelXP = new Label("Experiencia: " + game.getWorld().getGameState().xp,getSkin());

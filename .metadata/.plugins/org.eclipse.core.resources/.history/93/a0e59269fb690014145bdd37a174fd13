@@ -1,7 +1,0 @@
-package com.runner.services;
-
-public enum RunnerSound {
-	CLICK(""),
-	GAME(""),
-	
-}

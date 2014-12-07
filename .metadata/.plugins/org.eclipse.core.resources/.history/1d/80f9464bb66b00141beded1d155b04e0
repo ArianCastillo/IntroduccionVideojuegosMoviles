@@ -1,7 +1,0 @@
-package com.runner.game;
-
-public class GameState {
-	public int points;
-	public int xp;
-	public int level;
-}

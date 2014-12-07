@@ -3,6 +3,7 @@ package com.runner.screens;
 import com.runner.RunnerGame;
 import com.runner.services.RunnerMusic;
 import com.runner.services.RunnerSound;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -35,7 +36,7 @@ public class IntroScreen extends AbstractScreen{
 						Actions.fadeOut(0.75f),
 						new Action(){
 							public boolean act(float delta){
-								game.getMusicManager().stop();
+								//game.getMusicManager().stop();
 								game.getSoundManager().play(RunnerSound.CLICK);
 								game.setScreen(new MenuScreen(game));
 								return true;
@@ -48,6 +49,8 @@ public class IntroScreen extends AbstractScreen{
 		stage.addActor(startGameButton);
 		Image logo = new Image(game.getAssetManager().get("game.atlas", TextureAtlas.class).findRegion("Logo"));
 		table.add(logo);
+		table.row();
+		table.getCell(logo).spaceBottom((float) (Gdx.graphics.getHeight()*0.1));
 		table.row();
 		table.add(startGameButton).padBottom(10);
 	}

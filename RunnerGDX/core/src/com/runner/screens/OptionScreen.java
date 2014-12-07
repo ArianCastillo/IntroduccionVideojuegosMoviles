@@ -1,6 +1,8 @@
 package com.runner.screens;
 
 import com.runner.RunnerGame;
+import com.runner.services.RunnerMusic;
+import com.runner.services.RunnerSound;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -39,7 +41,7 @@ public class OptionScreen extends AbstractScreen{
 			}
 		});
 		table.row();
-		table.add("Sonidos").pad(20);
+		table.add("Sonidos").pad(20);;
 		table.add(soundCheckbox);
 
 		final CheckBox musicCheckBox = new CheckBox("",getSkin());
@@ -73,6 +75,7 @@ public class OptionScreen extends AbstractScreen{
 		TextButton backButton = new TextButton("Regresar",getSkin());
 		backButton.addListener(new ClickListener(){
 			public void clicked(InputEvent event, float x, float y){
+				game.getSoundManager().play(RunnerSound.CLICK);
 				game.setScreen(new MenuScreen(game));
 			}
 		});

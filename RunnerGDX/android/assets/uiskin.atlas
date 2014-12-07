@@ -3,14 +3,14 @@ uiskin.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-boton_regresar_normal
+boton_regresar_pressed
   rotate: false
   xy: 1, 451
   size: 360, 59
   orig: 360, 59
   offset: 0, 0
   index: -1
-boton_regresar_pressed
+boton_regresar_normal
   rotate: false
   xy: 1, 390
   size: 360, 59
@@ -45,14 +45,14 @@ boton_iniciar_pressed
   orig: 283, 59
   offset: 0, 0
   index: -1
-boton_nivel1_normal
+boton_nivel1_pressed
   rotate: false
   xy: 363, 392
   size: 250, 56
   orig: 250, 56
   offset: 0, 0
   index: -1
-boton_nivel1_pressed
+boton_nivel1_normal
   rotate: false
   xy: 1, 209
   size: 250, 56
@@ -81,54 +81,61 @@ button_disabled
   orig: 100, 82
   offset: 0, 0
   index: -1
-boton_normal
-  rotate: false
-  xy: 615, 349
-  size: 100, 99
-  orig: 100, 99
-  offset: 0, 0
-  index: -1
-button_normal_check
-  rotate: false
-  xy: 717, 346
-  size: 125, 103
-  split: 10, 12, 10, 8
-  orig: 125, 103
-  offset: 0, 0
-  index: -1
 button_normal
   rotate: false
-  xy: 844, 349
+  xy: 615, 348
   size: 122, 100
   split: 7, 10, 8, 10
   orig: 122, 100
   offset: 0, 0
   index: -1
+button_normal_check
+  rotate: false
+  xy: 739, 346
+  size: 125, 103
+  split: 10, 12, 10, 8
+  orig: 125, 103
+  offset: 0, 0
+  index: -1
 button_pressed
   rotate: false
-  xy: 208, 107
+  xy: 866, 349
   size: 122, 100
   split: 7, 11, 8, 11
   orig: 122, 100
   offset: 0, 0
   index: -1
+lock_yellow
+  rotate: false
+  xy: 103, 13
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+boton_normal
+  rotate: false
+  xy: 286, 256
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
 boton_pressed
   rotate: false
-  xy: 286, 227
-  size: 100, 99
-  orig: 100, 99
+  xy: 208, 137
+  size: 70, 70
+  orig: 70, 70
   offset: 0, 0
   index: -1
 check_off
   rotate: false
-  xy: 103, 48
+  xy: 208, 100
   size: 35, 35
   orig: 35, 35
   offset: 0, 0
   index: -1
 check_on
   rotate: false
-  xy: 103, 11
+  xy: 245, 100
   size: 35, 35
   orig: 35, 35
   offset: 0, 0
@@ -142,14 +149,14 @@ slider_mark
   index: -1
 slider_mark_v
   rotate: false
-  xy: 208, 91
+  xy: 208, 84
   size: 33, 14
   orig: 33, 14
   offset: 0, 0
   index: -1
 slider_off
   rotate: false
-  xy: 968, 418
+  xy: 253, 234
   size: 13, 31
   split: 4, 5, 5, 6
   orig: 13, 31
@@ -157,7 +164,7 @@ slider_off
   index: -1
 slider_on
   rotate: false
-  xy: 253, 236
+  xy: 175, 54
   size: 12, 29
   split: 4, 4, 5, 4
   orig: 12, 29
@@ -165,7 +172,7 @@ slider_on
   index: -1
 knob
   rotate: false
-  xy: 350, 368
+  xy: 990, 429
   size: 1, 20
   orig: 1, 20
   offset: 0, 0

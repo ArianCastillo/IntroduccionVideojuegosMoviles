@@ -2,7 +2,7 @@ package com.runner.game;
 
 public class World {
 	private GameState gameState;
-	private Level currentLevel;
+	private Planet currentPlanet;
 	
 	public World(GameState gameState){
 		this.setGameState(gameState);
@@ -16,11 +16,11 @@ public class World {
 		this.gameState = gameState;
 	}
 
-	public Level getCurrentLevel() {
-		return currentLevel;
+	public Planet getCurrentPlanet() {
+		return currentPlanet;
 	}
 
-	public void setCurrentLevel(Level currentLevel) {
-		this.currentLevel = currentLevel;
+	public void setCurrentPlanet(Planet currentPlanet) {
+		this.currentPlanet = currentPlanet;
 	}
 }
