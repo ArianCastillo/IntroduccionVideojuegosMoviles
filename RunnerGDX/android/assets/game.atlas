@@ -3,7 +3,7 @@ game.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-Menu
+sky_jupiter
   rotate: false
   xy: 1, 241
   size: 1024, 767
@@ -17,14 +17,14 @@ Logo
   orig: 454, 72
   offset: 0, 0
   index: -1
-boton_nivel1_normal
+boton_nivel1_presionado
   rotate: false
   xy: 1027, 952
   size: 250, 56
   orig: 250, 56
   offset: 0, 0
   index: -1
-boton_nivel1_presionado
+boton_nivel1_normal
   rotate: false
   xy: 1, 109
   size: 250, 56
@@ -59,56 +59,56 @@ walk010
   orig: 75, 96
   offset: 0, 0
   index: -1
-walk012
+walk014
   rotate: false
   xy: 1027, 691
   size: 75, 96
   orig: 75, 96
   offset: 0, 0
   index: -1
-walk013
+walk015
   rotate: false
   xy: 1027, 593
   size: 75, 96
   orig: 75, 96
   offset: 0, 0
   index: -1
-walk014
+walk017
   rotate: false
   xy: 1027, 495
   size: 75, 96
   orig: 75, 96
   offset: 0, 0
   index: -1
-walk015
+walk012
   rotate: false
   xy: 1027, 397
   size: 75, 96
   orig: 75, 96
   offset: 0, 0
   index: -1
-walk016
+walk013
   rotate: false
   xy: 1027, 299
   size: 75, 96
   orig: 75, 96
   offset: 0, 0
   index: -1
-walk017
+walk016
   rotate: false
   xy: 1104, 789
   size: 75, 96
   orig: 75, 96
   offset: 0, 0
   index: -1
-walk018
+walk019
   rotate: false
   xy: 1104, 691
   size: 75, 96
   orig: 75, 96
   offset: 0, 0
   index: -1
-walk019
+walk018
   rotate: false
   xy: 1104, 593
   size: 75, 96
@@ -136,42 +136,42 @@ front
   orig: 66, 92
   offset: 0, 0
   index: -1
-block
+ground
   rotate: false
   xy: 588, 169
   size: 70, 70
   orig: 70, 70
   offset: 0, 0
   index: -1
-crate
+ground_dirty
   rotate: false
   xy: 660, 169
   size: 70, 70
   orig: 70, 70
   offset: 0, 0
   index: -1
-ground
+ground_cave
   rotate: false
   xy: 732, 169
   size: 70, 70
   orig: 70, 70
   offset: 0, 0
   index: -1
-ground_cave
+ground_rock
   rotate: false
   xy: 804, 169
   size: 70, 70
   orig: 70, 70
   offset: 0, 0
   index: -1
-ground_dirty
+crate
   rotate: false
   xy: 876, 169
   size: 70, 70
   orig: 70, 70
   offset: 0, 0
   index: -1
-ground_rock
+block
   rotate: false
   xy: 948, 169
   size: 70, 70
@@ -220,14 +220,14 @@ spikes
   orig: 70, 35
   offset: 0, 0
   index: -1
-fly_dead
+fly_normal
   rotate: false
   xy: 1157, 918
   size: 69, 32
   orig: 69, 32
   offset: 0, 0
   index: -1
-fly_normal
+fly_dead
   rotate: false
   xy: 325, 133
   size: 69, 32
@@ -290,14 +290,14 @@ coin_bronze
   orig: 35, 35
   offset: 0, 0
   index: -1
-coin_gold
+coin_silver
   rotate: false
   xy: 396, 130
   size: 35, 35
   orig: 35, 35
   offset: 0, 0
   index: -1
-coin_silver
+coin_gold
   rotate: false
   xy: 203, 30
   size: 35, 35
@@ -309,5 +309,53 @@ slime_dead
   xy: 253, 110
   size: 54, 8
   orig: 54, 8
+  offset: 0, 0
+  index: -1
+
+game2.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+sky_saturn
+  rotate: false
+  xy: 1, 1
+  size: 1024, 767
+  orig: 1024, 767
+  offset: 0, 0
+  index: -1
+
+game3.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+sky_mars
+  rotate: false
+  xy: 1, 1
+  size: 1024, 767
+  orig: 1024, 767
+  offset: 0, 0
+  index: -1
+
+game4.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+sky_earth
+  rotate: false
+  xy: 1, 1
+  size: 1024, 767
+  orig: 1024, 767
+  offset: 0, 0
+  index: -1
+
+game5.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Menu
+  rotate: false
+  xy: 1, 1
+  size: 1024, 767
+  orig: 1024, 767
   offset: 0, 0
   index: -1

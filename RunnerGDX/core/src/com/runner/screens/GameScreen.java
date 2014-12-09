@@ -29,7 +29,7 @@ implements BaseGameListener {
 		Gdx.app.log(RunnerGame.LOG, "Entrando a minigame: " + planet.name);
 		
 		try {
-			Class theClass = Class.forName("com.runner.levels." + planet.className);
+			Class theClass = Class.forName("com.runner.planets." + planet.className);
 			baseGame = (BaseGame)theClass.newInstance();
 			baseGame.setBaseGameListener(this);
 			baseGame.setAssets(game.getAssetManager());
@@ -44,26 +44,36 @@ implements BaseGameListener {
 			e.printStackTrace();
 		}
 		
+		String background = "background.png";
+		if(planet.name.compareTo("Tierra")==0){
+			background = "sky_earth.png";
+		}
+		if(planet.name.compareTo("Marte")==0){
+			background = "sky_earth.png";
+		}
+		if(planet.name.compareTo("Jupiter")==0){
+			background = "sky_earth.png";
+		}
+		if(planet.name.compareTo("Saturno")==0){
+			background = "sky_earth.png";
+		}
 		
 		Table table = super.getTable();
 		
-		Texture back = new Texture("background.png");
+		Texture back = new Texture(background);
 		back.setFilter(TextureFilter.Linear, TextureFilter.Linear);
 		table.setBackground(new TextureRegionDrawable(new TextureRegion(back,0,0,1024,768)));
 		
 		Label labelName = new Label("Planeta " + planet.name,getSkin());
-		Label labelPoints = new Label("Puntos: " + game.getWorld().getGameState().points,getSkin());
-		Label labelLevel = new Label("Nivel: " + game.getWorld().getGameState().level,getSkin());
-		Label labelXP = new Label("Experiencia: " + game.getWorld().getGameState().xp,getSkin());
+		Label labelPoints = new Label("Pts: " + game.getWorld().getGameState().points,getSkin());
+		Label labelLevel = new Label("Nvl: " + game.getWorld().getGameState().level,getSkin());
+		Label labelXP = new Label("XP: " + game.getWorld().getGameState().xp,getSkin());
 
 		Table topTable = new Table();
-		topTable.add(labelName);
-		topTable.row();
-		topTable.add(labelPoints);
-		topTable.row();
-		topTable.add(labelLevel);
-		topTable.row();
-		topTable.add(labelXP);
+		topTable.add(labelName).spaceRight(10);
+		topTable.add(labelPoints).spaceRight(10);
+		topTable.add(labelLevel).spaceRight(10);
+		topTable.add(labelXP).spaceRight(10);
 		topTable.row();
 		
 		table.add(topTable).expand().top().left();
@@ -72,10 +82,7 @@ implements BaseGameListener {
 	
 	@Override
 	public void render(float delta){
-		
-		
 		baseGame.update(delta);
-		
 		super.render(delta);
 		baseGame.render();
 		

@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="game.world.Mundo"/>
-<fullyQualifiedTypeName name="game.controllers.RunnerGame"/>
-<fullyQualifiedTypeName name="game.screens.LoadingScreen"/>
-<fullyQualifiedTypeName name="game.screens.GameScreenHighScores"/>
-<fullyQualifiedTypeName name="android.graphics.Color"/>
-<fullyQualifiedTypeName name="game.world.Obstacle"/>
-<fullyQualifiedTypeName name="framework.Pixmap"/>
-<fullyQualifiedTypeName name="game.screens.test.MainMenuScreen"/>
 <fullyQualifiedTypeName name="game.controllers.Assets"/>
 <fullyQualifiedTypeName name="framework.PixmapFormat"/>
 <fullyQualifiedTypeName name="android.content.Context"/>
@@ -52,12 +44,20 @@
 <fullyQualifiedTypeName name="com.badlogic.gdx.scenes.scene2d.ui.Table"/>
 <fullyQualifiedTypeName name="com.badlogic.gdx.Screen"/>
 <fullyQualifiedTypeName name="com.badlogic.gdx.utils.viewport.StretchViewport"/>
-<fullyQualifiedTypeName name="com.badlogic.gdx.Gdx"/>
 <fullyQualifiedTypeName name="com.badlogic.gdx.graphics.GL20"/>
-<fullyQualifiedTypeName name="com.runner.services.RunnerMusic"/>
 <fullyQualifiedTypeName name="com.runner.RunnerGame"/>
 <fullyQualifiedTypeName name="com.runner.screens.AbstractScreen"/>
 <fullyQualifiedTypeName name="com.runner.levels.BaseGameListener"/>
 <fullyQualifiedTypeName name="com.runner.game.Level"/>
 <fullyQualifiedTypeName name="com.runner.levels.BaseGame"/>
+<fullyQualifiedTypeName name="com.runner.services.RunnerMusic"/>
+<fullyQualifiedTypeName name="com.runner.planets.objects.Runner"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.Gdx"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.graphics.g2d.Sprite"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.Input"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.Input.Keys"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.math.Rectangle"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.scenes.scene2d.Actor"/>
+<fullyQualifiedTypeName name="com.runner.planets.objects.GameObject"/>
+<fullyQualifiedTypeName name="com.runner.planets.objects.Ground"/>
 </qualifiedTypeNameHistroy>
