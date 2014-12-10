@@ -1,0 +1,91 @@
+package com.runner.screens;
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.Texture.TextureFilter;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.runner.RunnerGame;
+import com.runner.game.Planet;
+import com.runner.planets.BaseGame;
+import com.runner.planets.BaseGameListener;
+
+public class GameScreen extends AbstractScreen
+implements BaseGameListener {
+	private Planet planet;
+	private BaseGame baseGame;
+	
+	public GameScreen(RunnerGame game) {
+		super(game);
+		// TODO Auto-generated constructor stub
+	}
+
+	public void show(){
+		super.show();
+		
+		planet = game.getWorld().getCurrentPlanet();
+		Gdx.app.log(RunnerGame.LOG, "Entrando a minigame: " + planet.name);
+		
+		try {
+			Class theClass = Class.forName("com.runner.planets." + planet.className);
+			baseGame = (BaseGame)theClass.newInstance();
+			baseGame.setBaseGameListener(this);
+			baseGame.setAssets(game.getAssetManager());
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		String background = "background.png";
+		if(planet.name.compareTo("Tierra")==0){
+			background = "sky_earth.png";
+		}
+		if(planet.name.compareTo("Marte")==0){
+			background = "sky_earth.png";
+		}
+		if(planet.name.compareTo("Jupiter")==0){
+			background = "sky_earth.png";
+		}
+		if(planet.name.compareTo("Saturno")==0){
+			background = "sky_earth.png";
+		}
+		
+		Table table = super.getTable();
+		
+		Texture back = new Texture(background);
+		back.setFilter(TextureFilter.Linear, TextureFilter.Linear);
+		table.setBackground(new TextureRegionDrawable(new TextureRegion(back,0,0,1024,768)));
+		
+		Label labelName = new Label("Planeta " + planet.name,getSkin());
+		Label labelPoints = new Label("Pts: " + game.getWorld().getGameState().points,getSkin());
+		Label labelLevel = new Label("Nvl: " + game.getWorld().getGameState().level,getSkin());
+		Label labelXP = new Label("XP: " + game.getWorld().getGameState().xp,getSkin());
+
+		Table topTable = new Table();
+		topTable.add(labelName).spaceRight(10);
+		topTable.add(labelPoints).spaceRight(10);
+		topTable.add(labelLevel).spaceRight(10);
+		topTable.add(labelXP).spaceRight(10);
+		topTable.row();
+		
+		table.add(topTable).expand().top().left();
+		
+	}
+	
+	@Override
+	public void render(float delta){
+		baseGame.update(delta);
+		super.render(delta);
+		baseGame.render();
+		
+	}
+
+}

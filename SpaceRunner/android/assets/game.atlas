@@ -1,0 +1,292 @@
+
+game.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Menu
+  rotate: false
+  xy: 1, 256
+  size: 1024, 767
+  orig: 1024, 767
+  offset: 0, 0
+  index: -1
+Logo
+  rotate: false
+  xy: 1, 182
+  size: 454, 72
+  orig: 454, 72
+  offset: 0, 0
+  index: -1
+cloud
+  rotate: false
+  xy: 1027, 960
+  size: 129, 63
+  orig: 129, 63
+  offset: 0, 0
+  index: 1
+cloud
+  rotate: false
+  xy: 1, 117
+  size: 128, 63
+  orig: 128, 63
+  offset: 0, 0
+  index: 2
+cloud
+  rotate: false
+  xy: 457, 191
+  size: 128, 63
+  orig: 128, 63
+  offset: 0, 0
+  index: 3
+walk010
+  rotate: false
+  xy: 1027, 862
+  size: 75, 96
+  orig: 75, 96
+  offset: 0, 0
+  index: -1
+walk014
+  rotate: false
+  xy: 1, 19
+  size: 75, 96
+  orig: 75, 96
+  offset: 0, 0
+  index: -1
+walk015
+  rotate: false
+  xy: 1027, 764
+  size: 75, 96
+  orig: 75, 96
+  offset: 0, 0
+  index: -1
+walk017
+  rotate: false
+  xy: 1027, 666
+  size: 75, 96
+  orig: 75, 96
+  offset: 0, 0
+  index: -1
+walk019
+  rotate: false
+  xy: 1027, 568
+  size: 75, 96
+  orig: 75, 96
+  offset: 0, 0
+  index: -1
+walk012
+  rotate: false
+  xy: 1027, 470
+  size: 75, 96
+  orig: 75, 96
+  offset: 0, 0
+  index: -1
+walk013
+  rotate: false
+  xy: 1027, 372
+  size: 75, 96
+  orig: 75, 96
+  offset: 0, 0
+  index: -1
+walk016
+  rotate: false
+  xy: 1027, 274
+  size: 75, 96
+  orig: 75, 96
+  offset: 0, 0
+  index: -1
+walk018
+  rotate: false
+  xy: 1104, 862
+  size: 75, 96
+  orig: 75, 96
+  offset: 0, 0
+  index: -1
+walk020
+  rotate: false
+  xy: 1104, 764
+  size: 75, 96
+  orig: 75, 96
+  offset: 0, 0
+  index: -1
+jump
+  rotate: false
+  xy: 1104, 668
+  size: 68, 94
+  orig: 68, 94
+  offset: 0, 0
+  index: -1
+front
+  rotate: false
+  xy: 1104, 574
+  size: 66, 92
+  orig: 66, 92
+  offset: 0, 0
+  index: -1
+slide
+  rotate: false
+  xy: 1104, 480
+  size: 66, 92
+  orig: 66, 92
+  offset: 0, 0
+  index: -1
+ground
+  rotate: false
+  xy: 1104, 408
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+ground_dirty
+  rotate: false
+  xy: 1104, 336
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+ground_cave
+  rotate: false
+  xy: 131, 110
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+ground_rock
+  rotate: false
+  xy: 203, 110
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+block
+  rotate: false
+  xy: 275, 110
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+ground_sand
+  rotate: false
+  xy: 347, 110
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+lava
+  rotate: false
+  xy: 587, 209
+  size: 70, 45
+  orig: 70, 45
+  offset: 0, 0
+  index: -1
+water
+  rotate: false
+  xy: 1158, 978
+  size: 70, 45
+  orig: 70, 45
+  offset: 0, 0
+  index: -1
+rock
+  rotate: false
+  xy: 1104, 293
+  size: 70, 41
+  orig: 70, 41
+  offset: 0, 0
+  index: -1
+spikes
+  rotate: false
+  xy: 659, 219
+  size: 70, 35
+  orig: 70, 35
+  offset: 0, 0
+  index: -1
+fly_normal
+  rotate: false
+  xy: 1230, 991
+  size: 69, 32
+  orig: 69, 32
+  offset: 0, 0
+  index: -1
+fly_dead
+  rotate: false
+  xy: 731, 222
+  size: 69, 32
+  orig: 69, 32
+  offset: 0, 0
+  index: -1
+fly_fly
+  rotate: false
+  xy: 1301, 992
+  size: 69, 31
+  orig: 69, 31
+  offset: 0, 0
+  index: -1
+bush
+  rotate: false
+  xy: 802, 228
+  size: 70, 26
+  orig: 70, 26
+  offset: 0, 0
+  index: -1
+bridge
+  rotate: false
+  xy: 1372, 999
+  size: 71, 24
+  orig: 71, 24
+  offset: 0, 0
+  index: -1
+plank
+  rotate: false
+  xy: 874, 233
+  size: 72, 21
+  orig: 72, 21
+  offset: 0, 0
+  index: -1
+alien_plant
+  rotate: false
+  xy: 1445, 995
+  size: 54, 28
+  orig: 54, 28
+  offset: 0, 0
+  index: -1
+grass
+  rotate: false
+  xy: 78, 75
+  size: 35, 40
+  orig: 35, 40
+  offset: 0, 0
+  index: -1
+slime_normal
+  rotate: false
+  xy: 1501, 995
+  size: 43, 28
+  orig: 43, 28
+  offset: 0, 0
+  index: -1
+coin_bronze
+  rotate: false
+  xy: 419, 145
+  size: 35, 35
+  orig: 35, 35
+  offset: 0, 0
+  index: -1
+coin_silver
+  rotate: false
+  xy: 78, 38
+  size: 35, 35
+  orig: 35, 35
+  offset: 0, 0
+  index: -1
+coin_gold
+  rotate: false
+  xy: 78, 1
+  size: 35, 35
+  orig: 35, 35
+  offset: 0, 0
+  index: -1
+slime_dead
+  rotate: false
+  xy: 1027, 264
+  size: 54, 8
+  orig: 54, 8
+  offset: 0, 0
+  index: -1
