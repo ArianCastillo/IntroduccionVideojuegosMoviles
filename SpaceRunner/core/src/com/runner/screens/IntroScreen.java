@@ -36,7 +36,6 @@ public class IntroScreen extends AbstractScreen{
 						Actions.fadeOut(0.75f),
 						new Action(){
 							public boolean act(float delta){
-								//game.getMusicManager().stop();
 								game.getSoundManager().play(RunnerSound.CLICK);
 								game.setScreen(new MenuScreen(game));
 								return true;

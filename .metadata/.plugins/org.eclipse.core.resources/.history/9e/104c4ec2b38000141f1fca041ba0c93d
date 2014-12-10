@@ -1,0 +1,146 @@
+package com.runner.planets.objects;
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.math.Rectangle;
+import com.runner.RunnerGame;
+
+public class Runner extends GameObject{
+	private Rectangle bottom, left, right, top, full;
+	private float velocityY;
+	private String image;
+
+	public Runner(int x, int y) {
+		this.setX(x);
+		Gdx.app.log(RunnerGame.LOG, "Ahora X vale " + x);
+		this.setY(y);
+		Gdx.app.log(RunnerGame.LOG, "Ahora Y vale " + y);
+		full =   new Rectangle(0.0f, 0.0f, 75f, 96f);
+		bottom = new Rectangle(0.0f, 0.0f, 75f, 12f);
+		left =   new Rectangle(0.0f, 12f, 37f, 72f);
+		right =  new Rectangle(37f, 12f, 38f, 72f);
+		top =    new Rectangle(0.0f, 84f, 75f, 12f);
+		velocityY = 0;
+		image = "walk010";
+	}
+	
+	public void draw(SpriteBatch batch, TextureAtlas atlas){
+		full.x = getX();
+		full.y = getY();
+		Gdx.app.log(RunnerGame.LOG, "Coordenadas de astronauta:" + getX() + ", " + getY());
+		
+		bottom.x = getX();
+		bottom.y = getY();
+		
+		left.x = getX();
+		left.y = getY()+12;
+		
+		right.x = getX()+37;
+		right.y = getY()+12;
+		 
+		top.x = getX();
+		top.y = getY()+84;
+		
+		batch.draw(atlas.findRegion(image),getX(), getY());
+	}
+	
+	public int hits(Rectangle r){
+		if (left.overlaps(r)) {
+			Gdx.app.log(RunnerGame.LOG, "Choque a la izquiera");
+			return 2;
+		}
+		if (right.overlaps(r)) {
+			Gdx.app.log(RunnerGame.LOG, "Choque a la derecha");
+			return 3;
+		}
+		
+		if(bottom.overlaps(r)) {
+			Gdx.app.log(RunnerGame.LOG, "Choque abajo");
+			return 1;
+		}
+		
+		if (top.overlaps(r)) {
+			Gdx.app.log(RunnerGame.LOG, "Choque arriba");
+			return 4;
+		}
+
+		return -1;
+	}
+	
+	public void action (int type, float x, float y){
+		if (type == 1 || type == 4) {
+			Gdx.app.log(RunnerGame.LOG, "Tocando arriba o abajo");
+			velocityY = 0;
+			Gdx.app.log(RunnerGame.LOG, "X valia " + getX() + " antes de tocar arriba o abajo");
+			this.setX(full.x);
+			Gdx.app.log(RunnerGame.LOG, "Ahora X vale " + getX() + " despues de tocar arriba o abajo");
+			Gdx.app.log(RunnerGame.LOG, "Y valia " + getY() + " antes de tocar arriba o abajo");
+			this.setY(y);
+			Gdx.app.log(RunnerGame.LOG, "Ahora Y vale " + getY() + " despues de tocar arriba o abajo");
+			image = "walk010";
+		}
+		
+		if (type == 2 || type == 3) {
+			Gdx.app.log(RunnerGame.LOG, "Tocando izquierda o derecha");
+			velocityY = 0;
+			Gdx.app.log(RunnerGame.LOG, "X valia " + getX() + " antes de tocar izq o der");
+			this.setX(x);
+			Gdx.app.log(RunnerGame.LOG, "Ahora X vale " + getX() + " despues de tocar izq o der");
+			Gdx.app.log(RunnerGame.LOG, "Y valia " + getY() + " antes de tocar izq o der");
+			this.setY(full.y);
+			Gdx.app.log(RunnerGame.LOG, "Ahora Y vale " + getY() + " despues de tocar izq o der");
+		}
+	}
+	
+	public void update(float delta){
+		if (delta > .2) delta = 0.05f;
+		velocityY -= 1000 * delta;
+		Gdx.app.log(RunnerGame.LOG, "X valia " + getX() + " antes de actualizar");
+		this.setX(full.x);
+		Gdx.app.log(RunnerGame.LOG, "Ahora X vale " + getX() + " despues de actualizar");
+		Gdx.app.log(RunnerGame.LOG, "Y valia " + getY() + " antes de actualizar");
+		this.setY(full.y + (velocityY*delta));
+		Gdx.app.log(RunnerGame.LOG, "Ahora Y vale " + getY() + " despues de actualizar");
+	}
+	
+	public void moveLeft(float delta){
+		Gdx.app.log(RunnerGame.LOG, "Retrocediendo");
+		bottom.x -= (50*delta);
+		Gdx.app.log(RunnerGame.LOG, "X valia " + getX() + " antes de ir izq");
+		this.setX(bottom.x);
+		Gdx.app.log(RunnerGame.LOG, "Ahora X vale " + getX() + " despues de ir a la izq");
+		Gdx.app.log(RunnerGame.LOG, "Y valia " + getY() + " antes de ir izq");
+		this.setY(bottom.y);
+		Gdx.app.log(RunnerGame.LOG, "Ahora Y vale " + getY() + " despues de ir a la izq");
+	}
+	
+	public void moveRight(float delta){
+		Gdx.app.log(RunnerGame.LOG, "Caminando");
+		bottom.x += (20*delta);
+		Gdx.app.log(RunnerGame.LOG, "X valia " + getX() + " antes de ir der");
+		this.setX(bottom.x);
+		Gdx.app.log(RunnerGame.LOG, "Ahora X vale " + getX() + " despues de ir a la der");
+		Gdx.app.log(RunnerGame.LOG, "Y valia " + getY() + " antes de ir der");
+		this.setY(bottom.y);
+		Gdx.app.log(RunnerGame.LOG, "Ahora Y vale " + getY() + " despues de ir a la der");
+	}
+	
+	public void jump(){
+		if (velocityY == 0) {
+			Gdx.app.log(RunnerGame.LOG, "Brincando");
+			velocityY = 600;
+		}
+		image="jump";
+	}
+
+	@Override
+	public Rectangle getHitBox() {
+		return bottom;
+	}
+
+	@Override
+	public int hitAction(int side) {
+		return 0;
+	}
+}

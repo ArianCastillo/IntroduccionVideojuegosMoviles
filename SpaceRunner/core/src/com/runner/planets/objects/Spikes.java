@@ -15,7 +15,6 @@ public class Spikes extends GameObject{
 
 	@Override
 	public int hits(Rectangle r) {
-		
 		return -1;
 	}
 

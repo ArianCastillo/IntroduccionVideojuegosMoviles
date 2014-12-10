@@ -12,8 +12,7 @@ import com.runner.game.Planet;
 import com.runner.planets.BaseGame;
 import com.runner.planets.BaseGameListener;
 
-public class GameScreen extends AbstractScreen
-implements BaseGameListener {
+public class GameScreen extends AbstractScreen implements BaseGameListener {
 	private Planet planet;
 	private BaseGame baseGame;
 	
@@ -85,7 +84,6 @@ implements BaseGameListener {
 		baseGame.update(delta);
 		super.render(delta);
 		baseGame.render();
-		
 	}
 
 }

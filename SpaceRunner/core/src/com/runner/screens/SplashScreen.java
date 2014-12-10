@@ -15,6 +15,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 
 public class SplashScreen extends AbstractScreen{
+	
 	public SplashScreen(RunnerGame game) {
 		super(game);
 	}
@@ -26,7 +27,7 @@ public class SplashScreen extends AbstractScreen{
 		
 		Texture back = new Texture("background.png");
 		back.setFilter(TextureFilter.Linear, TextureFilter.Linear);
-		table.setBackground(new TextureRegionDrawable(new TextureRegion(back,0,0,1024,768)));
+		table.setBackground(new TextureRegionDrawable(new TextureRegion(back,0,0,AbstractScreen.VIEWPORT_WIDTH,AbstractScreen.VIEWPORT_HEIGHT)));
 		
 		game.getAssetManager().load("game.atlas", com.badlogic.gdx.graphics.g2d.TextureAtlas.class);
 		game.getAssetManager().load("fonts/default-32.fnt",BitmapFont.class);
