@@ -5,295 +5,295 @@ filter: Nearest,Nearest
 repeat: none
 Menu
   rotate: false
-  xy: 1, 256
+  xy: 1, 248
   size: 1024, 767
   orig: 1024, 767
   offset: 0, 0
   index: -1
 Logo
   rotate: false
-  xy: 1, 182
+  xy: 1, 174
   size: 454, 72
   orig: 454, 72
   offset: 0, 0
   index: -1
 cloud
   rotate: false
-  xy: 1027, 960
+  xy: 1027, 952
   size: 129, 63
   orig: 129, 63
   offset: 0, 0
   index: 1
 cloud
   rotate: false
-  xy: 1, 117
+  xy: 1, 109
   size: 128, 63
   orig: 128, 63
   offset: 0, 0
   index: 2
 cloud
   rotate: false
-  xy: 457, 191
+  xy: 457, 183
   size: 128, 63
   orig: 128, 63
   offset: 0, 0
   index: 3
+jump_Buttom
+  rotate: false
+  xy: 1027, 856
+  size: 94, 94
+  orig: 94, 94
+  offset: 0, 0
+  index: -1
 walk010
   rotate: false
-  xy: 1027, 862
-  size: 75, 96
-  orig: 75, 96
-  offset: 0, 0
-  index: -1
-walk012
-  rotate: false
-  xy: 1, 19
-  size: 75, 96
-  orig: 75, 96
-  offset: 0, 0
-  index: -1
-walk013
-  rotate: false
-  xy: 1027, 764
+  xy: 1, 11
   size: 75, 96
   orig: 75, 96
   offset: 0, 0
   index: -1
 walk014
   rotate: false
-  xy: 1027, 666
+  xy: 1027, 758
   size: 75, 96
   orig: 75, 96
   offset: 0, 0
   index: -1
 walk015
   rotate: false
-  xy: 1027, 568
-  size: 75, 96
-  orig: 75, 96
-  offset: 0, 0
-  index: -1
-walk016
-  rotate: false
-  xy: 1027, 470
+  xy: 1027, 660
   size: 75, 96
   orig: 75, 96
   offset: 0, 0
   index: -1
 walk017
   rotate: false
-  xy: 1027, 372
-  size: 75, 96
-  orig: 75, 96
-  offset: 0, 0
-  index: -1
-walk018
-  rotate: false
-  xy: 1027, 274
+  xy: 1027, 562
   size: 75, 96
   orig: 75, 96
   offset: 0, 0
   index: -1
 walk019
   rotate: false
-  xy: 1104, 862
+  xy: 1027, 464
+  size: 75, 96
+  orig: 75, 96
+  offset: 0, 0
+  index: -1
+walk012
+  rotate: false
+  xy: 1027, 366
+  size: 75, 96
+  orig: 75, 96
+  offset: 0, 0
+  index: -1
+walk013
+  rotate: false
+  xy: 1027, 268
+  size: 75, 96
+  orig: 75, 96
+  offset: 0, 0
+  index: -1
+walk016
+  rotate: false
+  xy: 78, 11
+  size: 75, 96
+  orig: 75, 96
+  offset: 0, 0
+  index: -1
+walk018
+  rotate: false
+  xy: 1158, 919
   size: 75, 96
   orig: 75, 96
   offset: 0, 0
   index: -1
 walk020
   rotate: false
-  xy: 1104, 764
+  xy: 1235, 919
   size: 75, 96
   orig: 75, 96
   offset: 0, 0
   index: -1
 jump
   rotate: false
-  xy: 1104, 668
+  xy: 1312, 921
   size: 68, 94
   orig: 68, 94
   offset: 0, 0
   index: -1
 front
   rotate: false
-  xy: 1104, 574
+  xy: 1382, 923
   size: 66, 92
   orig: 66, 92
   offset: 0, 0
   index: -1
 slide
   rotate: false
-  xy: 1104, 480
+  xy: 1450, 923
   size: 66, 92
   orig: 66, 92
   offset: 0, 0
   index: -1
-block
-  rotate: false
-  xy: 1104, 408
-  size: 70, 70
-  orig: 70, 70
-  offset: 0, 0
-  index: -1
-crate
-  rotate: false
-  xy: 1104, 336
-  size: 70, 70
-  orig: 70, 70
-  offset: 0, 0
-  index: -1
 ground
   rotate: false
-  xy: 131, 110
-  size: 70, 70
-  orig: 70, 70
-  offset: 0, 0
-  index: -1
-ground_cave
-  rotate: false
-  xy: 203, 110
+  xy: 1518, 945
   size: 70, 70
   orig: 70, 70
   offset: 0, 0
   index: -1
 ground_dirty
   rotate: false
-  xy: 275, 110
+  xy: 1590, 945
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+ground_cave
+  rotate: false
+  xy: 1662, 945
   size: 70, 70
   orig: 70, 70
   offset: 0, 0
   index: -1
 ground_rock
   rotate: false
-  xy: 347, 110
+  xy: 1734, 945
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+block
+  rotate: false
+  xy: 1806, 945
   size: 70, 70
   orig: 70, 70
   offset: 0, 0
   index: -1
 ground_sand
   rotate: false
-  xy: 587, 184
+  xy: 1878, 945
   size: 70, 70
   orig: 70, 70
   offset: 0, 0
   index: -1
 lava
   rotate: false
-  xy: 1158, 978
+  xy: 587, 201
   size: 70, 45
   orig: 70, 45
   offset: 0, 0
   index: -1
 water
   rotate: false
-  xy: 1104, 289
+  xy: 131, 127
   size: 70, 45
   orig: 70, 45
   offset: 0, 0
   index: -1
 rock
   rotate: false
-  xy: 659, 213
+  xy: 1950, 974
   size: 70, 41
   orig: 70, 41
   offset: 0, 0
   index: -1
 spikes
   rotate: false
-  xy: 1230, 988
+  xy: 659, 211
   size: 70, 35
   orig: 70, 35
   offset: 0, 0
   index: -1
-fly_dead
+fly_normal
   rotate: false
-  xy: 731, 222
+  xy: 203, 140
   size: 69, 32
   orig: 69, 32
   offset: 0, 0
   index: -1
-fly_normal
+fly_dead
   rotate: false
-  xy: 1302, 991
+  xy: 731, 214
   size: 69, 32
   orig: 69, 32
   offset: 0, 0
   index: -1
 fly_fly
   rotate: false
-  xy: 802, 223
+  xy: 274, 141
   size: 69, 31
   orig: 69, 31
   offset: 0, 0
   index: -1
 bush
   rotate: false
-  xy: 659, 185
+  xy: 1950, 946
   size: 70, 26
   orig: 70, 26
   offset: 0, 0
   index: -1
 bridge
   rotate: false
-  xy: 1373, 999
+  xy: 802, 222
   size: 71, 24
   orig: 71, 24
   offset: 0, 0
   index: -1
 plank
   rotate: false
-  xy: 873, 233
+  xy: 345, 151
   size: 72, 21
   orig: 72, 21
   offset: 0, 0
   index: -1
 alien_plant
   rotate: false
-  xy: 731, 192
+  xy: 875, 218
   size: 54, 28
   orig: 54, 28
   offset: 0, 0
   index: -1
+slime_normal
+  rotate: false
+  xy: 931, 218
+  size: 43, 28
+  orig: 43, 28
+  offset: 0, 0
+  index: -1
 grass
   rotate: false
-  xy: 78, 75
+  xy: 976, 206
   size: 35, 40
   orig: 35, 40
   offset: 0, 0
   index: -1
-coin_bronze
+slime_dead
   rotate: false
-  xy: 419, 145
-  size: 35, 35
-  orig: 35, 35
+  xy: 1, 1
+  size: 54, 8
+  orig: 54, 8
   offset: 0, 0
   index: -1
-coin_gold
+coin_bronze
   rotate: false
-  xy: 78, 38
+  xy: 419, 137
   size: 35, 35
   orig: 35, 35
   offset: 0, 0
   index: -1
 coin_silver
   rotate: false
-  xy: 78, 1
+  xy: 1518, 908
   size: 35, 35
   orig: 35, 35
   offset: 0, 0
   index: -1
-slime_normal
+coin_gold
   rotate: false
-  xy: 1446, 995
-  size: 43, 28
-  orig: 43, 28
-  offset: 0, 0
-  index: -1
-slime_dead
-  rotate: false
-  xy: 1027, 264
-  size: 54, 8
-  orig: 54, 8
+  xy: 1555, 908
+  size: 35, 35
+  orig: 35, 35
   offset: 0, 0
   index: -1
