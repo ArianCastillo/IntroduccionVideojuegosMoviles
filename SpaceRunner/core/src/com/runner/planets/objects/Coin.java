@@ -3,7 +3,6 @@ package com.runner.planets.objects;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.scenes.scene2d.Actor;
 
 public class Coin extends GameObject {
 	private Rectangle hitBox;
@@ -56,6 +55,19 @@ public class Coin extends GameObject {
 	@Override
 	public int hitAction(int side) {
 		return 3;
+	}
+	
+	public int getPoints(){
+		switch(type){
+		case 0:
+			return 1;
+		case 1:
+			return 3;
+		case 2:
+			return 5;
+		default:
+			return 1;
+		}
 	}
 	
 }

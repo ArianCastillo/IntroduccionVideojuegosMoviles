@@ -69,8 +69,8 @@ ground 3430 0 0
 ground 3500 0 0
 ground 3570 0 0
 ground 3640 0 0
-ground 3710 0 0
-ground 3780 0 0
+dangerGround 3710 0 0
+dangerGround 3780 0 0
 ground 3850 0 0
 ground 3920 0 0
 ground 3990 0 0
@@ -101,3 +101,5 @@ spikes 4200 70
 spikes 4270 70
 coin 630 75 0
 coin 3290 75 2
+plank 350 166
+bandera 4550 70

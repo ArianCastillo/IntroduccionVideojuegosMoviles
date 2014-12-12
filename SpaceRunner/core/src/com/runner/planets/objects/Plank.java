@@ -46,7 +46,7 @@ public class Plank extends GameObject {
 	@Override
 	public int hitAction(int side) {
 		// TODO Auto-generated method stub
-		return 0;
+		return 1;
 	}
 
 }

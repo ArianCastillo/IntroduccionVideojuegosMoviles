@@ -1,19 +1,16 @@
 package com.runner.screens;
 
 import com.runner.RunnerGame;
-import com.runner.game.Planet;
-import com.runner.services.RunnerMusic;
+import com.runner.game.GameState;
 import com.runner.services.RunnerSound;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
-import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.badlogic.gdx.utils.Array;
 
 public class MenuScreen extends AbstractScreen{
 	public MenuScreen(RunnerGame game) {
@@ -31,15 +28,12 @@ public class MenuScreen extends AbstractScreen{
 		
 		Label labelPoints = new Label("Puntos: " + game.getWorld().getGameState().points,getSkin());
 		Label labelLevel = new Label("Nivel: " + game.getWorld().getGameState().level,getSkin());
-		Label labelXP = new Label("Experiencia: " + game.getWorld().getGameState().xp,getSkin());
 
 		table.add(labelPoints).colspan(3);
 		table.row();
 		table.add(labelLevel).colspan(3);
 		table.row();
-		table.add(labelXP).colspan(3);
-		table.row();
-		table.getCell(labelXP).spaceBottom((float) (Gdx.graphics.getHeight()*0.1));
+		table.getCell(labelLevel).spaceBottom((float) (Gdx.graphics.getHeight()*0.1));
 		
 		TextButton planetsGameButton = new TextButton("Planetas", getSkin());
 		planetsGameButton.addListener(new ClickListener(){
@@ -61,6 +55,8 @@ public class MenuScreen extends AbstractScreen{
 		exitGameButton.addListener(new ClickListener(){
 			public void clicked(InputEvent event, float x, float y){
 				game.getSoundManager().play(RunnerSound.CLICK);
+				GameState gameState = game.getWorld().getGameState();
+				game.getProfileManager().persist(gameState);
 				Gdx.app.exit();
 			}
 		});

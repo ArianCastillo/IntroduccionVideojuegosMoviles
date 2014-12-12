@@ -1,7 +1,6 @@
 package com.runner.screens;
 
 import com.runner.RunnerGame;
-import com.runner.services.RunnerMusic;
 import com.runner.services.RunnerSound;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.Actor;

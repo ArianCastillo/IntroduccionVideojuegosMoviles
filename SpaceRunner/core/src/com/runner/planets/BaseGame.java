@@ -1,6 +1,6 @@
 package com.runner.planets;
 
-import java.util.Random;
+import java.util.StringTokenizer;
 
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -15,7 +15,7 @@ public abstract class BaseGame {
 	protected SpriteBatch batch;
 	protected BitmapFont font;
 	protected BaseGameListener listener;
-	protected Random random;
+	protected StringTokenizer tokens;
 	
 	protected boolean started;
 	protected int pass;
@@ -25,7 +25,6 @@ public abstract class BaseGame {
 		camera.setToOrtho(false, AbstractScreen.VIEWPORT_WIDTH, AbstractScreen.VIEWPORT_HEIGHT);
 		batch = new SpriteBatch();
 		started = false;
-		random = new Random();
 	}
 	
 	public void setBaseGameListener(BaseGameListener listener){
@@ -37,6 +36,10 @@ public abstract class BaseGame {
 		batch = new SpriteBatch();
 		batch.setProjectionMatrix(camera.combined);
 		font = manager.get("fonts/default-32.fnt",BitmapFont.class);
+	}
+	
+	public void setTokens(StringTokenizer tokens){
+		this.tokens = tokens;
 	}
 	
 	public void pause(){

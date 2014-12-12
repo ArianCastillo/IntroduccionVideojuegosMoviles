@@ -1,2 +1,2 @@
 eclipse.preferences.version=1
-task-tag-projects-already-scanned=TestAndroid,Runner,RunnerGDX,RunnerGDX-android,RunnerGDX-core,RunnerGDX-desktop,RunnerGDX-html,RunnerGDX-ios,Matyas-android,Matyas-core,Matyas-desktop,Matyas-html,Matyas-ios,Project
+task-tag-projects-already-scanned=TestAndroid,Runner,Matyas-android,Matyas-core,Matyas-desktop,Matyas-html,Matyas-ios,Project,SpaceRunner,SpaceRunner-android,SpaceRunner-core,SpaceRunner-desktop,SpaceRunner-html

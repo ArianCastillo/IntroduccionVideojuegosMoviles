@@ -16,7 +16,6 @@ public class AbstractScreen implements Screen{
 	protected final RunnerGame game;
 	protected final Stage stage;
 	private Skin skin;
-	private TextureAtlas atlas;
 	private Table table;
 	
 	public AbstractScreen(RunnerGame game){

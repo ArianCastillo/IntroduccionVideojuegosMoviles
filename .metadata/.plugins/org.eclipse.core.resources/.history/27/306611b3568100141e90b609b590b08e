@@ -1,0 +1,7 @@
+package com.runner.planets;
+
+public interface BaseGameListener {
+	int getPts();
+	int getLvl();
+	int getXp();
+}

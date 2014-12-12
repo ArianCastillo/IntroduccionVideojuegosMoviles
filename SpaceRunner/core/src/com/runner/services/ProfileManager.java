@@ -43,7 +43,7 @@ public class ProfileManager {
 		
 	}
 	
-	private void persist(GameState gs){
+	public void persist(GameState gs){
 		Json json = new Json();
 		FileHandle dataFile = Gdx.files.local(DATA_FILE);
 		Gdx.app.log(RunnerGame.LOG, "Guardando datos de configuracion de: " + dataFile.path());

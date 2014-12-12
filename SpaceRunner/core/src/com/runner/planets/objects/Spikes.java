@@ -45,7 +45,7 @@ public class Spikes extends GameObject{
 
 	@Override
 	public int hitAction(int side) {
-		if(side == 1) return 2;
-		return 1;
+		//if(side == 1) return 2;
+		return 2;
 	}
 }

@@ -12,7 +12,7 @@ public class DangerGround extends GameObject{
 		this.setX(x);
 		this.setY(y);
 		this.type = type;
-		hitBox = new Rectangle (x, y, 70, 70);
+		hitBox = new Rectangle (x, y, 70, 45);
 	}
 	
 	@Override
