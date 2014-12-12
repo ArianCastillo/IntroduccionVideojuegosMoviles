@@ -22,14 +22,14 @@ public class DeadWorldScreen extends AbstractScreen{
 		
 		Table table = super.getTable();
 		table.clear();
-		Image image = new Image(game.getAssetManager().get("game.atlas", TextureAtlas.class).findRegion("Menu"));
+		Image image = new Image(game.getAssetManager().get("game.atlas", TextureAtlas.class).findRegion("Space"));
 		table.setBackground(image.getDrawable());
 		
 		TextButton returnButton = new TextButton("Planetas", getSkin());
 		returnButton.addListener(new ClickListener(){
 			public void clicked(InputEvent event, float x, float y){
 				game.getSoundManager().play(RunnerSound.CLICK);
-				game.setScreen(new MenuScreen(game));
+				game.setScreen(new PlanetsScreen(game));
 			}
 		});
 		TextButton againButton = new TextButton("Otra vez", getSkin());

@@ -1,8 +1,9 @@
 package com.runner.planets;
 
 public interface BaseGameListener {
-	int getPts();
 	void setPts(int pts);
 	void setNvl();
 	void playSoundCoin();
+	void playSoundHit();
+	
 }

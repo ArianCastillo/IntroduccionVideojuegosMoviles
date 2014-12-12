@@ -3,311 +3,337 @@ game.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-Menu
+SpacePlanet
   rotate: false
-  xy: 1, 253
+  xy: 1, 1280
+  size: 1024, 767
+  orig: 1024, 767
+  offset: 0, 0
+  index: -1
+Space
+  rotate: false
+  xy: 1, 511
   size: 1024, 767
   orig: 1024, 767
   offset: 0, 0
   index: -1
 felicidades
   rotate: false
-  xy: 1, 181
+  xy: 1027, 1977
   size: 850, 70
   orig: 850, 70
   offset: 0, 0
   index: -1
 gameover
   rotate: false
-  xy: 1027, 950
+  xy: 1, 439
   size: 850, 70
   orig: 850, 70
   offset: 0, 0
   index: -1
 Logo
   rotate: false
-  xy: 1, 109
+  xy: 1027, 1905
   size: 850, 70
   orig: 850, 70
   offset: 0, 0
   index: -1
+jupiter
+  rotate: false
+  xy: 1, 279
+  size: 158, 158
+  orig: 158, 158
+  offset: 0, 0
+  index: -1
+saturno
+  rotate: false
+  xy: 1879, 1930
+  size: 160, 117
+  orig: 160, 117
+  offset: 0, 0
+  index: -1
 bandera
   rotate: false
-  xy: 1027, 798
+  xy: 1027, 1753
   size: 80, 150
   orig: 80, 150
   offset: 0, 0
   index: -1
-cloud
-  rotate: false
-  xy: 853, 188
-  size: 129, 63
-  orig: 129, 63
-  offset: 0, 0
-  index: 1
-cloud
-  rotate: false
-  xy: 1879, 957
-  size: 128, 63
-  orig: 128, 63
-  offset: 0, 0
-  index: 2
-cloud
-  rotate: false
-  xy: 1, 44
-  size: 128, 63
-  orig: 128, 63
-  offset: 0, 0
-  index: 3
 walk010
   rotate: false
-  xy: 1027, 700
+  xy: 1, 181
   size: 75, 96
   orig: 75, 96
   offset: 0, 0
   index: -1
 walk014
   rotate: false
-  xy: 1109, 852
+  xy: 161, 341
   size: 75, 96
   orig: 75, 96
   offset: 0, 0
   index: -1
 walk015
   rotate: false
-  xy: 1027, 602
+  xy: 1027, 1655
   size: 75, 96
   orig: 75, 96
   offset: 0, 0
   index: -1
 walk017
   rotate: false
-  xy: 1186, 852
+  xy: 1109, 1807
   size: 75, 96
   orig: 75, 96
   offset: 0, 0
   index: -1
 walk019
   rotate: false
-  xy: 1027, 504
+  xy: 1, 83
   size: 75, 96
   orig: 75, 96
   offset: 0, 0
   index: -1
 walk012
   rotate: false
-  xy: 1263, 852
+  xy: 78, 181
   size: 75, 96
   orig: 75, 96
   offset: 0, 0
   index: -1
 walk013
   rotate: false
-  xy: 1027, 406
+  xy: 238, 341
   size: 75, 96
   orig: 75, 96
   offset: 0, 0
   index: -1
 walk016
   rotate: false
-  xy: 1340, 852
+  xy: 1027, 1557
   size: 75, 96
   orig: 75, 96
   offset: 0, 0
   index: -1
 walk018
   rotate: false
-  xy: 1027, 308
+  xy: 1186, 1807
   size: 75, 96
   orig: 75, 96
   offset: 0, 0
   index: -1
 walk020
   rotate: false
-  xy: 1417, 852
+  xy: 78, 83
   size: 75, 96
   orig: 75, 96
   offset: 0, 0
   index: -1
 jump
   rotate: false
-  xy: 1494, 854
+  xy: 315, 343
   size: 68, 94
   orig: 68, 94
   offset: 0, 0
   index: -1
 front
   rotate: false
-  xy: 1564, 856
+  xy: 1027, 1463
   size: 66, 92
   orig: 66, 92
   offset: 0, 0
   index: -1
 slide
   rotate: false
-  xy: 1632, 856
+  xy: 1263, 1811
   size: 66, 92
   orig: 66, 92
   offset: 0, 0
   index: -1
+front_over
+  rotate: false
+  xy: 385, 345
+  size: 66, 92
+  orig: 66, 92
+  offset: 0, 0
+  index: -1
+heart
+  rotate: false
+  xy: 853, 439
+  size: 75, 70
+  orig: 75, 70
+  offset: 0, 0
+  index: -1
 ground
   rotate: false
-  xy: 853, 116
+  xy: 1, 11
   size: 70, 70
   orig: 70, 70
   offset: 0, 0
   index: -1
 ground_dirty
   rotate: false
-  xy: 1700, 878
+  xy: 1331, 1833
   size: 70, 70
   orig: 70, 70
   offset: 0, 0
   index: -1
 ground_cave
   rotate: false
-  xy: 1772, 878
+  xy: 453, 367
   size: 70, 70
   orig: 70, 70
   offset: 0, 0
   index: -1
 ground_rock
   rotate: false
-  xy: 131, 37
+  xy: 930, 439
   size: 70, 70
   orig: 70, 70
   offset: 0, 0
   index: -1
 block
   rotate: false
-  xy: 203, 37
+  xy: 73, 11
   size: 70, 70
   orig: 70, 70
   offset: 0, 0
   index: -1
 ground_sand
   rotate: false
-  xy: 275, 37
+  xy: 1403, 1833
   size: 70, 70
   orig: 70, 70
   offset: 0, 0
   index: -1
+marte
+  rotate: false
+  xy: 1027, 1396
+  size: 66, 65
+  orig: 66, 65
+  offset: 0, 0
+  index: -1
+slime_dead
+  rotate: false
+  xy: 1, 1
+  size: 54, 8
+  orig: 54, 8
+  offset: 0, 0
+  index: -1
 lava
   rotate: false
-  xy: 1109, 805
+  xy: 161, 294
   size: 70, 45
   orig: 70, 45
   offset: 0, 0
   index: -1
 water
   rotate: false
-  xy: 1027, 261
+  xy: 1109, 1760
   size: 70, 45
   orig: 70, 45
   offset: 0, 0
   index: -1
 rock
   rotate: false
-  xy: 1, 1
+  xy: 525, 396
   size: 70, 41
   orig: 70, 41
   offset: 0, 0
   index: -1
 spikes
   rotate: false
-  xy: 347, 72
+  xy: 1475, 1868
   size: 70, 35
   orig: 70, 35
   offset: 0, 0
   index: -1
-fly_normal
+tierra
   rotate: false
-  xy: 1181, 818
-  size: 69, 32
-  orig: 69, 32
+  xy: 1027, 1343
+  size: 52, 51
+  orig: 52, 51
   offset: 0, 0
   index: -1
-fly_dead
+fly_normal
   rotate: false
-  xy: 347, 38
+  xy: 233, 307
   size: 69, 32
   orig: 69, 32
   offset: 0, 0
   index: -1
 fly_fly
   rotate: false
-  xy: 419, 76
+  xy: 1181, 1774
   size: 69, 31
   orig: 69, 31
   offset: 0, 0
   index: -1
 bush
   rotate: false
-  xy: 1252, 824
+  xy: 525, 368
   size: 70, 26
   orig: 70, 26
   offset: 0, 0
   index: -1
-bridge
-  rotate: false
-  xy: 490, 83
-  size: 71, 24
-  orig: 71, 24
-  offset: 0, 0
-  index: -1
 plank
   rotate: false
-  xy: 1324, 829
+  xy: 1879, 1907
   size: 72, 21
   orig: 72, 21
   offset: 0, 0
   index: -1
 alien_plant
   rotate: false
-  xy: 925, 158
+  xy: 597, 409
   size: 54, 28
   orig: 54, 28
   offset: 0, 0
   index: -1
 grass
   rotate: false
-  xy: 984, 211
+  xy: 1027, 1301
   size: 35, 40
   orig: 35, 40
   offset: 0, 0
   index: -1
 slime_normal
   rotate: false
-  xy: 73, 14
+  xy: 1475, 1838
   size: 43, 28
   orig: 43, 28
   offset: 0, 0
   index: -1
 coin_bronze
   rotate: false
-  xy: 2009, 985
+  xy: 1547, 1868
   size: 35, 35
   orig: 35, 35
   offset: 0, 0
   index: -1
 coin_silver
   rotate: false
-  xy: 925, 121
+  xy: 597, 372
   size: 35, 35
   orig: 35, 35
   offset: 0, 0
   index: -1
 coin_gold
   rotate: false
-  xy: 1844, 913
+  xy: 1027, 1264
   size: 35, 35
   orig: 35, 35
   offset: 0, 0
   index: -1
-slime_dead
+
+game2.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Menu
   rotate: false
-  xy: 1700, 868
-  size: 54, 8
-  orig: 54, 8
+  xy: 1, 1
+  size: 1024, 767
+  orig: 1024, 767
   offset: 0, 0
   index: -1

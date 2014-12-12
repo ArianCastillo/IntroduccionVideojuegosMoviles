@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.apr.matyas.services.PreferencesManager"/>
-<fullyQualifiedTypeName name="com.apr.matyas.services.ProfileManager"/>
-<fullyQualifiedTypeName name="com.apr.matyas.services.MusicManager"/>
-<fullyQualifiedTypeName name="com.apr.matyas.services.SoundManager"/>
 <fullyQualifiedTypeName name="com.apr.matyas.world.World"/>
 <fullyQualifiedTypeName name="com.apr.matyas.world.WorldRender"/>
 <fullyQualifiedTypeName name="framework.Pool"/>
@@ -41,9 +37,7 @@
 <fullyQualifiedTypeName name="com.runner.levels.BaseGameListener"/>
 <fullyQualifiedTypeName name="com.runner.game.Level"/>
 <fullyQualifiedTypeName name="com.runner.levels.BaseGame"/>
-<fullyQualifiedTypeName name="com.runner.services.RunnerMusic"/>
 <fullyQualifiedTypeName name="com.runner.planets.objects.Runner"/>
-<fullyQualifiedTypeName name="com.badlogic.gdx.Gdx"/>
 <fullyQualifiedTypeName name="com.badlogic.gdx.Input"/>
 <fullyQualifiedTypeName name="com.badlogic.gdx.Input.Keys"/>
 <fullyQualifiedTypeName name="com.badlogic.gdx.math.Rectangle"/>
@@ -51,8 +45,6 @@
 <fullyQualifiedTypeName name="com.runner.planets.objects.GameObject"/>
 <fullyQualifiedTypeName name="com.runner.planets.objects.Ground"/>
 <fullyQualifiedTypeName name="com.badlogic.gdx.math.Vector3"/>
-<fullyQualifiedTypeName name="com.badlogic.gdx.graphics.g2d.Sprite"/>
-<fullyQualifiedTypeName name="com.badlogic.gdx.graphics.Texture"/>
 <fullyQualifiedTypeName name="java.util.logging.FileHandler"/>
 <fullyQualifiedTypeName name="com.runner.planets.objects.DangerGround"/>
 <fullyQualifiedTypeName name="com.runner.planets.objects.Coin"/>
@@ -60,4 +52,12 @@
 <fullyQualifiedTypeName name="java.util.StringTokenizer"/>
 <fullyQualifiedTypeName name="com.runner.planets.objects.Notification"/>
 <fullyQualifiedTypeName name="com.runner.RunnerGame"/>
+<fullyQualifiedTypeName name="com.runner.services.RunnerMusic"/>
+<fullyQualifiedTypeName name="com.runner.screens.objects.Tierra"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.graphics.Texture"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.graphics.g2d.Sprite"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.Gdx"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.graphics.g2d.SpriteBatch"/>
+<fullyQualifiedTypeName name="com.runner.planets.objects.Plant"/>
+<fullyQualifiedTypeName name="com.runner.planets.objects.Heart"/>
 </qualifiedTypeNameHistroy>

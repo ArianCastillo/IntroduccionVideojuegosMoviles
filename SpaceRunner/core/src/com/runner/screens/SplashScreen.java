@@ -23,6 +23,7 @@ public class SplashScreen extends AbstractScreen{
 	@Override
 	public void show(){
 		super.show();
+		
 		Table table = super.getTable();
 		
 		Texture back = new Texture("background.png");

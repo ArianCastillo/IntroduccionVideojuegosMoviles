@@ -1,6 +1,7 @@
 package com.runner.screens;
 
 import com.runner.RunnerGame;
+import com.runner.services.RunnerMusic;
 import com.runner.services.RunnerSound;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.Actor;
@@ -23,7 +24,7 @@ public class OptionScreen extends AbstractScreen{
 		super.show();
 		Table table = super.getTable();
 		table.clear();
-		Image image = new Image(game.getAssetManager().get("game.atlas", TextureAtlas.class).findRegion("Menu"));
+		Image image = new Image(game.getAssetManager().get("game.atlas", TextureAtlas.class).findRegion("SpacePlanet"));
 		table.setBackground(image.getDrawable());
 		
 		Label label = new Label("Opciones",getSkin());
@@ -51,6 +52,7 @@ public class OptionScreen extends AbstractScreen{
 				boolean enabled = musicCheckBox.isChecked();
 				game.getPreferencesManager().setMusicEnabled(enabled);
 				game.getMusicManager().setEnabled(enabled);
+				game.getMusicManager().play(RunnerMusic.MENU_MUSIC);
 			}
 		});
 		table.row();

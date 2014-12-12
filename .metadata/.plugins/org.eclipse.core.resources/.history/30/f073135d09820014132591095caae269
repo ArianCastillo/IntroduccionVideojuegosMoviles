@@ -1,0 +1,11 @@
+package com.runner.planets;
+
+public interface BaseGameListener {
+	int getPts();
+	void setPts(int pts);
+	void setTempPtsLives(int pts, int lives);
+	void setNvl();
+	void playSoundCoin();
+	void playSoundHit();
+	
+}

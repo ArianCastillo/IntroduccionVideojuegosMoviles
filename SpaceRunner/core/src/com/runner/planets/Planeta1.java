@@ -14,13 +14,14 @@ import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.runner.RunnerGame;
-import com.runner.planets.objects.Bandera;
+import com.runner.planets.objects.Flag;
 import com.runner.planets.objects.Coin;
 import com.runner.planets.objects.DangerGround;
 import com.runner.planets.objects.GameObject;
 import com.runner.planets.objects.Ground;
-import com.runner.planets.objects.Notification;
+import com.runner.planets.objects.Heart;
 import com.runner.planets.objects.Plank;
+import com.runner.planets.objects.Plant;
 import com.runner.planets.objects.Runner;
 import com.runner.planets.objects.Spikes;
 import com.runner.screens.AbstractScreen;
@@ -31,6 +32,7 @@ import com.runner.services.RunnerSound;
 public class Planeta1 extends BaseGame{
 //Planeta Tierra
 	private Runner runner;
+	//private Heart heart;
 	private ArrayList<GameObject> list = new ArrayList<GameObject>();
 	private ArrayList<GameObject> pleaseDelete = new ArrayList<GameObject>();
 	private int pts;
@@ -41,6 +43,7 @@ public class Planeta1 extends BaseGame{
 	public Planeta1() {
 		super();
 		runner = new Runner(0,70);
+		//heart = new Heart(0, AbstractScreen.VIEWPORT_HEIGHT - 75);
 		
 		pts = 0;
 		vidas = 3;
@@ -73,7 +76,7 @@ public class Planeta1 extends BaseGame{
 		batch.setProjectionMatrix(camera.combined);
 		batch.begin();
 		runner.draw(batch, atlas);
-		Gdx.app.log(RunnerGame.LOG, "Dibujando mapa");
+		//heart.draw(batch, atlas);
 		for(GameObject t : list){
 			t.draw(batch, atlas);
 		}
@@ -117,8 +120,12 @@ public class Planeta1 extends BaseGame{
 			}else if(type.equals("plank")){
 				list.add(new Plank(Integer.parseInt(tokens.nextToken()), 
 						Integer.parseInt(tokens.nextToken())));
-			}else if(type.equals("bandera")){
-				list.add(new Bandera(Integer.parseInt(tokens.nextToken()), 
+			}else if(type.equals("plant")){
+				list.add(new Plant(Integer.parseInt(tokens.nextToken()), 
+						Integer.parseInt(tokens.nextToken()), 
+						Integer.parseInt(tokens.nextToken())));
+			}else if(type.equals("flag")){
+				list.add(new Flag(Integer.parseInt(tokens.nextToken()), 
 						Integer.parseInt(tokens.nextToken())));
 			}
 		}
@@ -132,7 +139,9 @@ public class Planeta1 extends BaseGame{
 					runner.action(1, 0, t.getHitBox().y + t.getHitBox().height);
 					break;
 				case 2:
+					listener.playSoundHit();
 					vidas--;
+					//heart.setLives(vidas);
 					if(vidas==0)
 						this.gameS = 3;
 					runner.reastart(0, 100);
@@ -152,7 +161,9 @@ public class Planeta1 extends BaseGame{
 					runner.action(2, t.getHitBox().x + t.getHitBox().width + 1, 0);
 					break;
 				case 2:
+					listener.playSoundHit();
 					vidas--;
+					//heart.setLives(vidas);
 					if(vidas==0)
 						this.gameS = 3;
 					runner.reastart(0, 100);
@@ -172,7 +183,9 @@ public class Planeta1 extends BaseGame{
 					runner.action(3, t.getHitBox().x - runner.getHitBox().width - 1, 0);
 					break;
 				case 2:
+					listener.playSoundHit();
 					vidas--;
+					//heart.setLives(vidas);
 					if(vidas==0)
 						this.gameS = 3;
 					runner.reastart(0, 100);
@@ -192,7 +205,9 @@ public class Planeta1 extends BaseGame{
 					runner.action(4, 0, t.getHitBox().y - runner.getHitBox().height);
 					break;
 				case 2:
+					listener.playSoundHit();
 					vidas--;
+					//heart.setLives(vidas);
 					if(vidas==0)
 						this.gameS = 3;
 					runner.reastart(0, 100);
@@ -224,7 +239,6 @@ public class Planeta1 extends BaseGame{
  	private void controles(){
 		runner.moveRight(Gdx.graphics.getDeltaTime());
 		if (Gdx.input.isKeyPressed(Input.Keys.SPACE) || Gdx.input.isTouched()) {
-			Gdx.app.log(RunnerGame.LOG, "Tecla espacio presionada");
 			runner.jump();
 		}
 	}

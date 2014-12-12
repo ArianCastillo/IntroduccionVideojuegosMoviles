@@ -2,6 +2,7 @@ package com.runner.screens;
 
 import com.runner.RunnerGame;
 import com.runner.game.GameState;
+import com.runner.services.RunnerMusic;
 import com.runner.services.RunnerSound;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -13,6 +14,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 public class MenuScreen extends AbstractScreen{
+	
 	public MenuScreen(RunnerGame game) {
 		super(game);
 	}
@@ -20,10 +22,12 @@ public class MenuScreen extends AbstractScreen{
 	@Override
 	public void show(){
 		super.show();
-		//game.getMusicManager().play(RunnerMusic.MENU_MUSIC);
+		
+		game.getMusicManager().play(RunnerMusic.TITLE_MUSIC);
+		
 		Table table = super.getTable();
 		table.clear();
-		Image image = new Image(game.getAssetManager().get("game.atlas", TextureAtlas.class).findRegion("Menu"));
+		Image image = new Image(game.getAssetManager().get("game.atlas", TextureAtlas.class).findRegion("SpacePlanet"));
 		table.setBackground(image.getDrawable());
 		
 		Label labelPoints = new Label("Puntos: " + game.getWorld().getGameState().points,getSkin());

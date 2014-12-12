@@ -1,0 +1,235 @@
+package com.runner.planets;
+
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
+import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.scenes.scene2d.Action;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.runner.RunnerGame;
+import com.runner.planets.objects.Bandera;
+import com.runner.planets.objects.Coin;
+import com.runner.planets.objects.DangerGround;
+import com.runner.planets.objects.GameObject;
+import com.runner.planets.objects.Ground;
+import com.runner.planets.objects.Notification;
+import com.runner.planets.objects.Plank;
+import com.runner.planets.objects.Runner;
+import com.runner.planets.objects.Spikes;
+import com.runner.screens.AbstractScreen;
+import com.runner.screens.MenuScreen;
+import com.runner.screens.PlanetsScreen;
+import com.runner.services.RunnerSound;
+
+public class Planeta1 extends BaseGame{
+//Planeta Tierra
+	private Runner runner;
+	private ArrayList<GameObject> list = new ArrayList<GameObject>();
+	private ArrayList<GameObject> pleaseDelete = new ArrayList<GameObject>();
+	private int pts;
+	private int vidas;
+	private boolean isGameFinished;
+	private int gameS = 1; //1 = Main Game, 2 = Game Finished Screen, 3 = Game Over Screen
+	
+	public Planeta1() {
+		super();
+		runner = new Runner(0,70);
+		
+		pts = 0;
+		vidas = 3;
+		isGameFinished = false;
+		
+		FileHandle file = Gdx.files.internal("data/planeta1");
+		StringTokenizer tokens = new StringTokenizer(file.readString());
+		getMap(tokens);
+	}
+	
+	@Override
+	public void update(float delta) {}
+
+	@Override
+	public void render() {
+		switch(this.gameS){
+		case 1:
+			this.mainGame();
+			break;
+		case 2:
+			this.listener.setPts(pts);
+			this.pause();
+			break;
+		case 3: 
+			this.gameOver();
+			break;
+		}
+	}
+	private void mainGame(){
+		batch.setProjectionMatrix(camera.combined);
+		batch.begin();
+		runner.draw(batch, atlas);
+		Gdx.app.log(RunnerGame.LOG, "Dibujando mapa");
+		for(GameObject t : list){
+			t.draw(batch, atlas);
+		}
+		batch.end();
+		
+		runner.update(Gdx.graphics.getDeltaTime());
+		Rectangle temp = new Rectangle(0,0,AbstractScreen.VIEWPORT_WIDTH,70);
+		if (runner.hits(temp) != -1) {
+			runner.action(1, 0, 70);
+		}
+		
+		touchSomething();
+		coinCollected();
+		
+		if(isGameFinished){
+			this.gameS = 2;
+		}
+		
+		
+		updateCamera();
+		controles();
+	}
+	private void getMap(StringTokenizer tokens){
+		while(tokens.hasMoreTokens()){
+			String type = tokens.nextToken();
+			if(type.equals("ground")){
+				list.add(new Ground(Integer.parseInt(tokens.nextToken()), 
+						Integer.parseInt(tokens.nextToken()), 
+						Integer.parseInt(tokens.nextToken())));
+			}else if(type.equals("spikes")){
+				list.add(new Spikes(Integer.parseInt(tokens.nextToken()), 
+						Integer.parseInt(tokens.nextToken())));
+			}else if(type.equals("dangerGround")){
+				list.add(new DangerGround(Integer.parseInt(tokens.nextToken()), 
+						Integer.parseInt(tokens.nextToken()), 
+						Integer.parseInt(tokens.nextToken())));
+			}else if(type.equals("coin")){
+				list.add(new Coin(Integer.parseInt(tokens.nextToken()), 
+						Integer.parseInt(tokens.nextToken()), 
+						Integer.parseInt(tokens.nextToken())));
+			}else if(type.equals("plank")){
+				list.add(new Plank(Integer.parseInt(tokens.nextToken()), 
+						Integer.parseInt(tokens.nextToken())));
+			}else if(type.equals("bandera")){
+				list.add(new Bandera(Integer.parseInt(tokens.nextToken()), 
+						Integer.parseInt(tokens.nextToken())));
+			}
+		}
+	}
+	private void touchSomething(){
+		for(GameObject t : list){
+			switch(runner.hits(t.getHitBox())){
+			case 1:
+				switch(t.hitAction(1)){
+				case 1:
+					runner.action(1, 0, t.getHitBox().y + t.getHitBox().height);
+					break;
+				case 2:
+					listener.playSoundHit();
+					vidas--;
+					if(vidas==0)
+						this.gameS = 3;
+					runner.reastart(0, 100);
+					break;
+				case 3:
+					listener.playSoundCoin();
+					pleaseDelete.add(t);
+					break;
+				case 4:
+					isGameFinished = true;
+					break;
+				}
+				break;
+			case 2:
+				switch(t.hitAction(2)){
+				case 1:
+					runner.action(2, t.getHitBox().x + t.getHitBox().width + 1, 0);
+					break;
+				case 2:
+					listener.playSoundHit();
+					vidas--;
+					if(vidas==0)
+						this.gameS = 3;
+					runner.reastart(0, 100);
+					break;
+				case 3:
+					listener.playSoundCoin();
+					pleaseDelete.add(t);
+					break;
+				case 4:
+					isGameFinished = true;
+					break;
+				}
+				break;
+			case 3:
+				switch(t.hitAction(3)){
+				case 1:
+					runner.action(3, t.getHitBox().x - runner.getHitBox().width - 1, 0);
+					break;
+				case 2:
+					listener.playSoundHit();
+					vidas--;
+					if(vidas==0)
+						this.gameS = 3;
+					runner.reastart(0, 100);
+					break;
+				case 3:
+					listener.playSoundCoin();
+					pleaseDelete.add(t);
+					break;
+				case 4:
+					isGameFinished = true;
+					break;
+				}
+				break;
+			case 4:
+				switch(t.hitAction(4)){
+				case 1:
+					runner.action(4, 0, t.getHitBox().y - runner.getHitBox().height);
+					break;
+				case 2:
+					listener.playSoundHit();
+					vidas--;
+					if(vidas==0)
+						this.gameS = 3;
+					runner.reastart(0, 100);
+					break;
+				case 3:
+					listener.playSoundCoin();
+					pleaseDelete.add(t);
+					break;
+				case 4:
+					isGameFinished = true;
+					break;
+				}
+				break;
+			}
+		}
+	}
+	private void updateCamera(){
+		camera.position.x = runner.getHitBox().x;
+		camera.update();
+	}
+	private void coinCollected(){
+		while(!pleaseDelete.isEmpty()){
+			list.remove(pleaseDelete.get(0));
+			Coin coin = (Coin) pleaseDelete.get(0);
+			pleaseDelete.remove(0);
+			pts += coin.getPoints();
+		}
+	}
+ 	private void controles(){
+		runner.moveRight(Gdx.graphics.getDeltaTime());
+		if (Gdx.input.isKeyPressed(Input.Keys.SPACE) || Gdx.input.isTouched()) {
+			Gdx.app.log(RunnerGame.LOG, "Tecla espacio presionada");
+			runner.jump();
+		}
+	}
+}

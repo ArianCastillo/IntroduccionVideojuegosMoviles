@@ -8,7 +8,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.math.Rectangle;
 import com.runner.RunnerGame;
-import com.runner.planets.objects.Bandera;
+import com.runner.planets.objects.Flag;
 import com.runner.planets.objects.Coin;
 import com.runner.planets.objects.DangerGround;
 import com.runner.planets.objects.GameObject;
@@ -108,7 +108,7 @@ public class Planeta4 extends BaseGame{
 				list.add(new Plank(Integer.parseInt(tokens.nextToken()), 
 						Integer.parseInt(tokens.nextToken())));
 			}else if(type.equals("bandera")){
-				list.add(new Bandera(Integer.parseInt(tokens.nextToken()), 
+				list.add(new Flag(Integer.parseInt(tokens.nextToken()), 
 						Integer.parseInt(tokens.nextToken())));
 			}
 		}

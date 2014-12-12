@@ -1,0 +1,17 @@
+package com.runner.screens.objects;
+
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.scenes.scene2d.Actor;
+
+public class Jupiter extends Actor {
+
+	public Jupiter(int x, int y){
+		this.setX(x);
+		this.setY(y);
+	}
+	
+	public void draw(SpriteBatch batch, TextureAtlas atlas) {
+		batch.draw(atlas.findRegion("tierra"),getX(), getY());
+	}
+}

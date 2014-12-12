@@ -16,7 +16,6 @@ public class Runner extends GameObject{
 	public Runner(float x, float y) {
 		this.setX(x);
 		this.setY(y);
-		Gdx.app.log(RunnerGame.LOG, "");
 		full =   new Rectangle(512.0f, 71.0f, 75f, 96f);//Rectangle(512.0f, 71.0f, 75f, 96f)//Rectangle(   x,    y, 75f, 96f)
 		bottom = new Rectangle(512.0f, 71.0f, 75f, 10f);//Rectangle(512.0f, 71.0f, 75f, 12f)//Rectangle(   x,    y, 75f, 10f)
 		left =   new Rectangle(512.0f, 81.0f, 37f, 76f);//Rectangle(512.0f, 83.0f, 37f, 72f)//Rectangle(   x, y+10, 37f, 76f)
@@ -43,7 +42,6 @@ public class Runner extends GameObject{
 		 
 		top.x = this.getX();
 		top.y = this.getY()+84;
-		Gdx.app.log(RunnerGame.LOG, "top: " + top.x + ", " + top.y);
 		
 		if(!isJump) setSprite();
 		batch.draw(atlas.findRegion(image),this.getX(), this.getY());
