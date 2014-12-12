@@ -4,24 +4,22 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.runner.RunnerGame;
 import com.runner.game.GameState;
 import com.runner.game.Planet;
-import com.runner.planets.BaseGame;
-import com.runner.planets.BaseGameListener;
+import com.runner.planets.PlanetListener;
+import com.runner.planets.Planeta;
 import com.runner.services.RunnerSound;
 
-public class GameScreen extends AbstractScreen implements BaseGameListener {
+public class GameScreen extends AbstractScreen implements PlanetListener {
 	private Planet planet;
 	private Texture back;
 	private Table table;
-	private BaseGame baseGame;
+	private Planeta planetLvl;
 	private String background;
 	private int pts;
-	private int lives;
 	
 	public GameScreen(RunnerGame game) {
 		super(game);
@@ -33,21 +31,22 @@ public class GameScreen extends AbstractScreen implements BaseGameListener {
 		planet = game.getWorld().getCurrentPlanet();
 		Gdx.app.log(RunnerGame.LOG, "Entrando a minigame: " + planet.name);
 		
-		try {
-			Class theClass = Class.forName("com.runner.planets." + planet.className);
-			baseGame = (BaseGame)theClass.newInstance();
-			baseGame.setBaseGameListener(this);
-			baseGame.setAssets(game.getAssetManager());
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InstantiationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		String namePlanet = planet.name;
+		String DATA_FILE = "data/Tierra";
+		if(namePlanet.compareTo("Tierra")==0){
+			DATA_FILE = "data/Tierra";
+		}else if(namePlanet.compareTo("Marte")==0){
+			DATA_FILE = "data/Marte";
+		}else if(namePlanet.compareTo("Jupiter")==0){
+			DATA_FILE = "data/Jupiter";
+		}else if(namePlanet.compareTo("Saturno")==0){
+			DATA_FILE = "data/Saturno";
 		}
+		
+		planetLvl = new Planeta();
+		planetLvl.setMap(DATA_FILE);
+		planetLvl.setBaseGameListener(this);
+		planetLvl.setAssets(game.getAssetManager());
 		
 		background = "background.png";
 		if(planet.name.compareTo("Tierra")==0){
@@ -71,13 +70,12 @@ public class GameScreen extends AbstractScreen implements BaseGameListener {
 	
 	@Override
 	public void render(float delta){
-		baseGame.update(delta);
 		super.render(delta);
-		baseGame.render();
-		if(baseGame.isFinish()){
+		planetLvl.render();
+		if(planetLvl.isFinish()){
 			game.setScreen(new FinishWorldScreen(game));
 		}
-		if(baseGame.isOver()){
+		if(planetLvl.isOver()){
 			game.setScreen(new DeadWorldScreen(game));
 		}
 	}
@@ -105,14 +103,17 @@ public class GameScreen extends AbstractScreen implements BaseGameListener {
 
 	@Override
 	public void playSoundCoin() {
-		// TODO Auto-generated method stub
 		game.getSoundManager().play(RunnerSound.COIN);
 	}
 
 	@Override
 	public void playSoundHit() {
-		// TODO Auto-generated method stub
 		game.getSoundManager().play(RunnerSound.HIT);
+	}
+
+	@Override
+	public void playSoundJump() {
+		game.getSoundManager().play(RunnerSound.JUMP);
 	}
 
 }

@@ -1,10 +1,8 @@
 package com.runner.planets.objects;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Rectangle;
-import com.runner.RunnerGame;
 
 public class Runner extends GameObject{
 	private Rectangle bottom, left, right, top, full;

@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
@@ -25,6 +26,9 @@ public class FinishWorldScreen extends AbstractScreen{
 		Image image = new Image(game.getAssetManager().get("game.atlas", TextureAtlas.class).findRegion("SpacePlanet"));
 		table.setBackground(image.getDrawable());
 		
+		Label labelPoints = new Label("Puntos: " + game.getWorld().getGameState().points,getSkin());
+		Label labelLevel = new Label("Nivel: " + game.getWorld().getGameState().level,getSkin());
+		
 		TextButton returnButton = new TextButton("Planetas", getSkin());
 		returnButton.addListener(new ClickListener(){
 			public void clicked(InputEvent event, float x, float y){
@@ -40,13 +44,17 @@ public class FinishWorldScreen extends AbstractScreen{
 			}
 		});
 		Image logo = new Image(game.getAssetManager().get("game.atlas", TextureAtlas.class).findRegion("felicidades"));
-		Image spaceman = new Image(game.getAssetManager().get("game.atlas", TextureAtlas.class).findRegion("felicidades"));
 		table.add(logo);
+		table.row();
+		table.add(labelPoints).colspan(2);
+		table.row();
+		table.add(labelLevel).colspan(2);
 		table.row();
 		table.add(returnButton).colspan(2);
 		table.row();
 		table.add(againButton).colspan(2);
-		table.getCell(logo).spaceBottom((float) (Gdx.graphics.getHeight()*0.1));		
+		table.getCell(logo).spaceBottom((float) (Gdx.graphics.getHeight()*0.1));
+		table.getCell(labelLevel).spaceBottom((float) (Gdx.graphics.getHeight()*0.1));
 		table.getCell(returnButton).spaceBottom((float) (Gdx.graphics.getHeight()*0.1));
 		table.getCell(againButton).spaceBottom((float) (Gdx.graphics.getHeight()*0.1));
 		
