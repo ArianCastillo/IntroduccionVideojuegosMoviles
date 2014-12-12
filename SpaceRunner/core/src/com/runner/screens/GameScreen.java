@@ -12,15 +12,14 @@ import com.runner.game.GameState;
 import com.runner.game.Planet;
 import com.runner.planets.BaseGame;
 import com.runner.planets.BaseGameListener;
+import com.runner.services.RunnerSound;
 
 public class GameScreen extends AbstractScreen implements BaseGameListener {
 	private Planet planet;
 	private BaseGame baseGame;
 	private Label labelPoints;
 	private Label labelLevel;
-	private Label labelXP;
 	private int pts;
-	private int nvl;
 	
 	public GameScreen(RunnerGame game) {
 		super(game);
@@ -69,7 +68,6 @@ public class GameScreen extends AbstractScreen implements BaseGameListener {
 		table.setBackground(new TextureRegionDrawable(new TextureRegion(back,0,0,1024,768)));
 		
 		pts = game.getWorld().getGameState().points;
-		nvl = game.getWorld().getGameState().level;
 		
 		labelPoints = new Label("Pts: " + getPts(),getSkin());
 		labelLevel = new Label("Nvl: " + game.getWorld().getGameState().level,getSkin());
@@ -77,7 +75,6 @@ public class GameScreen extends AbstractScreen implements BaseGameListener {
 		Table topTable = new Table();
 		topTable.add(labelPoints).spaceRight(10);
 		topTable.add(labelLevel).spaceRight(10);
-		topTable.add(labelXP).spaceRight(10);
 		topTable.row();
 		
 		table.add(topTable).expand().top().left();
@@ -89,6 +86,12 @@ public class GameScreen extends AbstractScreen implements BaseGameListener {
 		baseGame.update(delta);
 		super.render(delta);
 		baseGame.render();
+		if(baseGame.isFinish()){
+			game.setScreen(new FinishWorldScreen(game));
+		}
+		if(baseGame.isOver()){
+			game.setScreen(new DeadWorldScreen(game));
+		}
 	}
 
 	@Override
@@ -97,28 +100,29 @@ public class GameScreen extends AbstractScreen implements BaseGameListener {
 	}
 
 	@Override
-	public int getNvl() {
-		return nvl;
-	}
-
-	@Override
 	public void setPts(int pts) {
 		this.pts = pts;
 		GameState gameState = game.getWorld().getGameState();
-		gameState.points = this.pts;
+		gameState.points += this.pts;
 		game.getWorld().setGameState(gameState);
 		game.getProfileManager().persist(gameState);
-		labelPoints = new Label("Pts: " + getPts(),getSkin());
+		setNvl();
 	}
 
 	@Override
-	public void setNvl(int nvl) {
-		this.nvl = nvl;
+	public void setNvl() {
 		GameState gameState = game.getWorld().getGameState();
-		gameState.level = this.nvl;
-		game.getWorld().setGameState(gameState);
-		game.getProfileManager().persist(gameState);
-		labelLevel = new Label("Nvl: " + game.getWorld().getGameState().level,getSkin());
+		if(gameState.points >= 10){
+			gameState.level++;
+			game.getWorld().setGameState(gameState);
+			game.getProfileManager().persist(gameState);
+		}
+	}
+
+	@Override
+	public void playSoundCoin() {
+		// TODO Auto-generated method stub
+		game.getSoundManager().play(RunnerSound.COIN);
 	}
 
 }

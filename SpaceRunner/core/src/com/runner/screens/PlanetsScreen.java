@@ -36,6 +36,7 @@ public class PlanetsScreen extends AbstractScreen{
 			planetButton.addListener(new ClickListener(){
 				public void clicked(InputEvent event, float x, float y){
 					game.getSoundManager().play(RunnerSound.CLICK);
+					
 					game.getWorld().setCurrentPlanet(planet);
 					game.setScreen(new GameScreen(game));
 				}

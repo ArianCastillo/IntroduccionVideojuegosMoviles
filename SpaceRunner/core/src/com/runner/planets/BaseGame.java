@@ -1,7 +1,5 @@
 package com.runner.planets;
 
-import java.util.StringTokenizer;
-
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -15,9 +13,10 @@ public abstract class BaseGame {
 	protected SpriteBatch batch;
 	protected BitmapFont font;
 	protected BaseGameListener listener;
-	protected StringTokenizer tokens;
 	
 	protected boolean started;
+	protected boolean finish;
+	protected boolean over;
 	protected int pass;
 	
 	public BaseGame(){
@@ -25,6 +24,8 @@ public abstract class BaseGame {
 		camera.setToOrtho(false, AbstractScreen.VIEWPORT_WIDTH, AbstractScreen.VIEWPORT_HEIGHT);
 		batch = new SpriteBatch();
 		started = false;
+		finish = false;
+		over = false;
 	}
 	
 	public void setBaseGameListener(BaseGameListener listener){
@@ -38,12 +39,22 @@ public abstract class BaseGame {
 		font = manager.get("fonts/default-32.fnt",BitmapFont.class);
 	}
 	
-	public void setTokens(StringTokenizer tokens){
-		this.tokens = tokens;
+	public boolean isFinish(){
+		return finish;
+	}
+	
+	public boolean isOver(){
+		return over;
+	}
+	
+	public void gameOver(){
+		started = false;
+		over = true;
 	}
 	
 	public void pause(){
 		started = false;
+		finish = true;
 	}
 	
 	public void resume(){

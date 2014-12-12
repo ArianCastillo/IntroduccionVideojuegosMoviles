@@ -1,0 +1,46 @@
+package com.runner.planets;
+
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
+import com.runner.planets.objects.GameObject;
+import com.runner.planets.objects.Runner;
+
+public class Planeta4 extends BaseGame{
+//Planeta Saturno
+	private Runner runner;
+	private ArrayList<GameObject> list = new ArrayList<GameObject>();
+	private ArrayList<GameObject> pleaseDelete = new ArrayList<GameObject>();
+	private int pts;
+	private int vidas;
+	private boolean isGameFinished;
+	private int gameS = 1; //1 = Main Game, 2 = Game Finished Screen, 3 = Game Over Screen
+	
+	public Planeta4() {
+		super();
+		runner = new Runner(0,70);
+		
+		pts = 0;
+		vidas = 3;
+		isGameFinished = false;
+		
+		FileHandle file = Gdx.files.internal("data/planeta1");
+		StringTokenizer tokens = new StringTokenizer(file.readString());
+		getMap(tokens);
+	}
+
+	@Override
+	public void update(float delta) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void render() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

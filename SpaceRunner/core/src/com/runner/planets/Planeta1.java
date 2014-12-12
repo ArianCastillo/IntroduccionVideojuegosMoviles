@@ -7,16 +7,26 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.scenes.scene2d.Action;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.runner.RunnerGame;
 import com.runner.planets.objects.Bandera;
 import com.runner.planets.objects.Coin;
 import com.runner.planets.objects.DangerGround;
 import com.runner.planets.objects.GameObject;
 import com.runner.planets.objects.Ground;
+import com.runner.planets.objects.Notification;
 import com.runner.planets.objects.Plank;
 import com.runner.planets.objects.Runner;
 import com.runner.planets.objects.Spikes;
 import com.runner.screens.AbstractScreen;
+import com.runner.screens.MenuScreen;
+import com.runner.screens.PlanetsScreen;
+import com.runner.services.RunnerSound;
 
 public class Planeta1 extends BaseGame{
 //Planeta Tierra
@@ -25,6 +35,8 @@ public class Planeta1 extends BaseGame{
 	private ArrayList<GameObject> pleaseDelete = new ArrayList<GameObject>();
 	private int pts;
 	private int vidas;
+	private boolean isGameFinished;
+	private int gameS = 1; //1 = Main Game, 2 = Game Finished Screen, 3 = Game Over Screen
 	
 	public Planeta1() {
 		super();
@@ -32,6 +44,7 @@ public class Planeta1 extends BaseGame{
 		
 		pts = 0;
 		vidas = 3;
+		isGameFinished = false;
 		
 		FileHandle file = Gdx.files.internal("data/planeta1");
 		StringTokenizer tokens = new StringTokenizer(file.readString());
@@ -43,6 +56,20 @@ public class Planeta1 extends BaseGame{
 
 	@Override
 	public void render() {
+		switch(this.gameS){
+		case 1:
+			this.mainGame();
+			break;
+		case 2:
+			this.listener.setPts(pts);
+			this.pause();
+			break;
+		case 3: 
+			this.gameOver();
+			break;
+		}
+	}
+	private void mainGame(){
 		batch.setProjectionMatrix(camera.combined);
 		batch.begin();
 		runner.draw(batch, atlas);
@@ -60,10 +87,15 @@ public class Planeta1 extends BaseGame{
 		
 		touchSomething();
 		coinCollected();
+		
+		if(isGameFinished){
+			this.gameS = 2;
+		}
+		
+		
 		updateCamera();
 		controles();
 	}
-	
 	private void getMap(StringTokenizer tokens){
 		while(tokens.hasMoreTokens()){
 			String type = tokens.nextToken();
@@ -101,10 +133,16 @@ public class Planeta1 extends BaseGame{
 					break;
 				case 2:
 					vidas--;
+					if(vidas==0)
+						this.gameS = 3;
 					runner.reastart(0, 100);
 					break;
 				case 3:
+					listener.playSoundCoin();
 					pleaseDelete.add(t);
+					break;
+				case 4:
+					isGameFinished = true;
 					break;
 				}
 				break;
@@ -115,10 +153,16 @@ public class Planeta1 extends BaseGame{
 					break;
 				case 2:
 					vidas--;
+					if(vidas==0)
+						this.gameS = 3;
 					runner.reastart(0, 100);
 					break;
 				case 3:
+					listener.playSoundCoin();
 					pleaseDelete.add(t);
+					break;
+				case 4:
+					isGameFinished = true;
 					break;
 				}
 				break;
@@ -129,10 +173,16 @@ public class Planeta1 extends BaseGame{
 					break;
 				case 2:
 					vidas--;
+					if(vidas==0)
+						this.gameS = 3;
 					runner.reastart(0, 100);
 					break;
 				case 3:
+					listener.playSoundCoin();
 					pleaseDelete.add(t);
+					break;
+				case 4:
+					isGameFinished = true;
 					break;
 				}
 				break;
@@ -143,10 +193,16 @@ public class Planeta1 extends BaseGame{
 					break;
 				case 2:
 					vidas--;
+					if(vidas==0)
+						this.gameS = 3;
 					runner.reastart(0, 100);
 					break;
 				case 3:
+					listener.playSoundCoin();
 					pleaseDelete.add(t);
+					break;
+				case 4:
+					isGameFinished = true;
 					break;
 				}
 				break;
@@ -163,7 +219,6 @@ public class Planeta1 extends BaseGame{
 			Coin coin = (Coin) pleaseDelete.get(0);
 			pleaseDelete.remove(0);
 			pts += coin.getPoints();
-			
 		}
 	}
  	private void controles(){

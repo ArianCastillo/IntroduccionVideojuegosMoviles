@@ -1,0 +1,12 @@
+package com.runner.screens;
+
+import com.runner.RunnerGame;
+
+public class FinishWorldScreen extends AbstractScreen{
+
+	public FinishWorldScreen(RunnerGame game) {
+		super(game);
+		// TODO Auto-generated constructor stub
+	}
+
+}

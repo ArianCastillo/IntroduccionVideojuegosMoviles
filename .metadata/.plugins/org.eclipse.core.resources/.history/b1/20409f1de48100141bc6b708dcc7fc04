@@ -1,0 +1,13 @@
+package com.runner.planets;
+
+import java.util.StringTokenizer;
+
+import com.runner.RunnerGame;
+
+public interface BaseGameListener {
+	int getPts();
+	int getNvl();
+	RunnerGame getGame();
+	void setPts(int pts);
+	void setNvl(int nvl);
+}

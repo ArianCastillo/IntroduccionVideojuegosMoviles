@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename field &apos;gameFinished&apos; in &apos;com.runner.planets.Planeta1&apos; to &apos;isGameFinished&apos;&#x0D;&#x0A;- Original project: &apos;SpaceRunner-core&apos;&#x0D;&#x0A;- Original element: &apos;com.runner.planets.Planeta1.gameFinished&apos;&#x0D;&#x0A;- Renamed element: &apos;com.runner.planets.Planeta1.isGameFinished&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="true" description="Rename field &apos;gameFinished&apos;" flags="589826" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/src&lt;com.runner.planets{Planeta1.java[Planeta1^gameFinished" name="isGameFinished" references="true" setter="false" stamp="1418373387467" textual="false" version="1.0"/>
+</session>
