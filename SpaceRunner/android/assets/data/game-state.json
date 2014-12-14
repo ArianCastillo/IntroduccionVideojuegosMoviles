@@ -2,10 +2,10 @@
 	points:0,
 	level:1,
 	planets:[
-		{name:"Tierra", className: "Planeta1", locked:false, minLevel:1, maxLevel:10, minPoints:50, maxPoints:200},	
-		{name:"Marte", className: "Planeta2", locked:true, minLevel:5, maxLevel:15, minPoints:100, maxPoints:300},	
-		{name:"Jupiter", className: "Planeta3", locked:true, minLevel:10, maxLevel:20, minPoints:150, maxPoints:400},	
-		{name:"Saturno", className: "Planeta4", locked:true, minLevel:15, maxLevel:25, minPoints:200, maxPoints:500},	
+		{name:"Tierra", locked:false, minLevel:1},	
+		{name:"Marte", locked:true, minLevel:50},	
+		{name:"Jupiter", locked:true, minLevel:100},	
+		{name:"Saturno", locked:true, minLevel:150},	
 		
 
 	]

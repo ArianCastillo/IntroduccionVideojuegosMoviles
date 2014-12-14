@@ -9,7 +9,6 @@ import com.runner.services.MusicManager;
 import com.runner.services.PreferencesManager;
 import com.runner.services.ProfileManager;
 import com.runner.services.SoundManager;
-import com.runner.world.WorldRenderer;
 
 public class RunnerGame extends Game {
 	public static final String LOG = RunnerGame.class.getSimpleName();
@@ -21,7 +20,6 @@ public class RunnerGame extends Game {
 	private ProfileManager profileManager;
 	private PreferencesManager preferencesManager;
 	private World world;
-	public WorldRenderer renderer;
 	
 	public AssetManager getAssetManager(){
 		return manager;

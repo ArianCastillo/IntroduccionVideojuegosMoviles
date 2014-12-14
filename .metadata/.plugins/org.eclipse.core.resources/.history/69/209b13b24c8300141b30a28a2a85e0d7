@@ -1,0 +1,218 @@
+package com.runner.planets;
+
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
+import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.math.Rectangle;
+import com.runner.planets.objects.Coin;
+import com.runner.planets.objects.Flag;
+import com.runner.planets.objects.GameObject;
+import com.runner.planets.objects.Plank;
+import com.runner.planets.objects.Runner;
+import com.runner.planets.objects.danger.DangerGround;
+import com.runner.planets.objects.danger.Spikes;
+import com.runner.planets.objects.ornaments.Ground;
+import com.runner.planets.objects.ornaments.Plant;
+import com.runner.screens.AbstractScreen;
+
+public class PlanetLvl {
+	Runner runner;
+	private ArrayList<GameObject> list = new ArrayList<GameObject>();
+	private ArrayList<GameObject> pleaseDelete = new ArrayList<GameObject>();
+	private int pts;
+	private int hp;
+	private boolean isGameFinished;
+	private int gameS = 1; //1 = Main Game, 2 = Game Finished Screen, 3 = Game Over Screen
+	PlanetListener listener;
+	private OrthographicCamera camera;
+	private BitmapFont font;
+	private TextureAtlas atlas;
+	private SpriteBatch batch;
+	private MapManager mapManager;
+	
+	private boolean started;
+	private boolean finish;
+	private boolean over;
+	private int pass;
+	
+	public PlanetLvl(){
+		camera = new OrthographicCamera();
+		camera.setToOrtho(false, AbstractScreen.VIEWPORT_WIDTH, AbstractScreen.VIEWPORT_HEIGHT);
+		batch = new SpriteBatch();
+		runner = new Runner(0,70);
+		mapManager = new MapManager(this);
+		font = new BitmapFont(Gdx.files.internal("fonts/default-16.fnt"), Gdx.files.internal("fonts/default-16.png"), false);
+		
+		started = false;
+		finish = false;
+		over = false;
+		isGameFinished = false;
+		
+		pts = 0;
+		hp = 3;
+	}
+	
+	public void setBaseGameListener(PlanetListener listener){
+		this.listener = listener;
+	}
+	
+	public void setAssets(AssetManager manager){
+		atlas = manager.get("game.atlas",com.badlogic.gdx.graphics.g2d.TextureAtlas.class);
+		batch = new SpriteBatch();
+		batch.setProjectionMatrix(camera.combined);
+		font = manager.get("fonts/default-32.fnt",BitmapFont.class);
+	}
+	
+	public boolean isFinish(){
+		return finish;
+	}
+	
+	public boolean isOver(){
+		return over;
+	}
+	
+	public void finished(){
+		started = false;
+		finish = true;
+	}
+	
+	public void gameOver(){
+		started = false;
+		over = true;
+	}
+	
+	public void render(){
+		switch(this.gameS){
+		case 1:
+			this.mainGame();
+			break;
+		case 2:
+			this.listener.setPts(pts);
+			this.finished();
+			break;
+		case 3: 
+			this.gameOver();
+			break;
+		case 4:
+			this.pauseGame();
+			break;
+		}
+	}
+	
+	public Runner getRunner() {
+		return runner;
+	}
+
+	public void setRunner(Runner runner) {
+		this.runner = runner;
+	}
+
+	public ArrayList<GameObject> getList() {
+		return list;
+	}
+
+	public void setList(ArrayList<GameObject> list) {
+		this.list = list;
+	}
+
+	public ArrayList<GameObject> getPleaseDelete() {
+		return pleaseDelete;
+	}
+
+	public void setPleaseDelete(ArrayList<GameObject> pleaseDelete) {
+		this.pleaseDelete = pleaseDelete;
+	}
+
+	public int getPts() {
+		return pts;
+	}
+
+	public void setPts(int pts) {
+		this.pts = pts;
+	}
+
+	public int getHp() {
+		return hp;
+	}
+
+	public void setHp(int hp) {
+		this.hp = hp;
+	}
+
+	public void setGameFinished(boolean isGameFinished) {
+		this.isGameFinished = isGameFinished;
+	}
+
+	public void setGameS(int gameS) {
+		this.gameS = gameS;
+	}
+
+	public PlanetListener getListener() {
+		return listener;
+	}
+
+	public void setListener(PlanetListener listener) {
+		this.listener = listener;
+	}
+
+	public OrthographicCamera getCamera() {
+		return camera;
+	}
+
+	public void setCamera(OrthographicCamera camera) {
+		this.camera = camera;
+	}
+	
+	private void mainGame(){
+		batch.setProjectionMatrix(camera.combined);
+		batch.begin();
+		runner.draw(batch, atlas);
+		for(GameObject t : list){
+			t.draw(batch, atlas);
+		}
+		this.showScore();
+		this.showHP();
+		batch.end();
+		
+		runner.update(Gdx.graphics.getDeltaTime());
+		Rectangle temp = new Rectangle(0,0,AbstractScreen.VIEWPORT_WIDTH,70);
+		if (runner.hits(temp) != -1) {
+			runner.action(1, 0, 70);
+		}
+		
+		mapManager.touchSomething();
+		mapManager.coinCollected();
+		
+		if(isGameFinished){
+			this.gameS = 2;
+		}
+		
+		mapManager.updateCamera();
+		mapManager.controles();
+	}
+	
+	private void pauseGame(){
+		
+	}
+	
+	public void setMap(String DATA_FILE){
+		mapManager.setMap(DATA_FILE);
+	}
+	
+	private void showScore(){
+		font.draw(batch, "PTS: " + Integer.toString(pts), camera.position.x - (AbstractScreen.VIEWPORT_WIDTH/2), AbstractScreen.VIEWPORT_HEIGHT-25);
+	}
+	
+	private void showHP(){
+		font.draw(batch, "HP: " + Integer.toString(hp), camera.position.x - (AbstractScreen.VIEWPORT_WIDTH/2) + 200, AbstractScreen.VIEWPORT_HEIGHT-25);
+	}
+	
+}

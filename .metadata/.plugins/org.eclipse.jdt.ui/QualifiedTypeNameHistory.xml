@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.apr.matyas.world.World"/>
-<fullyQualifiedTypeName name="com.apr.matyas.world.WorldRender"/>
-<fullyQualifiedTypeName name="framework.Pool"/>
-<fullyQualifiedTypeName name="framework.Screen"/>
 <fullyQualifiedTypeName name="game.world.World"/>
 <fullyQualifiedTypeName name="framework.Input.TouchEvent"/>
 <fullyQualifiedTypeName name="java.util.List"/>
@@ -39,10 +35,8 @@
 <fullyQualifiedTypeName name="com.runner.levels.BaseGame"/>
 <fullyQualifiedTypeName name="com.runner.planets.objects.Runner"/>
 <fullyQualifiedTypeName name="com.badlogic.gdx.Input"/>
-<fullyQualifiedTypeName name="com.badlogic.gdx.Input.Keys"/>
 <fullyQualifiedTypeName name="com.badlogic.gdx.math.Rectangle"/>
 <fullyQualifiedTypeName name="com.badlogic.gdx.scenes.scene2d.Actor"/>
-<fullyQualifiedTypeName name="com.runner.planets.objects.GameObject"/>
 <fullyQualifiedTypeName name="com.runner.planets.objects.Ground"/>
 <fullyQualifiedTypeName name="com.badlogic.gdx.math.Vector3"/>
 <fullyQualifiedTypeName name="java.util.logging.FileHandler"/>
@@ -60,4 +54,10 @@
 <fullyQualifiedTypeName name="com.badlogic.gdx.graphics.g2d.SpriteBatch"/>
 <fullyQualifiedTypeName name="com.runner.planets.objects.Plant"/>
 <fullyQualifiedTypeName name="com.runner.planets.objects.Heart"/>
+<fullyQualifiedTypeName name="com.runner.planets.Planeta5"/>
+<fullyQualifiedTypeName name="com.runner.planets.objects.GameObject"/>
+<fullyQualifiedTypeName name="com.runner.planets.objects.enemies.Fly"/>
+<fullyQualifiedTypeName name="com.runner.planets.objects.enemies.Slime"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.Input.Keys"/>
+<fullyQualifiedTypeName name="com.runner.planets.PlanetLvl"/>
 </qualifiedTypeNameHistroy>

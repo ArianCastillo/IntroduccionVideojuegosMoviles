@@ -9,15 +9,16 @@ import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.runner.RunnerGame;
 import com.runner.game.GameState;
 import com.runner.game.Planet;
-import com.runner.planets.PlanetListener;
-import com.runner.planets.Planeta;
+import com.runner.planets.BasePlanetListener;
+import com.runner.planets.BasePlanet;
+import com.runner.planets.PlanetLvl;
 import com.runner.services.RunnerSound;
 
-public class GameScreen extends AbstractScreen implements PlanetListener {
+public class GameScreen extends AbstractScreen implements BasePlanetListener {
 	private Planet planet;
 	private Texture back;
 	private Table table;
-	private Planeta planetLvl;
+	private PlanetLvl planetLvl;
 	private String background;
 	private int pts;
 	
@@ -43,29 +44,11 @@ public class GameScreen extends AbstractScreen implements PlanetListener {
 			DATA_FILE = "data/Saturno";
 		}
 		
-		planetLvl = new Planeta();
+		planetLvl = new PlanetLvl();
 		planetLvl.setMap(DATA_FILE);
 		planetLvl.setBaseGameListener(this);
 		planetLvl.setAssets(game.getAssetManager());
-		
-		background = "background.png";
-		if(planet.name.compareTo("Tierra")==0){
-			background = "sky_earth.png";
-		}
-		if(planet.name.compareTo("Marte")==0){
-			background = "sky_earth.png";
-		}
-		if(planet.name.compareTo("Jupiter")==0){
-			background = "sky_earth.png";
-		}
-		if(planet.name.compareTo("Saturno")==0){
-			background = "sky_earth.png";
-		}
-		table = super.getTable();
-		
-		back = new Texture(background);
-		back.setFilter(TextureFilter.Linear, TextureFilter.Linear);
-		table.setBackground(new TextureRegionDrawable(new TextureRegion(back,0,0,1024,768)));
+		setBackground();
 	}
 	
 	@Override
@@ -80,7 +63,6 @@ public class GameScreen extends AbstractScreen implements PlanetListener {
 		}
 	}
 	
-
 	@Override
 	public void setPts(int pts) {
 		this.pts = pts;
@@ -114,6 +96,27 @@ public class GameScreen extends AbstractScreen implements PlanetListener {
 	@Override
 	public void playSoundJump() {
 		game.getSoundManager().play(RunnerSound.JUMP);
+	}
+	
+	private void setBackground(){
+		background = "background.png";
+		if(planet.name.compareTo("Tierra")==0){
+			background = "sky_earth.png";
+		}
+		if(planet.name.compareTo("Marte")==0){
+			background = "sky_earth.png";
+		}
+		if(planet.name.compareTo("Jupiter")==0){
+			background = "sky_earth.png";
+		}
+		if(planet.name.compareTo("Saturno")==0){
+			background = "sky_earth.png";
+		}
+		table = super.getTable();
+		
+		back = new Texture(background);
+		back.setFilter(TextureFilter.Linear, TextureFilter.Linear);
+		table.setBackground(new TextureRegionDrawable(new TextureRegion(back,0,0,1024,768)));
 	}
 
 }

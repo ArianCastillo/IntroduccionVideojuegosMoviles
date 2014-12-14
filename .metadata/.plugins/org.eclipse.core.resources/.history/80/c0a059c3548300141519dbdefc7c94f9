@@ -1,0 +1,113 @@
+package com.runner.planets;
+
+import java.util.ArrayList;
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.math.Rectangle;
+import com.runner.planets.objects.GameObject;
+import com.runner.planets.objects.Runner;
+import com.runner.screens.AbstractScreen;
+
+public abstract class BasePlanet {
+	protected BasePlanetListener listener;
+	protected OrthographicCamera camera;
+	protected BitmapFont font;
+	protected TextureAtlas atlas;
+	protected SpriteBatch batch;
+	protected MapManager mapManager;
+	
+	private boolean finish;
+	private boolean over;
+	
+	public BasePlanet(){
+		camera = new OrthographicCamera();
+		camera.setToOrtho(false, AbstractScreen.VIEWPORT_WIDTH, AbstractScreen.VIEWPORT_HEIGHT);
+		batch = new SpriteBatch();
+		mapManager = new MapManager(this);
+		font = new BitmapFont(Gdx.files.internal("fonts/default-16.fnt"), Gdx.files.internal("fonts/default-16.png"), false);
+		
+		finish = false;
+		over = false;
+		isGameFinished = false;
+		
+		pts = 0;
+		hp = 3;
+	}
+	
+	public void setBaseGameListener(BasePlanetListener listener){
+		this.listener = listener;
+	}
+	
+	public void setAssets(AssetManager manager){
+		atlas = manager.get("game.atlas",com.badlogic.gdx.graphics.g2d.TextureAtlas.class);
+		batch = new SpriteBatch();
+		batch.setProjectionMatrix(camera.combined);
+		font = manager.get("fonts/default-32.fnt",BitmapFont.class);
+	}
+	
+	public boolean isFinish(){
+		return finish;
+	}
+	
+	public boolean isOver(){
+		return over;
+	}
+	
+	public void finished(){
+		finish = true;
+	}
+	
+	public void gameOver(){
+		over = true;
+	}
+	
+	public ArrayList<GameObject> getList() {
+		return list;
+	}
+
+	public ArrayList<GameObject> getPleaseDelete() {
+		return pleaseDelete;
+	}
+
+	public int getPts() {
+		return pts;
+	}
+
+	public void setPts(int pts) {
+		this.pts = pts;
+	}
+
+	public int getHp() {
+		return hp;
+	}
+
+	public void setHp(int hp) {
+		this.hp = hp;
+	}
+
+	public void setGameFinished(boolean isGameFinished) {
+		this.isGameFinished = isGameFinished;
+	}
+
+	public void setGameS(int gameS) {
+		this.gameS = gameS;
+	}
+
+	public BasePlanetListener getListener() {
+		return listener;
+	}
+
+	public OrthographicCamera getCamera() {
+		return camera;
+	}
+	
+	public void setMap(String DATA_FILE){
+		mapManager.setMap(DATA_FILE);
+	}
+	
+}

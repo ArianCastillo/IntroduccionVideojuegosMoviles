@@ -1,0 +1,20 @@
+package com.runner.planets;
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
+
+public class MapManager {
+	private PlanetLvl planetLvl;
+	
+	public MapManager(PlanetLvl planetLvl){
+		this.planetLvl = planetLvl;
+	}
+	
+	public void controles(){
+		planetLvl.runner.moveRight(Gdx.graphics.getDeltaTime());
+		if (Gdx.input.isKeyPressed(Input.Keys.SPACE) || Gdx.input.isTouched()) {
+			planetLvl.listener.playSoundJump();
+			planetLvl.runner.jump();
+		}
+	}
+}

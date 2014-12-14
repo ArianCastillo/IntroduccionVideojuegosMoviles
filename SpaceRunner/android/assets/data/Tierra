@@ -208,6 +208,7 @@ plank 6650 282
 
 plank 6580 448
 
+coin 910 80 0
 coin 6370 180 0
 coin 6440 180 1
 coin 6510 180 2
@@ -215,7 +216,7 @@ coin 6580 180 1
 coin 6650 180 0
 coin 6860 180 2
 coin 6580 305 2
-coin 6580 448 2
+coin 6580 455 2
 
 plant 0 70 1
 plant 70 70 0
@@ -239,5 +240,7 @@ plant 4410 70 1
 plant 4480 70 0
 plant 4620 70 1
 plant 4690 70 1
+
+fly 6440 455
 
 flag 7770 70
