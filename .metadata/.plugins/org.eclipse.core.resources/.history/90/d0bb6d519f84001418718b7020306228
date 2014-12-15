@@ -83,7 +83,6 @@ public class GameScreen extends AbstractScreen implements BasePlanetListener {
 			game.getWorld().setGameState(gameState);
 			game.getProfileManager().persist(gameState);
 		}
-		unlockPlanets();
 	}
 	
 	public void unlockPlanets(){
