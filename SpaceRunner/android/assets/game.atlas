@@ -3,324 +3,317 @@ game.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-SpacePlanet
-  rotate: false
-  xy: 1, 1280
-  size: 1024, 767
-  orig: 1024, 767
-  offset: 0, 0
-  index: -1
 Space
   rotate: false
-  xy: 1, 511
+  xy: 1, 254
   size: 1024, 767
   orig: 1024, 767
   offset: 0, 0
   index: -1
 felicidades
   rotate: false
-  xy: 1027, 1977
+  xy: 1, 182
   size: 850, 70
   orig: 850, 70
   offset: 0, 0
   index: -1
 gameover
   rotate: false
-  xy: 1, 439
+  xy: 1027, 951
   size: 850, 70
   orig: 850, 70
   offset: 0, 0
   index: -1
 Logo
   rotate: false
-  xy: 1027, 1905
+  xy: 1, 110
   size: 850, 70
   orig: 850, 70
   offset: 0, 0
   index: -1
-jupiter
+backMenu
   rotate: false
-  xy: 1, 279
-  size: 158, 158
-  orig: 158, 158
+  xy: 1027, 649
+  size: 500, 300
+  orig: 500, 300
   offset: 0, 0
   index: -1
-saturno
+resumeButton
   rotate: false
-  xy: 1879, 1930
-  size: 160, 117
-  orig: 160, 117
+  xy: 1, 38
+  size: 400, 70
+  orig: 400, 70
+  offset: 0, 0
+  index: -1
+pausa
+  rotate: false
+  xy: 1027, 577
+  size: 300, 70
+  orig: 300, 70
+  offset: 0, 0
+  index: -1
+exitButton
+  rotate: false
+  xy: 1529, 879
+  size: 200, 70
+  orig: 200, 70
+  offset: 0, 0
+  index: -1
+menuButton
+  rotate: false
+  xy: 403, 38
+  size: 200, 70
+  orig: 200, 70
   offset: 0, 0
   index: -1
 bandera
   rotate: false
-  xy: 1027, 1753
+  xy: 1027, 425
   size: 80, 150
   orig: 80, 150
   offset: 0, 0
   index: -1
 walk010
   rotate: false
-  xy: 1, 181
-  size: 75, 96
-  orig: 75, 96
-  offset: 0, 0
-  index: -1
-walk014
-  rotate: false
-  xy: 161, 341
-  size: 75, 96
-  orig: 75, 96
-  offset: 0, 0
-  index: -1
-walk015
-  rotate: false
-  xy: 1027, 1655
-  size: 75, 96
-  orig: 75, 96
-  offset: 0, 0
-  index: -1
-walk017
-  rotate: false
-  xy: 1109, 1807
-  size: 75, 96
-  orig: 75, 96
-  offset: 0, 0
-  index: -1
-walk019
-  rotate: false
-  xy: 1, 83
+  xy: 853, 156
   size: 75, 96
   orig: 75, 96
   offset: 0, 0
   index: -1
 walk012
   rotate: false
-  xy: 78, 181
+  xy: 1529, 781
   size: 75, 96
   orig: 75, 96
   offset: 0, 0
   index: -1
 walk013
   rotate: false
-  xy: 238, 341
+  xy: 1027, 327
+  size: 75, 96
+  orig: 75, 96
+  offset: 0, 0
+  index: -1
+walk014
+  rotate: false
+  xy: 1109, 479
+  size: 75, 96
+  orig: 75, 96
+  offset: 0, 0
+  index: -1
+walk015
+  rotate: false
+  xy: 930, 156
   size: 75, 96
   orig: 75, 96
   offset: 0, 0
   index: -1
 walk016
   rotate: false
-  xy: 1027, 1557
+  xy: 1529, 683
+  size: 75, 96
+  orig: 75, 96
+  offset: 0, 0
+  index: -1
+walk017
+  rotate: false
+  xy: 1606, 781
   size: 75, 96
   orig: 75, 96
   offset: 0, 0
   index: -1
 walk018
   rotate: false
-  xy: 1186, 1807
+  xy: 1186, 479
+  size: 75, 96
+  orig: 75, 96
+  offset: 0, 0
+  index: -1
+walk019
+  rotate: false
+  xy: 1606, 683
   size: 75, 96
   orig: 75, 96
   offset: 0, 0
   index: -1
 walk020
   rotate: false
-  xy: 78, 83
+  xy: 1263, 479
   size: 75, 96
   orig: 75, 96
   offset: 0, 0
   index: -1
+block
+  rotate: false
+  xy: 1329, 577
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
 jump
   rotate: false
-  xy: 315, 343
+  xy: 1340, 481
   size: 68, 94
   orig: 68, 94
   offset: 0, 0
   index: -1
-front
+jumpButton
   rotate: false
-  xy: 1027, 1463
-  size: 66, 92
-  orig: 66, 92
+  xy: 1879, 941
+  size: 80, 80
+  orig: 80, 80
   offset: 0, 0
   index: -1
-slide
+pause
   rotate: false
-  xy: 1263, 1811
-  size: 66, 92
-  orig: 66, 92
-  offset: 0, 0
-  index: -1
-front_over
-  rotate: false
-  xy: 385, 345
-  size: 66, 92
-  orig: 66, 92
-  offset: 0, 0
-  index: -1
-heart
-  rotate: false
-  xy: 853, 439
-  size: 75, 70
-  orig: 75, 70
+  xy: 1961, 941
+  size: 80, 80
+  orig: 80, 80
   offset: 0, 0
   index: -1
 ground
   rotate: false
-  xy: 1, 11
+  xy: 1401, 577
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+front
+  rotate: false
+  xy: 1410, 483
+  size: 66, 92
+  orig: 66, 92
+  offset: 0, 0
+  index: -1
+ground_cave
+  rotate: false
+  xy: 605, 38
   size: 70, 70
   orig: 70, 70
   offset: 0, 0
   index: -1
 ground_dirty
   rotate: false
-  xy: 1331, 1833
-  size: 70, 70
-  orig: 70, 70
-  offset: 0, 0
-  index: -1
-ground_cave
-  rotate: false
-  xy: 453, 367
+  xy: 1027, 255
   size: 70, 70
   orig: 70, 70
   offset: 0, 0
   index: -1
 ground_rock
   rotate: false
-  xy: 930, 439
+  xy: 1731, 879
   size: 70, 70
   orig: 70, 70
   offset: 0, 0
   index: -1
-block
+front_over
   rotate: false
-  xy: 73, 11
-  size: 70, 70
-  orig: 70, 70
+  xy: 1683, 785
+  size: 66, 92
+  orig: 66, 92
+  offset: 0, 0
+  index: -1
+slide
+  rotate: false
+  xy: 1683, 691
+  size: 66, 92
+  orig: 66, 92
   offset: 0, 0
   index: -1
 ground_sand
   rotate: false
-  xy: 1403, 1833
+  xy: 677, 38
   size: 70, 70
   orig: 70, 70
   offset: 0, 0
   index: -1
-marte
-  rotate: false
-  xy: 1027, 1396
-  size: 66, 65
-  orig: 66, 65
-  offset: 0, 0
-  index: -1
-slime_dead
-  rotate: false
-  xy: 1, 1
-  size: 54, 8
-  orig: 54, 8
-  offset: 0, 0
-  index: -1
 lava
   rotate: false
-  xy: 161, 294
+  xy: 1109, 432
   size: 70, 45
   orig: 70, 45
   offset: 0, 0
   index: -1
 water
   rotate: false
-  xy: 1109, 1760
+  xy: 1803, 904
   size: 70, 45
   orig: 70, 45
   offset: 0, 0
   index: -1
-rock
-  rotate: false
-  xy: 525, 396
-  size: 70, 41
-  orig: 70, 41
-  offset: 0, 0
-  index: -1
 spikes
   rotate: false
-  xy: 1475, 1868
+  xy: 1, 1
   size: 70, 35
   orig: 70, 35
   offset: 0, 0
   index: -1
-tierra
-  rotate: false
-  xy: 1027, 1343
-  size: 52, 51
-  orig: 52, 51
-  offset: 0, 0
-  index: -1
 fly_normal
   rotate: false
-  xy: 233, 307
+  xy: 853, 122
   size: 69, 32
   orig: 69, 32
   offset: 0, 0
   index: -1
 fly_fly
   rotate: false
-  xy: 1181, 1774
+  xy: 1529, 650
   size: 69, 31
   orig: 69, 31
   offset: 0, 0
   index: -1
 bush
   rotate: false
-  xy: 525, 368
+  xy: 749, 82
   size: 70, 26
   orig: 70, 26
   offset: 0, 0
   index: -1
 plank
   rotate: false
-  xy: 1879, 1907
+  xy: 1181, 456
   size: 72, 21
   orig: 72, 21
   offset: 0, 0
   index: -1
 alien_plant
   rotate: false
-  xy: 597, 409
+  xy: 1473, 619
   size: 54, 28
   orig: 54, 28
   offset: 0, 0
   index: -1
 grass
   rotate: false
-  xy: 1027, 1301
+  xy: 1473, 577
   size: 35, 40
   orig: 35, 40
   offset: 0, 0
   index: -1
-slime_normal
+slime
   rotate: false
-  xy: 1475, 1838
+  xy: 1751, 849
   size: 43, 28
   orig: 43, 28
   offset: 0, 0
   index: -1
 coin_bronze
   rotate: false
-  xy: 1547, 1868
-  size: 35, 35
-  orig: 35, 35
-  offset: 0, 0
-  index: -1
-coin_silver
-  rotate: false
-  xy: 597, 372
+  xy: 73, 1
   size: 35, 35
   orig: 35, 35
   offset: 0, 0
   index: -1
 coin_gold
   rotate: false
-  xy: 1027, 1264
+  xy: 749, 45
+  size: 35, 35
+  orig: 35, 35
+  offset: 0, 0
+  index: -1
+coin_silver
+  rotate: false
+  xy: 1751, 812
   size: 35, 35
   orig: 35, 35
   offset: 0, 0
@@ -330,7 +323,7 @@ game2.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-Menu
+SpacePlanet
   rotate: false
   xy: 1, 1
   size: 1024, 767

@@ -1,21 +1,21 @@
-dangerGround -1260 0 0
-dangerGround -1190 0 0
-dangerGround -1120 0 0
-dangerGround -1050 0 0
-dangerGround -980 0 0
-dangerGround -910 0 0
-dangerGround -840 0 0
-dangerGround -770 0 0
-dangerGround -700 0 0
-dangerGround -630 0 0
-dangerGround -560 0 0
-dangerGround -490 0 0
-dangerGround -420 0 0
-dangerGround -350 0 0
-dangerGround -280 0 0
-dangerGround -210 0 0
-dangerGround -140 0 0
-dangerGround -70 0 0
+ground -1260 0 2
+ground -1190 0 2
+ground -1120 0 2
+ground -1050 0 2
+ground -980 0 2
+ground -910 0 2
+ground -840 0 2
+ground -770 0 2
+ground -700 0 2
+ground -630 0 2
+ground -560 0 2
+ground -490 0 2
+ground -420 0 2
+ground -350 0 2
+ground -280 0 2
+ground -210 0 2
+ground -140 0 2
+ground -70 0 2
 ground 0 0 2
 ground 70 0 2
 ground 140 0 2
@@ -87,41 +87,179 @@ ground 4690 0 2
 ground 4760 0 2
 ground 4830 0 2
 ground 4900 0 2
+ground 4970 0 2
+ground 5040 0 2
+ground 5110 0 2
+ground 5180 0 2
+dangerGround 5250 0 1
+dangerGround 5320 0 1
+dangerGround 5390 0 1
+ground 5460 0 2
+ground 5530 0 2
+ground 5600 0 2
+ground 5670 0 2
+ground 5740 0 2
+ground 5810 0 2
+ground 5880 0 2
+dangerGround 5950 0 1
+dangerGround 6020 0 1
+dangerGround 6090 0 1
+ground 6160 0 2
+ground 6230 0 2
+dangerGround 6300 0 1
+dangerGround 6370 0 1
+dangerGround 6440 0 1
+ground 6510 0 2
+ground 6580 0 2
+dangerGround 6650 0 1
+dangerGround 6720 0 1
+dangerGround 6790 0 1
+ground 6860 0 2
+ground 6930 0 2
+dangerGround 7000 0 1
+dangerGround 7070 0 1
+dangerGround 7140 0 1
+ground 7210 0 2
+ground 7280 0 2
+ground 7350 0 2
+ground 7420 0 2
+ground 7490 0 2
+ground 7560 0 2
+ground 7630 0 2
+ground 7700 0 2
+ground 7770 0 2
+ground 7840 0 2
+ground 7910 0 2
+ground 7980 0 2
+ground 8050 0 2
+dangerGround 8120 0 1
+dangerGround 8190 0 1
+dangerGround 8260 0 1
+dangerGround 8330 0 1
+dangerGround 8400 0 1
+dangerGround 8470 0 1
+dangerGround 8540 0 1
+dangerGround 8610 0 1
+dangerGround 8680 0 1
+dangerGround 8750 0 1
+dangerGround 8820 0 1
+dangerGround 8890 0 1
+dangerGround 8960 0 1
+dangerGround 9030 0 1
+dangerGround 9100 0 1
+dangerGround 9170 0 1
+dangerGround 9240 0 1
+dangerGround 9310 0 1
+
+plank 1120 166
+plank 1190 166
+plank 1260 166
+
+plank 1470 166
+plank 1540 166
+plank 1610 166
+plank 1680 166
+plank 1750 166
+
+plank 1610 282
+plank 1680 282
+
+plank 4410 166
+plank 4480 166
+plank 4550 166
+plank 4620 166
+plank 4690 166
+
+plank 4760 282
+plank 4830 282
+plank 4900 282
+
+plank 4970 166
+plank 5040 166
+
+plank 5110 282
+plank 5180 282
+
+plank 5110 448
+plank 5180 448
+plank 5250 448
+
+plank 5460 448
+plank 5530 448
+
+plank 6160 166
+plank 6230 166
+plank 6300 166
+plank 6370 166
+plank 6440 166
+plank 6510 166
+plank 6580 166
+plank 6650 166
+plank 6720 166
+plank 6790 166
+plank 6860 166
+
+plank 6510 282
+plank 6580 282
+plank 6650 282
+
+plank 6580 448
+
 spikes 700 70
 spikes 770 70
 spikes 1330 70
 spikes 1750 70
-spikes 1890 70
 spikes 2170 70
 spikes 2240 70
-spikes 2660 70
+spikes 2590 70
 spikes 3220 70
-spikes 3570 70
+spikes 3500 70
 spikes 4200 70
 spikes 4270 70
-coin 630 75 0
-coin 3290 75 2
 
-plant 0 0 2
-plant 70 0 2
-plant 140 0 2
-plant 210 0 2
-plant 350 0 2
-plant 420 0 2
-plant 630 0 2
-plant 980 0 2
-plant 1050 0 2
-plant 1400 0 2
-plant 1890 0 2
-plant 1960 0 2
-plant 2100 0 2
-plant 3430 0 2
-plant 3500 0 2
-plant 3780 0 2
-plant 3990 0 2
-plant 4340 0 2
-plant 4410 0 2
-plant 4480 0 2
-plant 4620 0 2
-plant 4690 0 2
+coin 630 75 0
+coin 1680 305 1
+coin 3300 75 2
+coin 6580 468 2
+coin 6650 468 0
+coin 6860 468 2
+coin 6580 305 2
+
+plant 0 70 2
+plant 70 70 2
+plant 140 70 2
+plant 630 70 2
+plant 980 70 2
+plant 1050 70 2
+plant 1400 70 2
+plant 1890 70 2
+plant 1960 70 2
+plant 2100 70 2
+plant 3430 70 2
+plant 3500 70 2
+plant 3990 70 2
+plant 4340 70 2
+plant 4410 70 2
+plant 4480 70 2
+plant 4620 70 2
+plant 4690 70 2
+plant 4970 70 2
+plant 5040 70 2
+plant 5110 70 2
+plant 5180 70 2
+plant 5740 70 2
+plant 5810 70 2
+plant 6580 70 2
+plant 7210 70 2
+plant 7280 70 2
+plant 7350 70 2
+plant 7560 70 2
+plant 7840 70 2
+plant 8050 70 2
+
+slime 4620 180
+fly 6440 190
+slime 7350 70
+fly 7630 180
+
 flag 7770 70

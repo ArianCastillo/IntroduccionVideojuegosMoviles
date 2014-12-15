@@ -5,7 +5,7 @@ public enum RunnerSound {
 	GAME("sounds/game.mp3"),
 	COIN("sounds/coin.mp3"),
 	HIT("sounds/hit.mp3"),
-	JUMP("sounds/jump.wav");
+	JUMP("sounds/jump.ogg");
 	private final String fileName;
 	
 	private RunnerSound(String fileName){

@@ -1,0 +1,5 @@
+package com.runner.planets.objects.buttons;
+
+public class MenuButton {
+
+}

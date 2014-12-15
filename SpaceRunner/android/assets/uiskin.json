@@ -13,8 +13,10 @@ com.badlogic.gdx.graphics.Color: {
 com.badlogic.gdx.scenes.scene2d.ui.Button$ButtonStyle: {
 	default: { down: boton_iniciar_pressed, up: boton_iniciar_pressed },
 	iniciar: { down: boton_iniciar_pressed, up: boton_iniciar_normal },
-	regresar:{ down: boton_regresar_pressed, up: boton_regresar_normal },
-    nivel1: {down: boton_nivel1_pressed, up: boton_nivel1_normal}
+	Tierra:{ down: boton_tierra_pressed, up: boton_tierra_normal },
+	Marte:{ down: boton_marte_pressed, up: boton_marte_normal },
+	Jupiter:{ down: boton_jupiter_pressed, up: boton_jupiter_normal },
+	Saturno:{ down: boton_saturno_pressed, up: boton_saturno_normal }
 },
 com.badlogic.gdx.scenes.scene2d.ui.TextButton$TextButtonStyle: {
 	default: { down: boton_pressed, up: boton_normal, font: button-font, fontColor: black },

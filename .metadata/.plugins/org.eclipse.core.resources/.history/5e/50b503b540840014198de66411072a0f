@@ -1,0 +1,13 @@
+{
+	points:0,
+	level:1,
+	planets:[
+		{name:"Tierra", locked:false, minLevel:1},	
+		{name:"Marte", locked:true, minLevel:50},	
+		{name:"Jupiter", locked:true, minLevel:100},	
+		{name:"Saturno", locked:true, minLevel:150},	
+		
+
+	]
+
+}

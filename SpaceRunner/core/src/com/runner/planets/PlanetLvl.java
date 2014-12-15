@@ -4,23 +4,45 @@ import java.util.ArrayList;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.runner.planets.objects.GameObject;
 import com.runner.planets.objects.Runner;
+import com.runner.planets.objects.buttons.ExitButton;
+import com.runner.planets.objects.buttons.JumpButton;
+import com.runner.planets.objects.buttons.MenuButton;
+import com.runner.planets.objects.buttons.PauseButton;
+import com.runner.planets.objects.buttons.ResumeButton;
 import com.runner.screens.AbstractScreen;
 
 public class PlanetLvl extends BasePlanet{
 	private Runner runner;
+	private PauseButton pauseButton;
+	private JumpButton jumpButton;
+	private ExitButton exitButton;
+	private ResumeButton resumeButton;
+	private MenuButton menuButton;
+	private final Actor backMenu;
+	private final Actor pauseImage;
 	protected ArrayList<GameObject> list = new ArrayList<GameObject>();
 	protected ArrayList<GameObject> pleaseDelete = new ArrayList<GameObject>();
 	protected int pts;
 	protected int hp;
-	protected boolean isGameFinished;
-	protected MapManager mapManager;
-	protected int gameS = 1; //1 = Main Game, 2 = Game Finished Screen, 3 = Game Over Screen
+	protected int ini = 0;
+	
+	protected PlanetManager mapManager;
+	protected int gameS = 1; //1 = Main Game, 2 = Game Finished Screen, 3 = Game Over Screen, 4 = Pause Screen, 5 = Return to Planets Screen
 
 	public PlanetLvl(){
 		runner = new Runner(0,70);
-		mapManager = new MapManager(this);
+		pauseButton = new PauseButton((AbstractScreen.VIEWPORT_WIDTH/2) - 90 , AbstractScreen.VIEWPORT_HEIGHT - 90);
+		resumeButton = new ResumeButton(0,0);
+		menuButton = new MenuButton(0,0);
+		exitButton = new ExitButton(0,0);
+		backMenu = new Actor();
+		pauseImage = new Actor();
+		jumpButton = new JumpButton(10,10);
+		mapManager = new PlanetManager(this);
 		isGameFinished = false;
 		pts = 0;
 		hp = 3;
@@ -41,21 +63,30 @@ public class PlanetLvl extends BasePlanet{
 		case 4:
 			this.pauseGame();
 			break;
+		case 5:
+			this.menu();
+			break;
 		}
 	}
 	
 	private void mainGame(){
 		batch.setProjectionMatrix(camera.combined);
 		batch.begin();
-		runner.draw(batch, atlas);
 		for(GameObject t : list){
 			t.draw(batch, atlas);
 		}
+		runner.draw(batch, atlas);
+		pauseButton.draw(batch, atlas);
+		jumpButton.draw(batch, atlas);
+		
 		this.showScore();
 		this.showHP();
 		batch.end();
 		
 		runner.update(Gdx.graphics.getDeltaTime());
+		pauseButton.setHitBoxPosition(runner.getHitBox().x + (AbstractScreen.VIEWPORT_WIDTH/2) - 90);
+		jumpButton.setHitBoxPosition(runner.getHitBox().x - (AbstractScreen.VIEWPORT_WIDTH/2) + 10);
+		
 		Rectangle temp = new Rectangle(0,0,AbstractScreen.VIEWPORT_WIDTH,70);
 		if (runner.hits(temp) != -1) {
 			runner.action(1, 0, 70);
@@ -69,15 +100,62 @@ public class PlanetLvl extends BasePlanet{
 		}
 		
 		mapManager.updateCamera();
-		mapManager.controles();
+		mapManager.keysControllers(false);
+		mapManager.touchControllers(false);
 	}
 	
 	private void pauseGame(){
+		batch.setProjectionMatrix(camera.combined);
+		batch.begin();
+		for(GameObject t : list){
+			t.draw(batch, atlas);
+		}
+		runner.setPause(true);
+		runner.draw(batch, atlas);
+		pauseButton.draw(batch, atlas);
+		jumpButton.draw(batch, atlas);
+		
+		batch.draw(atlas.findRegion("backMenu"), runner.getHitBox().x - 250, AbstractScreen.VIEWPORT_HEIGHT/2 - 185);
+		batch.draw(atlas.findRegion("pausa"), runner.getHitBox().x - 150, AbstractScreen.VIEWPORT_HEIGHT/2 + 70);
+		
+		resumeButton.setHitBoxPosition(runner.getHitBox().x - 200, AbstractScreen.VIEWPORT_HEIGHT/2 - 35);
+		menuButton.setHitBoxPosition(runner.getHitBox().x - 100, AbstractScreen.VIEWPORT_HEIGHT/2 - 105);
+		exitButton.setHitBoxPosition(runner.getHitBox().x - 100, AbstractScreen.VIEWPORT_HEIGHT/2 - 175);
+		
+		resumeButton.draw(batch, atlas);
+		menuButton.draw(batch, atlas);
+		exitButton.draw(batch, atlas);
+		
+		this.showScore();
+		this.showHP();
+		batch.end();
+		
+//		mapManager.keysControllers(true);
+		for(int i = 0; i <5 ; i++){
+			if(Gdx.input.isTouched(i)){
+				Vector3 touchPos = new Vector3(Gdx.input.getX(i), Gdx.input.getY(i), 0);
+				camera.unproject(touchPos);
+				Rectangle touch = new Rectangle(touchPos.x - 20, touchPos.y - 20, 40, 40);
+				
+				if(touch.overlaps(getRectangleResumeButton())){
+					runner.setPause(false);
+					this.gameS = 1;
+				}
+				
+				if(touch.overlaps(getRectangleMenuButton())){
+					this.gameS = 5;
+				}
+				
+				if(touch.overlaps(getRectangleExitButton())){
+					Gdx.app.exit();
+				}
+			}
+		}
 		
 	}
 	
 	private void showScore(){
-		font.draw(batch, "PTS: " + Integer.toString(pts), camera.position.x - (AbstractScreen.VIEWPORT_WIDTH/2), AbstractScreen.VIEWPORT_HEIGHT-25);
+		font.draw(batch, "PTS: " + Integer.toString(pts), camera.position.x - (AbstractScreen.VIEWPORT_WIDTH/2) + 20, AbstractScreen.VIEWPORT_HEIGHT-25);
 	}
 	
 	private void showHP(){
@@ -107,13 +185,29 @@ public class PlanetLvl extends BasePlanet{
 	public int getHp() {
 		return hp;
 	}
+	
+	public Rectangle getRectanglePauseButton(){
+		return this.pauseButton.getHitBox();
+	}
+
+	public Rectangle getRectangleJumpButton() {
+		return this.jumpButton.getHitBox();
+	}
+	
+	public Rectangle getRectangleResumeButton(){
+		return this.resumeButton.getHitBox();
+	}
+	
+	public Rectangle getRectangleMenuButton(){
+		return this.menuButton.getHitBox();
+	}
+	
+	public Rectangle getRectangleExitButton(){
+		return this.exitButton.getHitBox();
+	}
 
 	public void setHp(int hp) {
 		this.hp = hp;
-	}
-
-	public void setGameFinished(boolean isGameFinished) {
-		this.isGameFinished = isGameFinished;
 	}
 
 	public void setGameS(int gameS) {

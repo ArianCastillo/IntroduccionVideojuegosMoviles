@@ -1,0 +1,204 @@
+package com.runner.planets;
+
+import java.util.StringTokenizer;
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
+import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector3;
+import com.runner.planets.objects.Coin;
+import com.runner.planets.objects.Flag;
+import com.runner.planets.objects.GameObject;
+import com.runner.planets.objects.Plank;
+import com.runner.planets.objects.danger.DangerGround;
+import com.runner.planets.objects.danger.Spikes;
+import com.runner.planets.objects.enemies.Fly;
+import com.runner.planets.objects.enemies.Slime;
+import com.runner.planets.objects.ornaments.Ground;
+import com.runner.planets.objects.ornaments.Plant;
+
+public class PlanetManager {
+	private PlanetLvl planetLvl;
+	
+	public PlanetManager(PlanetLvl planetLvl){
+		this.planetLvl = planetLvl;
+	}
+	
+	public void setMap(String DATA_FILE){
+		//ArrayList<GameObject> list = ;
+		FileHandle file = Gdx.files.internal(DATA_FILE);
+		StringTokenizer tokens = new StringTokenizer(file.readString());
+		while(tokens.hasMoreTokens()){
+			String type = tokens.nextToken();
+			if(type.equals("ground")){
+				planetLvl.getList().add(new Ground(Integer.parseInt(tokens.nextToken()), 
+						Integer.parseInt(tokens.nextToken()), 
+						Integer.parseInt(tokens.nextToken())));
+			}else if(type.equals("spikes")){
+				planetLvl.getList().add(new Spikes(Integer.parseInt(tokens.nextToken()), 
+						Integer.parseInt(tokens.nextToken())));
+			}else if(type.equals("dangerGround")){
+				planetLvl.getList().add(new DangerGround(Integer.parseInt(tokens.nextToken()), 
+						Integer.parseInt(tokens.nextToken()), 
+						Integer.parseInt(tokens.nextToken())));
+			}else if(type.equals("coin")){
+				planetLvl.getList().add(new Coin(Integer.parseInt(tokens.nextToken()), 
+						Integer.parseInt(tokens.nextToken()), 
+						Integer.parseInt(tokens.nextToken())));
+			}else if(type.equals("plank")){
+				planetLvl.getList().add(new Plank(Integer.parseInt(tokens.nextToken()), 
+						Integer.parseInt(tokens.nextToken())));
+			}else if(type.equals("plant")){
+				planetLvl.getList().add(new Plant(Integer.parseInt(tokens.nextToken()), 
+						Integer.parseInt(tokens.nextToken()), 
+						Integer.parseInt(tokens.nextToken())));
+			}else if(type.equals("flag")){
+				planetLvl.getList().add(new Flag(Integer.parseInt(tokens.nextToken()), 
+						Integer.parseInt(tokens.nextToken())));
+			}else if(type.equals("fly")){
+				planetLvl.getList().add(new Fly(Integer.parseInt(tokens.nextToken()), 
+						Integer.parseInt(tokens.nextToken())));
+			}else if(type.equals("slime")){
+				planetLvl.getList().add(new Slime(Integer.parseInt(tokens.nextToken()), 
+						Integer.parseInt(tokens.nextToken())));
+			}
+		}
+	}
+	public void touchSomething(){
+		for(GameObject t : planetLvl.getList()){
+			switch(planetLvl.getRunner().hits(t.getHitBox())){
+			case 1:
+				bottomTouchSomething(t);
+				break;
+			case 3:
+				rightTouchSomething(t);
+				break;
+			case 4:
+				topTouchSomething(t);
+				break;
+			}
+		}
+	}
+	public void updateCamera(){
+		planetLvl.getCamera().position.x = planetLvl.getRunner().getHitBox().x;
+		planetLvl.getCamera().update();
+	}
+	public void coinCollected(){
+		int pts = planetLvl.getPts();
+		while(!planetLvl.getPleaseDelete().isEmpty()){
+			planetLvl.getList().remove(planetLvl.getPleaseDelete().get(0));
+			Coin coin = (Coin) planetLvl.getPleaseDelete().get(0);
+			planetLvl.getPleaseDelete().remove(0);
+			pts += coin.getPoints();
+			planetLvl.setPts(pts);
+		}
+	}
+	public void keysControllers(boolean pause){
+		if(!pause){
+			planetLvl.getRunner().moveRight(Gdx.graphics.getDeltaTime());
+			if (Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
+				planetLvl.getRunner().jump(planetLvl.getListener());
+			}
+		}
+		if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
+			if(!pause){
+				planetLvl.getRunner().setPause(false);
+				planetLvl.setGameS(4);
+			}
+		}
+	}
+	public void touchControllers(boolean pause){
+		for(int i = 0; i <5 ; i++){
+			if(Gdx.input.isTouched(i)){
+				Vector3 touchPos = new Vector3(Gdx.input.getX(i), Gdx.input.getY(i), 0);
+				planetLvl.getCamera().unproject(touchPos);
+				Rectangle touch = new Rectangle(touchPos.x - 20, touchPos.y - 20, 40, 40);
+				
+				if(touch.overlaps(planetLvl.getRectangleJumpButton())){
+					planetLvl.getRunner().jump(planetLvl.getListener());
+				}
+				
+				if(touch.overlaps(planetLvl.getRectanglePauseButton())){
+					if(!pause){
+						planetLvl.getRunner().setPause(false);
+						planetLvl.setGameS(4);
+					}
+				}
+			}
+		}
+	}
+	private void bottomTouchSomething(GameObject t){
+		switch(t.hitAction(1)){
+		case 1:
+			planetLvl.getRunner().action(1, 0, t.getHitBox().y + t.getHitBox().height);
+			break;
+		case 2:
+			planetLvl.getListener().playSoundHit();
+			int hp = planetLvl.getHp();
+			hp--;
+			planetLvl.setHp(hp);
+			if(hp==0)
+				planetLvl.setGameS(3);
+			else
+				planetLvl.getRunner().reastart(0, 100);
+			break;
+		case 3:
+			planetLvl.getListener().playSoundCoin();
+			planetLvl.getPleaseDelete().add(t);
+			break;
+		case 4:
+			planetLvl.setGameFinished(true);
+			break;
+		}
+	}
+	private void rightTouchSomething(GameObject t){
+		switch(t.hitAction(3)){
+		case 1:
+			planetLvl.getRunner().action(3, t.getHitBox().x - planetLvl.getRunner().getHitBox().width - 1, 0);
+			break;
+		case 2:
+			planetLvl.getListener().playSoundHit();
+			int hp = planetLvl.getHp();
+			hp--;
+			planetLvl.setHp(hp);
+			if(hp==0)
+				planetLvl.setGameS(3);
+			else
+				planetLvl.getRunner().reastart(0, 100);
+			break;
+		case 3:
+			planetLvl.getListener().playSoundCoin();
+			planetLvl.getPleaseDelete().add(t);
+			break;
+		case 4:
+			planetLvl.setGameFinished(true);
+			break;
+		}
+	}
+	private void topTouchSomething(GameObject t){
+		switch(t.hitAction(4)){
+		case 1:
+			planetLvl.getRunner().action(4, 0, t.getHitBox().y - planetLvl.getRunner().getHitBox().height);
+			break;
+		case 2:
+			planetLvl.getListener().playSoundHit();
+			int hp = planetLvl.getHp();
+			hp--;
+			planetLvl.setHp(hp);
+			if(hp==0)
+				planetLvl.setGameS(3);
+			else
+				planetLvl.getRunner().reastart(0, 100);
+			break;
+		case 3:
+			planetLvl.getListener().playSoundCoin();
+			planetLvl.getPleaseDelete().add(t);
+			break;
+		case 4:
+			planetLvl.setGameFinished(true);
+			break;
+		}
+	}
+	
+}

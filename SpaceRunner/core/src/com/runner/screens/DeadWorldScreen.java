@@ -42,9 +42,9 @@ public class DeadWorldScreen extends AbstractScreen{
 		Image logo = new Image(game.getAssetManager().get("game.atlas", TextureAtlas.class).findRegion("gameover"));
 		table.add(logo);
 		table.row();
-		table.add(returnButton).colspan(2);
+		table.add(returnButton).size(250, 50).colspan(2);
 		table.row();
-		table.add(againButton).colspan(2);
+		table.add(againButton).size(250, 50).colspan(2);
 		table.getCell(logo).spaceBottom((float) (Gdx.graphics.getHeight()*0.1));		
 		table.getCell(returnButton).spaceBottom((float) (Gdx.graphics.getHeight()*0.1));
 		table.getCell(againButton).spaceBottom((float) (Gdx.graphics.getHeight()*0.1));

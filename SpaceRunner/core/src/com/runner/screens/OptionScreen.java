@@ -24,7 +24,7 @@ public class OptionScreen extends AbstractScreen{
 		super.show();
 		Table table = super.getTable();
 		table.clear();
-		Image image = new Image(game.getAssetManager().get("game.atlas", TextureAtlas.class).findRegion("SpacePlanet"));
+		Image image = new Image(game.getAssetManager().get("game.atlas", TextureAtlas.class).findRegion("Space"));
 		table.setBackground(image.getDrawable());
 		
 		Label label = new Label("Opciones",getSkin());
@@ -52,7 +52,7 @@ public class OptionScreen extends AbstractScreen{
 				boolean enabled = musicCheckBox.isChecked();
 				game.getPreferencesManager().setMusicEnabled(enabled);
 				game.getMusicManager().setEnabled(enabled);
-				game.getMusicManager().play(RunnerMusic.MENU_MUSIC);
+				game.getMusicManager().play(RunnerMusic.TITLE_MUSIC);
 			}
 		});
 		table.row();

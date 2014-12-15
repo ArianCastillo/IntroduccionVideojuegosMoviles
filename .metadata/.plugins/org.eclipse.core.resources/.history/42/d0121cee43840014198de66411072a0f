@@ -1,0 +1,135 @@
+package com.runner.screens;
+
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.scenes.scene2d.Action;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.Array;
+import com.runner.RunnerGame;
+import com.runner.game.Planet;
+import com.runner.services.RunnerSound;
+
+public class PlanetsScreen extends AbstractScreen{
+
+	public PlanetsScreen(RunnerGame game) {
+		super(game);
+	}
+
+	public void show(){
+		super.show();
+		Table table = super.getTable();
+		table.clear();
+		Image image = new Image(game.getAssetManager().get("game.atlas", TextureAtlas.class).findRegion("Space"));
+		table.setBackground(image.getDrawable());
+		
+		Label label = new Label("NIVELES",getSkin());
+		table.add(label).spaceBottom(30).colspan(2);
+		table.row();
+		
+		final Array<Planet> planets = game.getWorld().getGameState().planets;
+		
+		
+		Button tierraButton = new Button( getSkin(),"tierra");
+		tierraButton.addListener(new ClickListener(){
+			public void clicked(InputEvent event, float x, float y){
+				game.getSoundManager().play(RunnerSound.CLICK);
+				stage.addAction(Actions.sequence(Actions.delay(0.25f),
+						Actions.fadeOut(0.75f),
+						new Action(){
+							public boolean act(float delta){
+								game.getWorld().setCurrentPlanet(planets.get(0));
+								game.setScreen(new GameScreen(game));
+								return true;
+							}
+						}));
+			}
+		});
+		
+		Button marteButton = new Button( getSkin(),"marte");
+		marteButton.addListener(new ClickListener(){
+			public void clicked(InputEvent event, float x, float y){
+				game.getSoundManager().play(RunnerSound.CLICK);
+				if(!game.getWorld().getGameState().planets.get(1).locked){
+				stage.addAction(Actions.sequence(Actions.delay(0.25f),
+						Actions.fadeOut(0.75f),
+						new Action(){
+							public boolean act(float delta){
+								game.getWorld().setCurrentPlanet(planets.get(1));
+								game.setScreen(new GameScreen(game));
+								return true;
+							}
+						}));
+				}}
+		});
+		
+		Button jupiterButton = new Button( getSkin(),"jupiter");
+		jupiterButton.addListener(new ClickListener(){
+			public void clicked(InputEvent event, float x, float y){
+				if(!game.getWorld().getGameState().planets.get(2).locked){
+				stage.addAction(Actions.sequence(Actions.delay(0.25f),
+						Actions.fadeOut(0.75f),
+						new Action(){
+							public boolean act(float delta){
+								game.getSoundManager().play(RunnerSound.CLICK);
+								game.getWorld().setCurrentPlanet(planets.get(2));
+								game.setScreen(new GameScreen(game));
+								return true;
+							}
+						}));
+				}}
+		});
+		
+		Button saturnoButton = new Button( getSkin(),"saturno");
+		saturnoButton.addListener(new ClickListener(){
+			public void clicked(InputEvent event, float x, float y){
+				if(!game.getWorld().getGameState().planets.get(3).locked){
+				stage.addAction(Actions.sequence(Actions.delay(0.25f),
+						Actions.fadeOut(0.75f),
+						new Action(){
+							public boolean act(float delta){
+								game.getSoundManager().play(RunnerSound.CLICK);
+								game.getWorld().setCurrentPlanet(planets.get(3));
+								game.setScreen(new GameScreen(game));
+								return true;
+							}
+						}));
+				}}
+		});
+		
+		
+		table.add(tierraButton);
+		table.getCell(tierraButton).spaceLeft(100);
+		table.getCell(tierraButton).spaceBottom(100);
+		
+		table.add(marteButton);
+		table.getCell(marteButton).spaceLeft(100);
+		table.getCell(marteButton).spaceBottom(100);
+		
+		table.row();
+		
+		table.add(jupiterButton);
+		table.getCell(jupiterButton).spaceLeft(100);
+		table.getCell(jupiterButton).spaceBottom(100);
+		
+		table.add(saturnoButton);
+		table.getCell(saturnoButton).spaceLeft(100);
+		table.getCell(saturnoButton).spaceBottom(100);
+		
+		table.row();
+		
+		TextButton returnButton = new TextButton("Regresar", getSkin());
+		returnButton.addListener(new ClickListener(){
+			public void clicked(InputEvent event, float x, float y){
+				game.getSoundManager().play(RunnerSound.CLICK);
+				game.setScreen(new MenuScreen(game));
+			}
+		});
+		table.add(returnButton).colspan(2);
+	}
+}

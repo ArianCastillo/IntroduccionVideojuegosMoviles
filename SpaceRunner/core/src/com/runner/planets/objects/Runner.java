@@ -3,13 +3,15 @@ package com.runner.planets.objects;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Rectangle;
+import com.runner.planets.BasePlanetListener;
 
 public class Runner extends GameObject{
 	private Rectangle bottom, left, right, top, full;
 	private float velocityY;
 	private String image;
 	private int count;
-	private boolean isJump;
+	private boolean isWalk;
+	private boolean pause;
 
 	public Runner(float x, float y) {
 		this.setX(x);
@@ -22,7 +24,8 @@ public class Runner extends GameObject{
 		velocityY = 0;
 		count = 1;
 		image = "walk010";
-		isJump = false;
+		isWalk = true;
+		pause = false;
 	}
 	
 	public void draw(SpriteBatch batch, TextureAtlas atlas){
@@ -41,7 +44,11 @@ public class Runner extends GameObject{
 		top.x = this.getX();
 		top.y = this.getY()+84;
 		
-		if(!isJump) setSprite();
+		if(!pause) 
+			setSprite();
+		else{
+			image = "jump";
+		}
 		batch.draw(atlas.findRegion(image),this.getX(), this.getY());
 		count++;
 	}
@@ -52,6 +59,7 @@ public class Runner extends GameObject{
 		}
 		
 		if(bottom.overlaps(r)) {
+			//isWalk = true;
 			return 1;
 		}
 		
@@ -64,15 +72,17 @@ public class Runner extends GameObject{
 	
 	public void action (int type, float x, float y){
 		if (type == 1 || type == 4) {
+			if(!isWalk){
+				count = 0;
+				isWalk = true;
+			}
 			velocityY = 0;
-			isJump=false;
 			this.setX(full.x);
 			this.setY(y);
 		}
 		
 		if (type == 2) {
 			velocityY = 0;
-			isJump=false;
 			this.setX(x);
 			this.setY(full.y);
 		}
@@ -89,17 +99,27 @@ public class Runner extends GameObject{
 		this.setX(full.x);
 	}
 	
-	public void jump(){
+	public void jump(BasePlanetListener listener){
 		if (velocityY == 0) {
-		   velocityY = 600;
-		   isJump=true;
+			count = 100;
+			image = "jump";
+			isWalk = false;
+			listener.playSoundJump();
+			velocityY = 600;
 		}
-		isJump=false;
 	}
 
 	@Override
 	public Rectangle getHitBox() {
 		return full;
+	}
+	
+	public void setPause(boolean pause){
+		this.pause = pause;
+		if(!pause)
+			count = 0;
+		else
+			count = 100;
 	}
 
 	@Override

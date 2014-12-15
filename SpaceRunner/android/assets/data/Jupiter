@@ -174,14 +174,8 @@ plank 1400 49
 plank 1470 49
 plank 1540 49
 plank 1610 49
-plank 1680 49
-plank 1750 49
-plank 1820 49
 plank 1890 49
 plank 1960 49
-plank 2030 49
-plank 2100 49
-plank 2170 49
 plank 2240 49
 plank 2310 49
 plank 2380 49
@@ -208,14 +202,8 @@ plank 3780 49
 plank 3850 49
 plank 3920 49
 plank 3990 49
-plank 4060 49
-plank 4130 49
-plank 4200 49
 plank 4270 49
 plank 4340 49
-plank 4410 49
-plank 4480 49
-plank 4550 49
 plank 4620 49
 plank 4690 49
 plank 4760 49
@@ -232,14 +220,9 @@ plank 5460 49
 plank 5530 49
 plank 5600 49
 plank 5670 49
-plank 5740 49
-plank 5810 49
 plank 5880 49
 plank 5950 49
 plank 6020 49
-plank 6090 49
-plank 6160 49
-plank 6230 49
 plank 6300 49
 plank 6370 49
 plank 6440 49
@@ -251,19 +234,95 @@ plank 6790 49
 plank 6860 49
 plank 6930 49
 plank 7000 49
-plank 7070 49
-plank 7140 49
-plank 7210 49
 plank 7280 49
 plank 7350 49
 plank 7420 49
-plank 7490 49
-plank 7560 49
-plank 7630 49
 plank 7700 49
 plank 7770 49
 plank 7840 49
 plank 7910 49
 plank 7980 49
 plank 8050 49
+
+plank 1120 166
+plank 1190 166
+plank 1260 166
+
+plank 1470 166
+plank 1540 166
+plank 1610 166
+plank 1680 166
+plank 1750 166
+
+plank 1610 282
+plank 1680 282
+
+plank 4410 166
+plank 4480 166
+plank 4550 166
+plank 4620 166
+plank 4690 166
+
+plank 4760 282
+plank 4830 282
+plank 4900 282
+
+plank 4970 166
+plank 5040 166
+
+plank 5110 282
+plank 5180 282
+
+plank 5110 448
+plank 5180 448
+plank 5250 448
+
+plank 5460 282
+plank 5530 282
+
+plank 5460 448
+plank 5530 448
+
+plank 6160 166
+plank 6230 166
+plank 6300 166
+plank 6370 166
+plank 6440 166
+plank 6510 166
+plank 6580 166
+plank 6650 166
+plank 6720 166
+plank 6790 166
+plank 6860 166
+
+plank 6510 282
+plank 6580 282
+plank 6650 282
+
+plank 6580 448
+
+spikes 700 70
+spikes 770 70
+spikes 1330 70
+spikes 3220 70
+spikes 3500 70
+spikes 3570 70
+
+coin 630 75 0
+coin 1680 305 1
+coin 3300 75 2
+coin 5460 305 1
+coin 5530 305 1
+coin 5530 468 2
+coin 6580 468 2
+coin 6650 468 0
+coin 6860 468 2
+coin 6580 305 2
+
+slime 2800 70
+slime 3150 70
+
+fly 3850 90
+fly 6440 190
+
 flag 7770 70

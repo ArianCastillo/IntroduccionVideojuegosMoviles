@@ -1,0 +1,118 @@
+package com.runner.screens;
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.Texture.TextureFilter;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.runner.RunnerGame;
+import com.runner.game.GameState;
+import com.runner.game.Planet;
+import com.runner.planets.BasePlanetListener;
+import com.runner.planets.PlanetLvl;
+import com.runner.services.RunnerSound;
+
+public class GameScreen extends AbstractScreen implements BasePlanetListener {
+	private Planet planet;
+	private Texture back;
+	private Table table;
+	private PlanetLvl planetLvl;
+	private String background;
+	private int pts;
+	
+	public GameScreen(RunnerGame game) {
+		super(game);
+	}
+
+	public void show(){
+		super.show();
+		
+		planet = game.getWorld().getCurrentPlanet();
+		Gdx.app.log(RunnerGame.LOG, "Entrando a minigame: " + planet.name);
+		
+		String namePlanet = planet.name;
+		String DATA_FILE = "data/Tierra";
+		if(namePlanet.compareTo("Tierra")==0){
+			DATA_FILE = "data/Tierra";
+		}else if(namePlanet.compareTo("Marte")==0){
+			DATA_FILE = "data/Marte";
+		}else if(namePlanet.compareTo("Jupiter")==0){
+			DATA_FILE = "data/Jupiter";
+		}else if(namePlanet.compareTo("Saturno")==0){
+			DATA_FILE = "data/Saturno";
+		}
+		
+		planetLvl = new PlanetLvl();
+		planetLvl.setMap(DATA_FILE);
+		planetLvl.setBaseGameListener(this);
+		planetLvl.setAssets(game.getAssetManager());
+		setBackground();
+	}
+	
+	@Override
+	public void render(float delta){
+		super.render(delta);
+		planetLvl.render();
+		if(planetLvl.isFinish()){
+			game.setScreen(new FinishWorldScreen(game));
+		}
+		if(planetLvl.isOver()){
+			game.setScreen(new DeadWorldScreen(game));
+		}
+	}
+	
+	@Override
+	public void setPts(int pts) {
+		this.pts = pts;
+		GameState gameState = game.getWorld().getGameState();
+		gameState.points += this.pts;
+		game.getWorld().setGameState(gameState);
+		game.getProfileManager().persist(gameState);
+		setNvl();
+	}
+	@Override
+	public void setNvl() {
+		GameState gameState = game.getWorld().getGameState();
+		if(gameState.points >= 10){
+			gameState.level++;
+			game.getWorld().setGameState(gameState);
+			game.getProfileManager().persist(gameState);
+		}
+	}
+
+	@Override
+	public void playSoundCoin() {
+		game.getSoundManager().play(RunnerSound.COIN);
+	}
+	@Override
+	public void playSoundHit() {
+		game.getSoundManager().play(RunnerSound.HIT);
+	}
+	@Override
+	public void playSoundJump() {
+		game.getSoundManager().play(RunnerSound.JUMP);
+	}
+	
+	private void setBackground(){
+		background = "background.png";
+		if(planet.name.compareTo("Tierra")==0){
+			background = "sky_earth.png";
+		}
+		if(planet.name.compareTo("Marte")==0){
+			background = "sky_mars.png";
+		}
+		if(planet.name.compareTo("Jupiter")==0){
+			background = "sky_jupiter.png";
+		}
+		if(planet.name.compareTo("Saturno")==0){
+			background = "sky_saturn.png";
+		}
+		table = super.getTable();
+		
+		back = new Texture(background);
+		back.setFilter(TextureFilter.Linear, TextureFilter.Linear);
+		table.setBackground(new TextureRegionDrawable(new TextureRegion(back,0,0,1024,768)));
+	}
+
+}

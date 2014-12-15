@@ -23,7 +23,7 @@ public class FinishWorldScreen extends AbstractScreen{
 		
 		Table table = super.getTable();
 		table.clear();
-		Image image = new Image(game.getAssetManager().get("game.atlas", TextureAtlas.class).findRegion("SpacePlanet"));
+		Image image = new Image(game.getAssetManager().get("game.atlas", TextureAtlas.class).findRegion("Space"));
 		table.setBackground(image.getDrawable());
 		
 		Label labelPoints = new Label("Puntos: " + game.getWorld().getGameState().points,getSkin());
@@ -50,9 +50,9 @@ public class FinishWorldScreen extends AbstractScreen{
 		table.row();
 		table.add(labelLevel).colspan(2);
 		table.row();
-		table.add(returnButton).colspan(2);
+		table.add(returnButton).size(250, 50).colspan(2);
 		table.row();
-		table.add(againButton).colspan(2);
+		table.add(againButton).size(250, 50).colspan(2);
 		table.getCell(logo).spaceBottom((float) (Gdx.graphics.getHeight()*0.1));
 		table.getCell(labelLevel).spaceBottom((float) (Gdx.graphics.getHeight()*0.1));
 		table.getCell(returnButton).spaceBottom((float) (Gdx.graphics.getHeight()*0.1));

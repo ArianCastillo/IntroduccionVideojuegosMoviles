@@ -1,0 +1,81 @@
+package com.runner.planets;
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.runner.screens.AbstractScreen;
+
+public abstract class BasePlanet {
+	protected BasePlanetListener listener;
+	protected OrthographicCamera camera;
+	protected BitmapFont font;
+	protected TextureAtlas atlas;
+	protected SpriteBatch batch;
+	protected boolean isGameFinished;
+	
+	private boolean finish;
+	private boolean over;
+	private boolean pause;
+	
+	public BasePlanet(){
+		camera = new OrthographicCamera();
+		camera.setToOrtho(false, AbstractScreen.VIEWPORT_WIDTH, AbstractScreen.VIEWPORT_HEIGHT);
+		batch = new SpriteBatch();
+		font = new BitmapFont(Gdx.files.internal("fonts/default-16.fnt"), Gdx.files.internal("fonts/default-16.png"), false);
+		
+		finish = false;
+		over = false;
+		pause = false;
+	}
+	
+	public void setBaseGameListener(BasePlanetListener listener){
+		this.listener = listener;
+	}
+	
+	public void setAssets(AssetManager manager){
+		atlas = manager.get("game.atlas",com.badlogic.gdx.graphics.g2d.TextureAtlas.class);
+		batch = new SpriteBatch();
+		batch.setProjectionMatrix(camera.combined);
+		font = manager.get("fonts/default-32.fnt",BitmapFont.class);
+	}
+	
+	public boolean isFinish(){
+		return finish;
+	}
+	public boolean isOver(){
+		return over;
+	}
+	public boolean isPause(){
+		return pause;
+	}
+	
+	public void finished(){
+		finish = true;
+	}
+	public void gameOver(){
+		over = true;
+	}
+	public void pause(){
+		pause = true;
+	}
+	public void resume(){
+		pause = false;
+	}
+	
+	public BasePlanetListener getListener() {
+		return listener;
+	}
+	public OrthographicCamera getCamera() {
+		return camera;
+	}
+	
+	public void setGameFinished(boolean isGameFinished) {
+		this.isGameFinished = isGameFinished;
+	}
+	
+	public abstract void render();
+	
+}

@@ -1,9 +1,0 @@
-package com.runner.planets;
-
-public class MapManager {
-	private PlanetLvl planetLvl;
-	
-	public MapManager(PlanetLvl planetLvl){
-		this.planetLvl = planetLvl;
-	}
-}

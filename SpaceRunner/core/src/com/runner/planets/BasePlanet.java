@@ -14,9 +14,12 @@ public abstract class BasePlanet {
 	protected BitmapFont font;
 	protected TextureAtlas atlas;
 	protected SpriteBatch batch;
+	protected boolean isGameFinished;
 	
 	private boolean finish;
 	private boolean over;
+	private boolean pause;
+	private boolean menu;
 	
 	public BasePlanet(){
 		camera = new OrthographicCamera();
@@ -26,6 +29,8 @@ public abstract class BasePlanet {
 		
 		finish = false;
 		over = false;
+		pause = false;
+		menu = false;
 	}
 	
 	public void setBaseGameListener(BasePlanetListener listener){
@@ -42,25 +47,42 @@ public abstract class BasePlanet {
 	public boolean isFinish(){
 		return finish;
 	}
-	
 	public boolean isOver(){
 		return over;
+	}
+	public boolean isPause(){
+		return pause;
+	}
+	public boolean requiereMenu(){
+		return menu;
 	}
 	
 	public void finished(){
 		finish = true;
 	}
-	
 	public void gameOver(){
 		over = true;
 	}
-
+	public void pause(){
+		pause = true;
+	}
+	public void resume(){
+		pause = false;
+	}
+	public void menu(){
+		menu = true;
+	}
+	
+	
 	public BasePlanetListener getListener() {
 		return listener;
 	}
-
 	public OrthographicCamera getCamera() {
 		return camera;
+	}
+	
+	public void setGameFinished(boolean isGameFinished) {
+		this.isGameFinished = isGameFinished;
 	}
 	
 	public abstract void render();

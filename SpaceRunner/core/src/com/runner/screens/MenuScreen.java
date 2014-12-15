@@ -27,7 +27,7 @@ public class MenuScreen extends AbstractScreen{
 		
 		Table table = super.getTable();
 		table.clear();
-		Image image = new Image(game.getAssetManager().get("game.atlas", TextureAtlas.class).findRegion("SpacePlanet"));
+		Image image = new Image(game.getAssetManager().get("game.atlas", TextureAtlas.class).findRegion("Space"));
 		table.setBackground(image.getDrawable());
 		
 		Label labelPoints = new Label("Puntos: " + game.getWorld().getGameState().points,getSkin());

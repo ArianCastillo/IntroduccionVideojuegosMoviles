@@ -1,6 +1,7 @@
 package com.runner.screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -10,7 +11,6 @@ import com.runner.RunnerGame;
 import com.runner.game.GameState;
 import com.runner.game.Planet;
 import com.runner.planets.BasePlanetListener;
-import com.runner.planets.BasePlanet;
 import com.runner.planets.PlanetLvl;
 import com.runner.services.RunnerSound;
 
@@ -61,6 +61,9 @@ public class GameScreen extends AbstractScreen implements BasePlanetListener {
 		if(planetLvl.isOver()){
 			game.setScreen(new DeadWorldScreen(game));
 		}
+		if(planetLvl.requiereMenu()){
+			game.setScreen(new PlanetsScreen(game));
+		}
 	}
 	
 	@Override
@@ -72,8 +75,7 @@ public class GameScreen extends AbstractScreen implements BasePlanetListener {
 		game.getProfileManager().persist(gameState);
 		setNvl();
 	}
-
-	@Override
+	
 	public void setNvl() {
 		GameState gameState = game.getWorld().getGameState();
 		if(gameState.points >= 10){
@@ -82,17 +84,28 @@ public class GameScreen extends AbstractScreen implements BasePlanetListener {
 			game.getProfileManager().persist(gameState);
 		}
 	}
+	
+	public void unlockPlanets(){
+		GameState gameState = game.getWorld().getGameState();
+		Array<Planet> planets = gameState.planets; 
+		for(int i = 0; i < planets.size; i++){
+			if(gameState.level >= planets.get(i).minLevel){
+				planets.get(i).locked = false;
+			}
+		}
+		gameState.planets = planets;
+		game.getWorld().setGameState(gameState);
+		game.getProfileManager().persist(gameState);
+	}
 
 	@Override
 	public void playSoundCoin() {
 		game.getSoundManager().play(RunnerSound.COIN);
 	}
-
 	@Override
 	public void playSoundHit() {
 		game.getSoundManager().play(RunnerSound.HIT);
 	}
-
 	@Override
 	public void playSoundJump() {
 		game.getSoundManager().play(RunnerSound.JUMP);
@@ -104,13 +117,13 @@ public class GameScreen extends AbstractScreen implements BasePlanetListener {
 			background = "sky_earth.png";
 		}
 		if(planet.name.compareTo("Marte")==0){
-			background = "sky_earth.png";
+			background = "sky_mars.png";
 		}
 		if(planet.name.compareTo("Jupiter")==0){
-			background = "sky_earth.png";
+			background = "sky_jupiter.png";
 		}
 		if(planet.name.compareTo("Saturno")==0){
-			background = "sky_earth.png";
+			background = "sky_saturn.png";
 		}
 		table = super.getTable();
 		

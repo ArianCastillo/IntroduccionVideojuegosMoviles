@@ -36,15 +36,15 @@ ground 1120 0 0
 ground 1190 0 0
 ground 1260 0 0
 ground 1330 0 0
-ground 1400 0 0
-ground 1470 0 0
-ground 1540 0 0
-ground 1610 0 0
-ground 1680 0 0
-ground 1750 0 0
-ground 1820 0 0
-ground 1890 0 0
-ground 1960 0 0
+dangerGround 1400 0 1
+dangerGround 1470 0 1
+dangerGround 1540 0 1
+dangerGround 1610 0 1
+dangerGround 1680 0 1
+dangerGround 1750 0 1
+dangerGround 1820 0 1
+dangerGround 1890 0 1
+dangerGround 1960 0 1
 ground 2030 0 0
 ground 2100 0 0
 ground 2170 0 0
@@ -101,24 +101,24 @@ ground 5670 0 0
 ground 5740 0 0
 ground 5810 0 0
 ground 5880 0 0
-ground 5950 0 0
-ground 6020 0 0
-ground 6090 0 0
-ground 6160 0 0
-ground 6230 0 0
-ground 6300 0 0
-ground 6370 0 0
-ground 6440 0 0
-ground 6510 0 0
-ground 6580 0 0
-ground 6650 0 0
-ground 6720 0 0
-ground 6790 0 0
-ground 6860 0 0
-ground 6930 0 0
-ground 7000 0 0
-ground 7070 0 0
-ground 7140 0 0
+dangerGround 5950 0 0
+dangerGround 6020 0 0
+dangerGround 6090 0 0
+dangerGround 6160 0 0
+dangerGround 6230 0 0
+dangerGround 6300 0 0
+dangerGround 6370 0 0
+dangerGround 6440 0 0
+dangerGround 6510 0 0
+dangerGround 6580 0 0
+dangerGround 6650 0 0
+dangerGround 6720 0 0
+dangerGround 6790 0 0
+dangerGround 6860 0 0
+dangerGround 6930 0 0
+dangerGround 7000 0 0
+dangerGround 7070 0 0
+dangerGround 7140 0 0
 ground 7210 0 0
 ground 7280 0 0
 ground 7350 0 0
@@ -150,48 +150,42 @@ dangerGround 9100 0 0
 dangerGround 9170 0 0
 dangerGround 9240 0 0
 dangerGround 9310 0 0
-spikes 1050 70
-spikes 1120 70
-spikes 1190 70
-spikes 1260 70
-spikes 1330 70
-spikes 1400 70
 
-spikes 3220 70
-spikes 3290 70
-spikes 3360 70
-spikes 3570 70
-spikes 3640 70
-
-spikes 6160 70
-spikes 6230 70
-spikes 6300 70
-spikes 6370 70
-spikes 6440 70
-spikes 6510 70
-spikes 6580 70
-spikes 6650 70
-spikes 6720 70
-spikes 6790 70
-spikes 6860 70
-spikes 6930 70
-spikes 7000 70
-
+plank 1120 166
 plank 1190 166
-plank 1330 166
-plank 3360 166
+plank 1260 166
+
+plank 1470 166
+plank 1540 166
+plank 1610 166
+plank 1680 166
+plank 1750 166
 
 plank 4410 166
 plank 4480 166
 plank 4550 166
 plank 4620 166
 plank 4690 166
+
 plank 4760 282
 plank 4830 282
 plank 4900 282
+
 plank 4970 166
 plank 5040 166
 
+plank 5110 282
+plank 5180 282
+
+plank 5110 448
+plank 5180 448
+plank 5250 448
+
+plank 5460 448
+plank 5530 448
+
+plank 6160 166
+plank 6230 166
 plank 6300 166
 plank 6370 166
 plank 6440 166
@@ -206,9 +200,22 @@ plank 6510 282
 plank 6580 282
 plank 6650 282
 
-plank 6580 448
+spikes 1260 187
+spikes 1610 187
 
-coin 910 80 0
+spikes 3430 70
+
+spikes 4340 70
+
+spikes 4900 70
+
+slime 3710 70
+fly 4550 187
+fly 6580 452
+
+coin 910 180 1
+coin 1890 305 1
+coin 5530 468 2
 coin 6370 180 0
 coin 6440 180 1
 coin 6510 180 2
@@ -216,7 +223,6 @@ coin 6580 180 1
 coin 6650 180 0
 coin 6860 180 2
 coin 6580 305 2
-coin 6580 455 2
 
 plant 0 70 1
 plant 70 70 0
@@ -227,9 +233,6 @@ plant 420 70 1
 plant 630 70 0
 plant 980 70 0
 plant 1050 70 1
-plant 1400 70 1
-plant 1890 70 0
-plant 1960 70 1
 plant 2100 70 0
 plant 3430 70 0
 plant 3500 70 0
@@ -240,7 +243,5 @@ plant 4410 70 1
 plant 4480 70 0
 plant 4620 70 1
 plant 4690 70 1
-
-fly 6440 455
 
 flag 7770 70
